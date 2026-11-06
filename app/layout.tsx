@@ -7,6 +7,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FloatingContact from "./components/FloatingContact";
 
+import { GoogleTagManager } from "@next/third-parties/google";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -157,6 +159,7 @@ export default function RootLayout({
         <Navbar />
 
         <main className="flex-1">
+            <GoogleTagManager gtmId="GTM-TG8KDJ5F" />
           {children}
         </main>
   <FloatingContact />

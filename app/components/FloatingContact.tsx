@@ -26,13 +26,13 @@ export default function FloatingContact() {
       </a>
 
       {/* Call Button */}
-      <a
-        href={`tel:+${phone}`}
-        aria-label="Call OPV"
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-[#E7B30F] text-[#033505] shadow-xl transition-all duration-300 hover:scale-110 hover:bg-[#F4D545] sm:h-16 sm:w-16"
-      >
-        <Phone size={27} fill="currentColor" />
-      </a>
+     <a
+  href={`tel:+${phone}`}
+  aria-label="Call OPV"
+  className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500 text-white shadow-xl shadow-emerald-500/30 transition-all duration-300 hover:scale-110 hover:bg-emerald-400 sm:h-16 sm:w-16"
+>
+  <Phone size={27} fill="currentColor" />
+</a>
 
     </div>
   );
