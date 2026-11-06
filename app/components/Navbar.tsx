@@ -152,7 +152,8 @@ const products = [
 /* COMPANY LINKS */
 const companyLinks = [
   { title: "Our Approach", href: "/approach" },
-  { title: "About OPV sai", href: "/about" },
+  { title: "About OPV AI Realty Tech", href: "/about" },
+  { title: "Case Studies", href: "/case-studies" },
   { title: "Insights", href: "/insights" },
 ];
 
@@ -321,6 +322,15 @@ export default function Navbar() {
             className={navLinkClass}
           >
             Insights
+          </Link>
+
+
+           <Link
+            href="/case-studies"
+            onClick={closeAll}
+            className={navLinkClass}
+          >
+            Case Studies
           </Link>
         </nav>
 

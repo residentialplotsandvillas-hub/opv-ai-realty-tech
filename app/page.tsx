@@ -5,11 +5,8 @@ import type { Metadata } from "next";
 // OPV HOMEPAGE COMPONENTS
 // ==========================================
 
-
-
 import SolutionsSection from "./components/home/SolutionsSection";
 import IndustriesSection from "./components/home/IndustriesSection";
-
 import ApproachSection from "./components/home/ApproachSection";
 import BusinessOutcomes from "./components/home/BusinessOutcomes";
 import CaseStudiesSection from "./components/home/CaseStudiesSection";
@@ -25,13 +22,29 @@ import ProductsSection from "./components/home/ProductsSection";
 
 export const metadata: Metadata = {
   title:
-    "OPV AI Realty Tech | AI-Powered Business Technology & Growth",
+    "OPV AI Realty Tech | AI & Software Development Company in Hyderabad",
 
   description:
-    "OPV AI Realty Tech Private Limited delivers AI solutions, custom software, web and mobile applications, SaaS, CRM, ERP, cloud, business automation, cybersecurity and digital growth solutions for businesses across industries in India.",
+    "OPV AI Realty Tech Private Limited provides AI development, custom software, web and mobile app development, SaaS platforms, CRM, ERP and business automation solutions in Hyderabad, India.",
+
+  applicationName: "OPV AI Realty Tech",
+
+  metadataBase: new URL("https://www.opvairealtytech.com"),
 
   alternates: {
     canonical: "/",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 
   openGraph: {
@@ -41,33 +54,57 @@ export const metadata: Metadata = {
     siteName: "OPV AI Realty Tech",
 
     title:
-      "OPV AI Realty Tech | AI-Powered Business Technology & Growth Platform",
+      "OPV AI Realty Tech | AI & Software Development Company in Hyderabad",
 
     description:
-      "Build Smarter. Automate Better. Grow Faster. Explore AI, software, SaaS, CRM, ERP, cloud, automation and digital growth solutions for businesses across industries.",
+      "Build smarter digital businesses with AI solutions, custom software development, SaaS platforms, mobile applications and intelligent business automation.",
 
     images: [
       {
         url: "/images/opv-og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "OPV AI Realty Tech Private Limited - AI-Powered Business Technology & Growth Platform",
+        alt: "OPV AI Realty Tech - AI and Software Development Solutions",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-
     title:
-      "OPV AI Realty Tech | Business Technology & Growth",
+      "OPV AI Realty Tech | AI & Software Development Company",
 
     description:
-      "AI-powered business technology, software, SaaS, CRM, automation and digital growth solutions across industries.",
+      "AI development, software engineering, SaaS, mobile apps and business automation solutions in India.",
 
     images: ["/images/opv-og-image.jpg"],
   },
 
+  category: "Technology",
+};
+
+// ==========================================
+// ORGANIZATION STRUCTURED DATA
+// ==========================================
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "OPV AI Realty Tech Private Limited",
+  alternateName: "OPV AI Realty Tech",
+  url: "https://www.opvairealtytech.com/",
+  logo: "https://www.opvairealtytech.com/images/logo2.png",
+  description:
+    "OPV AI Realty Tech provides AI solutions, software development, SaaS platforms, mobile applications and business technology solutions.",
+  email: "info@opvairealtytech.com",
+  telephone: "+91-9963513939",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Hyderabad",
+    addressRegion: "Telangana",
+    postalCode: "500081",
+    addressCountry: "IN",
+  },
 };
 
 // ==========================================
@@ -78,37 +115,45 @@ export default function HomePage() {
   return (
     <main className="min-h-screen">
 
-      {/* 01. HERO SECTION */}
-      <HeroSection
+      {/* ORGANIZATION SEO SCHEMA */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationSchema).replace(
+            /</g,
+            "\\u003c"
+          ),
+        }}
       />
 
-    
+      {/* 01. HERO SECTION */}
+      <HeroSection />
 
-      {/* 03. ABOUT OPV AI REALTY TECH */}
+      {/* 02. ABOUT OPV AI REALTY TECH */}
       <AboutSection />
 
-      {/* 04. CORE TECHNOLOGY SOLUTIONS */}
+      {/* 03. CORE TECHNOLOGY SOLUTIONS */}
       <SolutionsSection />
 
-      {/* 05. INDUSTRIES WE SERVE */}
+      {/* 04. INDUSTRIES WE SERVE */}
       <IndustriesSection />
 
-      {/* 06. PRODUCTS & DIGITAL PLATFORMS */}
+      {/* 05. PRODUCTS & DIGITAL PLATFORMS */}
       <ProductsSection />
 
-      {/* 07. OUR TECHNOLOGY DELIVERY APPROACH */}
+      {/* 06. OUR TECHNOLOGY DELIVERY APPROACH */}
       <ApproachSection />
 
-      {/* 08. BUSINESS OUTCOMES */}
+      {/* 07. BUSINESS OUTCOMES */}
       <BusinessOutcomes />
 
-      {/* 09. CASE STUDIES & TECHNOLOGY IN ACTION */}
+      {/* 08. CASE STUDIES & TECHNOLOGY IN ACTION */}
       <CaseStudiesSection />
 
-      {/* 10. AI & TECHNOLOGY INSIGHTS */}
+      {/* 09. AI & TECHNOLOGY INSIGHTS */}
       <InsightsSection />
 
-      {/* 11. BUSINESS ENQUIRY & CONTACT */}
+      {/* 10. BUSINESS ENQUIRY & CONTACT */}
       <ContactSection />
 
     </main>
