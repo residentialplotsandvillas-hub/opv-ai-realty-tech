@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -8,29 +7,56 @@ import {
   Database,
   Workflow,
   BarChart3,
-  ShieldCheck,
   Settings,
   CheckCircle2,
   Building2,
   Lightbulb,
-  RefreshCw,
   ClipboardList,
+  MapPin,
+  Layers,
+  Scale,
 } from "lucide-react";
 
+const SITE_URL = "https://www.opvairealtytech.com";
+const PAGE_PATH = "/services/crm-erp-development";
+const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
+const OG_IMAGE = `${SITE_URL}/images/opv-og-image.jpg`;
+
+const PAGE_TITLE =
+  "Custom CRM & ERP Development Company in Hyderabad | OPV AI Realty Tech";
+const PAGE_DESCRIPTION =
+  "Custom CRM and ERP software for lead management, sales pipelines, inventory, HR and reporting. Built for businesses in Hyderabad, including real estate CRM.";
+
 export const metadata: Metadata = {
-  title: "CRM & ERP Development Company in India | OPV AI Realty Tech",
-  description:
-    "OPV AI Realty Tech offers custom CRM and ERP development, business process automation, customer management systems, workflow integration and business reporting solutions.",
+  // `absolute` bypasses the layout's title.template, so the brand is not added twice
+  title: { absolute: PAGE_TITLE },
+  description: PAGE_DESCRIPTION,
   alternates: {
-    canonical: "/services/crm-erp-development",
+    canonical: PAGE_URL,
   },
   openGraph: {
-    title: "CRM & ERP Development Services | OPV AI Realty Tech",
+    title: "Custom CRM & ERP Development in Hyderabad | OPV AI Realty Tech",
     description:
-      "Explore custom CRM, ERP and business management software solutions for modern businesses.",
-    url: "https://www.opvairealtytech.com/services/crm-erp-development",
+      "Custom CRM, ERP and real estate CRM software built around your sales, operations and reporting workflows.",
+    url: PAGE_URL,
     siteName: "OPV AI Realty Tech",
+    locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Custom CRM and ERP development by OPV AI Realty Tech, Hyderabad",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom CRM & ERP Development Company in Hyderabad | OPV",
+    description:
+      "Custom CRM, ERP and real estate CRM software for growing businesses.",
+    images: [OG_IMAGE],
   },
 };
 
@@ -39,37 +65,37 @@ const solutions = [
     icon: Users,
     title: "Custom CRM Development",
     description:
-      "Build customer relationship management systems to organize contacts, track interactions, manage leads and support sales workflows.",
+      "CRM software built around your sales process: contacts, leads, follow-ups, pipeline stages, call notes and team performance in one place.",
   },
   {
     icon: Boxes,
     title: "Custom ERP Development",
     description:
-      "Develop business management applications that connect operational processes, information and departments through a centralized system.",
+      "ERP systems that connect inventory, purchasing, orders, finance, HR and operations so every department works from the same data.",
   },
   {
     icon: Workflow,
     title: "Business Workflow Automation",
     description:
-      "Digitize repetitive business activities, approval processes, task assignments and internal workflows.",
+      "Digital approvals, automatic task assignment, reminders and status updates that replace spreadsheets and manual follow-ups.",
   },
   {
     icon: ClipboardList,
     title: "Lead & Sales Management",
     description:
-      "Organize lead information, sales activities, follow-ups and pipeline stages in a structured application.",
+      "Capture leads from your website, ads and portals, assign them automatically and track every follow-up until the deal closes.",
   },
   {
     icon: BarChart3,
     title: "Reports & Business Dashboards",
     description:
-      "Bring relevant business information into dashboards and reports to help teams monitor operations and review performance.",
+      "Real-time dashboards for sales, collections, inventory and team activity, with exportable reports for management reviews.",
   },
   {
     icon: Database,
     title: "Database & System Integration",
     description:
-      "Connect business applications with databases, APIs and other systems to support consistent information exchange.",
+      "Connect your CRM or ERP with accounting software, payment gateways, WhatsApp, email and other business tools through APIs.",
   },
 ];
 
@@ -78,25 +104,66 @@ const modules = [
   "Customer Management",
   "Sales Pipeline",
   "Task Management",
-  "Employee Management",
+  "Employee & HR Management",
   "Inventory Management",
   "Order Management",
+  "Invoicing & Payments",
   "Reports & Analytics",
   "Role-Based Access",
   "Workflow Automation",
-  "Notifications",
-  "API Integrations",
+  "WhatsApp, Email & SMS Notifications",
+];
+
+const comparison = [
+  {
+    label: "Fit to your process",
+    custom: "Built around how your team works",
+    readyMade: "Your team adapts to the software",
+  },
+  {
+    label: "Licence cost",
+    custom: "No per-user monthly licence",
+    readyMade: "Per-user fees that grow with your team",
+  },
+  {
+    label: "Features",
+    custom: "Only the modules you need",
+    readyMade: "Many unused features, some gaps",
+  },
+  {
+    label: "Integrations",
+    custom: "Connected to your exact tools",
+    readyMade: "Limited to available plugins",
+  },
+  {
+    label: "Data ownership",
+    custom: "Your data on your own servers or cloud",
+    readyMade: "Data held by the vendor",
+  },
+];
+
+const techStack = [
+  "Next.js & React",
+  "Node.js & Python",
+  "PostgreSQL & Supabase",
+  "REST APIs & webhooks",
+  "Role-based authentication",
+  "WhatsApp Business API",
+  "Payment gateway integration",
+  "AWS, Azure & Google Cloud",
+  "Responsive web & mobile apps",
+  "AI-assisted lead scoring",
 ];
 
 const benefits = [
-  "Centralized business information",
-  "Structured customer records",
-  "Improved visibility into sales activities",
-  "Organized internal workflows",
+  "All business information in one system",
+  "Complete customer and lead history",
+  "Clear visibility into the sales pipeline",
+  "Organised, trackable internal workflows",
   "Role-based access and permissions",
-  "Reduced repetitive manual tasks",
+  "Less repetitive manual data entry",
   "Connected business applications",
-  "Reports for operational monitoring",
+  "Live reports for faster decisions",
 ];
 
 const process = [
@@ -104,25 +171,25 @@ const process = [
     number: "01",
     title: "Business Analysis",
     description:
-      "Understand your business operations, departments, users, existing tools and management requirements.",
+      "We study your operations, departments, users, current tools and the reports management needs.",
   },
   {
     number: "02",
     title: "System Planning",
     description:
-      "Define the modules, workflows, database structure, user roles and integrations required for the system.",
+      "We define modules, workflows, database structure, user roles and integrations, and agree the scope.",
   },
   {
     number: "03",
     title: "Development & Integration",
     description:
-      "Build the application modules, dashboards and required connections with other business systems.",
+      "We build the modules, dashboards and integrations in stages, so you can review progress early.",
   },
   {
     number: "04",
-    title: "Testing & Implementation",
+    title: "Testing, Training & Launch",
     description:
-      "Validate the workflows, access permissions and reports before preparing the agreed system for use.",
+      "We test workflows and permissions, migrate your data, train your team and support the system after launch.",
   },
 ];
 
@@ -130,56 +197,127 @@ const faqs = [
   {
     question: "What is CRM software?",
     answer:
-      "Customer Relationship Management software helps businesses organize customer information, manage leads, track interactions and support sales and customer service activities.",
+      "Customer Relationship Management (CRM) software helps businesses store customer information, manage leads, track every interaction and follow-up, and run sales and customer service from one system.",
   },
   {
     question: "What is ERP software?",
     answer:
-      "Enterprise Resource Planning software connects business processes and information across areas such as operations, inventory, finance and human resources, depending on the system's modules.",
+      "Enterprise Resource Planning (ERP) software connects core business processes such as inventory, purchasing, orders, finance and HR, so every department works from shared, up-to-date data.",
   },
   {
-    question: "Does OPV develop custom CRM software?",
+    question: "Does OPV AI Realty Tech develop custom CRM software?",
     answer:
-      "Custom CRM development is one of OPV's service areas. A CRM can be planned around your customer records, lead stages, sales workflows, user roles and reporting requirements.",
+      "Yes. We build custom CRM software around your customer records, lead stages, sales workflow, user roles and reporting needs, including CRMs for real estate businesses.",
+  },
+  {
+    question: "Why choose a custom CRM over a ready-made CRM?",
+    answer:
+      "A custom CRM matches your exact sales process, avoids per-user licence fees, includes only the features you need and integrates directly with your existing tools. Ready-made CRMs suit teams whose process fits the software as it is.",
   },
   {
     question: "Can CRM and ERP systems be integrated?",
     answer:
-      "CRM and ERP applications can be integrated when their technical interfaces, data structures and business requirements support the connection.",
-  },
-  {
-    question: "Can a CRM or ERP include an admin dashboard?",
-    answer:
-      "Yes. Dashboards and administration panels can be included to manage users, configure modules, review records and monitor relevant business information.",
+      "Yes. CRM and ERP systems can share customer, order and billing data through APIs, so a closed deal in the CRM can create an order and invoice in the ERP automatically.",
   },
   {
     question: "Can you develop CRM software for real estate businesses?",
     answer:
-      "A custom CRM can be designed for real estate workflows, including property enquiries, lead tracking, customer follow-ups, sales activities and property-related records.",
+      "Yes. Real estate is our specialist domain. A real estate CRM can manage property enquiries, lead assignment, site visits, follow-ups, bookings, channel partners and sales reports.",
+  },
+  {
+    question: "Can you migrate data from Excel or our existing CRM?",
+    answer:
+      "Yes. We can import customer, lead and product data from spreadsheets or export files from your current system as part of the project.",
+  },
+  {
+    question: "Do you work with businesses outside Hyderabad?",
+    answer:
+      "Yes. Our office is in Madhapur, Hyderabad, and we work with businesses across India and abroad through remote collaboration.",
   },
 ];
 
 export default function CRMERPDevelopmentPage() {
-  const faqSchema = {
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${PAGE_URL}#service`,
+        name: "Custom CRM & ERP Development",
+        serviceType: "CRM and ERP Software Development",
+        description: PAGE_DESCRIPTION,
+        url: PAGE_URL,
+        provider: {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: "OPV AI Realty Tech Private Limited",
+          url: SITE_URL,
+          telephone: "+91-9963513939",
+          email: "info@opvairealtytech.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress:
+              "#101, Road No: 10, Jaya Kesav Avenue, Kakatiya Hills, Madhapur",
+            addressLocality: "Hyderabad",
+            addressRegion: "Telangana",
+            addressCountry: "IN",
+          },
+        },
+        areaServed: [
+          { "@type": "City", name: "Hyderabad" },
+          { "@type": "Country", name: "India" },
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "CRM & ERP Development Services",
+          itemListElement: solutions.map((item) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: item.title,
+              description: item.description,
+            },
+          })),
+        },
       },
-    })),
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: `${SITE_URL}/services`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "CRM & ERP Development",
+            item: PAGE_URL,
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
     <main className="bg-white">
-      {/* FAQ STRUCTURED DATA */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
 
@@ -192,24 +330,45 @@ export default function CRMERPDevelopmentPage() {
         </div>
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+          {/* Visible breadcrumb (matches BreadcrumbList schema) */}
+          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/60">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <Link href="/" className="hover:text-[#F4D545]">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/services" className="hover:text-[#F4D545]">
+                  Services
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-white/85">
+                CRM & ERP Development
+              </li>
+            </ol>
+          </nav>
+
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#E7B30F]/40 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#F4D545]">
-            <Building2 className="h-4 w-4" />
+            <Building2 className="h-4 w-4" aria-hidden="true" />
             Business Management Software
           </div>
 
+          {/* {" "} keeps a real space between the two lines for crawlers and screen readers */}
           <h1 className="max-w-4xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-            Custom CRM & ERP Development
+            Custom CRM & ERP Development in Hyderabad{" "}
             <span className="block text-[#F4D545]">
-              for Business Management
+              Built Around Your Business
             </span>
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
-            OPV AI Realty Tech develops business management
-            software designed around customer relationships,
-            operational workflows and organizational needs.
-            Explore custom CRM, ERP, dashboards and business
-            process automation solutions.
+            OPV AI Realty Tech builds custom CRM and ERP software for
+            businesses in Hyderabad and across India. Manage leads,
+            customers, sales, inventory, teams and reports in one
+            system designed around how your business actually works.
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -217,7 +376,7 @@ export default function CRMERPDevelopmentPage() {
               href="/contact"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
             >
-              Discuss Your Requirements
+              Discuss Your CRM or ERP
               <ArrowRight className="h-5 w-5" />
             </Link>
 
@@ -228,6 +387,11 @@ export default function CRMERPDevelopmentPage() {
               Explore All Services
             </Link>
           </div>
+
+          <p className="mt-8 inline-flex items-center gap-2 text-sm text-white/60">
+            <MapPin className="h-4 w-4 text-[#F4D545]" aria-hidden="true" />
+            Madhapur, Hyderabad · Serving clients across India
+          </p>
         </div>
       </section>
 
@@ -244,56 +408,57 @@ export default function CRMERPDevelopmentPage() {
             </h2>
 
             <p className="mt-6 leading-8 text-slate-600">
-              Managing customer information, sales activities,
-              employee tasks and business operations across
-              disconnected tools can make it difficult to
-              maintain a consistent view of your organization.
+              When customer details live in WhatsApp, leads sit in
+              spreadsheets and stock is tracked on paper, teams lose
+              time, follow-ups get missed and managers can't see what's
+              really happening.
             </p>
 
             <p className="mt-5 leading-8 text-slate-600">
-              CRM and ERP applications help organize these
-              activities through structured modules, shared
-              information and defined workflows.
+              A CRM organises your customers, leads and sales. An ERP
+              connects operations such as inventory, orders, finance
+              and HR. Together they give every team the same accurate,
+              up-to-date information.
             </p>
 
             <p className="mt-5 leading-8 text-slate-600">
-              OPV AI Realty Tech focuses on understanding your
-              business processes before planning a custom
-              management system around your operational needs.
+              As a CRM and ERP development company in Hyderabad, OPV AI
+              Realty Tech maps your processes first, then builds
+              software that fits them instead of forcing your team to
+              change how they work.
             </p>
           </div>
 
           <div className="rounded-3xl bg-[#033505] p-8 text-white sm:p-10">
-            <Settings className="h-12 w-12 text-[#F4D545]" />
+            <Settings className="h-12 w-12 text-[#F4D545]" aria-hidden="true" />
 
             <h3 className="mt-7 text-2xl font-extrabold sm:text-3xl">
-              Better Systems.
+              Better Systems.{" "}
               <span className="block text-[#F4D545]">
-                More Organized Operations.
+                More Organised Operations.
               </span>
             </h3>
 
             <p className="mt-5 leading-8 text-white/70">
-              Plan business applications around your teams,
-              processes, customer interactions and information
-              management requirements.
+              Business software designed around your teams, processes
+              and customer interactions.
             </p>
 
-            <div className="mt-8 space-y-4">
+            <ul className="mt-8 space-y-4">
               {[
                 "Customer and lead management",
                 "Business process management",
-                "Centralized operational information",
+                "Centralised operational data",
                 "Dashboards and reporting",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
+                <li key={item} className="flex items-center gap-3">
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-[#F4D545]" />
                   <span className="text-sm font-medium text-white/85">
                     {item}
                   </span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </section>
@@ -311,9 +476,8 @@ export default function CRMERPDevelopmentPage() {
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Build management systems that reflect your
-              business structure, users and operational
-              requirements.
+              Management systems that reflect your business structure,
+              users and day-to-day operations.
             </p>
           </div>
 
@@ -327,7 +491,7 @@ export default function CRMERPDevelopmentPage() {
                   className="rounded-2xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#E7B30F]/60 hover:shadow-xl"
                 >
                   <div className="inline-flex rounded-xl bg-[#033505]/5 p-3">
-                    <Icon className="h-7 w-7 text-[#265921]" />
+                    <Icon className="h-7 w-7 text-[#265921]" aria-hidden="true" />
                   </div>
 
                   <h3 className="mt-6 text-xl font-bold text-[#033505]">
@@ -353,29 +517,26 @@ export default function CRMERPDevelopmentPage() {
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
-              Modules for Different Business Requirements
+              CRM & ERP Modules We Build
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Select and plan the modules relevant to your
-              business. The final system scope depends on
-              your workflows and project requirements.
+              Choose the modules your business needs now and add more
+              as you grow.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {modules.map((module) => (
-              <div
+              <li
                 key={module}
                 className="flex items-center gap-3 rounded-xl border border-slate-200 bg-[#F8FAF7] p-5"
               >
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-[#B88A00]" />
-                <span className="font-semibold text-[#033505]">
-                  {module}
-                </span>
-              </div>
+                <span className="font-semibold text-[#033505]">{module}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -384,94 +545,193 @@ export default function CRMERPDevelopmentPage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
           <div>
             <span className="text-sm font-bold uppercase tracking-widest text-[#F4D545]">
-              Industry-Focused Solutions
+              Our Specialist Domain
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">
-              CRM Solutions for Real Estate Businesses
+              Real Estate CRM Software for Developers & Agents
             </h2>
 
             <p className="mt-6 leading-8 text-white/75">
-              Real estate businesses handle property enquiries,
-              customer information, sales follow-ups and
-              project-related records. A purpose-built CRM
-              can help organize these activities in a structured
-              system.
+              Real estate teams juggle enquiries from portals, ads and
+              walk-ins, plus site visits, follow-ups, bookings and
+              channel partners. A real estate CRM keeps every lead and
+              every conversation in one place, so no buyer slips away.
             </p>
 
             <p className="mt-5 leading-8 text-white/75">
-              Depending on the requirements, a real estate CRM
-              can include lead assignment, property enquiry
-              tracking, sales pipeline management, customer
-              communication records and reporting.
+              With roots in real estate technology and our own property
+              platform,{" "}
+              <a
+                href="https://www.openplotsandvillas.com"
+                target="_blank"
+                rel="noopener"
+                className="font-semibold text-[#F4D545] underline underline-offset-4"
+              >
+                Open Plots & Villas
+              </a>
+              , we understand how property sales work in Hyderabad.
             </p>
 
-            <Link
-              href="/contact"
-              className="mt-8 inline-flex items-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
-            >
-              Discuss a CRM Solution
-              <ArrowRight className="h-5 w-5" />
-            </Link>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
+              >
+                Discuss a Real Estate CRM
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+
+              <Link
+                href="/industries/real-estate"
+                className="inline-flex items-center justify-center rounded-lg border border-white/30 px-7 py-4 font-bold text-white transition hover:border-[#F4D545] hover:text-[#F4D545]"
+              >
+                Real Estate Technology
+              </Link>
+            </div>
           </div>
 
           <div className="rounded-3xl border border-white/15 bg-white/5 p-8 sm:p-10">
-            <Building2 className="h-12 w-12 text-[#F4D545]" />
+            <Building2 className="h-12 w-12 text-[#F4D545]" aria-hidden="true" />
 
             <h3 className="mt-7 text-2xl font-bold">
-              Example Real Estate CRM Modules
+              Real Estate CRM Modules
             </h3>
 
-            <div className="mt-7 space-y-4">
+            <ul className="mt-7 space-y-4">
               {[
-                "Property enquiry management",
-                "Lead assignment and follow-ups",
-                "Customer and buyer records",
-                "Sales pipeline tracking",
-                "Property and project information",
-                "Sales activity reports",
+                "Property enquiry capture from portals and ads",
+                "Automatic lead assignment and follow-ups",
+                "Site visit scheduling and reminders",
+                "Buyer records and booking tracking",
+                "Channel partner management",
+                "Project, plot and unit inventory",
+                "Sales and collection reports",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
+                <li key={item} className="flex items-center gap-3">
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-[#F4D545]" />
                   <span className="text-sm text-white/85">{item}</span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* BENEFITS */}
+      {/* CUSTOM VS READY-MADE */}
+      <section className="py-20 sm:py-24">
+        <div className="mx-auto max-w-5xl px-5 sm:px-8">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#B88A00]">
+              <Scale className="h-4 w-4" aria-hidden="true" />
+              Comparison
+            </span>
+
+            <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
+              Custom CRM vs Ready-Made CRM
+            </h2>
+
+            <p className="mt-5 leading-8 text-slate-600">
+              Ready-made CRMs suit standard processes. A custom CRM
+              makes sense when your workflow is specific, your team is
+              growing or you need deep integrations.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-2xl border border-slate-200">
+            <table className="w-full min-w-[560px] text-left text-sm">
+              <thead className="bg-[#033505] text-white">
+                <tr>
+                  <th scope="col" className="px-5 py-4 font-bold">
+                    Factor
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-bold text-[#F4D545]">
+                    Custom CRM
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-bold">
+                    Ready-Made CRM
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparison.map((row, index) => (
+                  <tr
+                    key={row.label}
+                    className={index % 2 === 0 ? "bg-white" : "bg-[#F8FAF7]"}
+                  >
+                    <th
+                      scope="row"
+                      className="px-5 py-4 font-semibold text-[#033505]"
+                    >
+                      {row.label}
+                    </th>
+                    <td className="px-5 py-4 text-slate-700">{row.custom}</td>
+                    <td className="px-5 py-4 text-slate-600">
+                      {row.readyMade}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* BENEFITS + TECH */}
       <section className="bg-[#F8FAF7] py-20 sm:py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-7xl items-start gap-12 px-5 sm:px-8 lg:grid-cols-2">
           <div>
             <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
               Business Benefits
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold leading-tight text-[#033505] sm:text-4xl">
-              Create More Organized Business Workflows
+              Create More Organised Business Workflows
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              A well-planned CRM or ERP system gives teams
-              a structured way to manage information and
-              perform their daily activities.
+              A well-planned CRM or ERP gives every team a single,
+              reliable place to manage information and daily work.
             </p>
+
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+              {benefits.map((benefit) => (
+                <li
+                  key={benefit}
+                  className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5"
+                >
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#B88A00]" />
+                  <span className="text-sm font-semibold leading-6 text-[#033505]">
+                    {benefit}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {benefits.map((benefit) => (
-              <div
-                key={benefit}
-                className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5"
-              >
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#B88A00]" />
-                <span className="text-sm font-semibold leading-6 text-[#033505]">
-                  {benefit}
-                </span>
-              </div>
-            ))}
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-10">
+            <div className="flex items-center gap-3">
+              <Layers className="h-6 w-6 text-[#B88A00]" aria-hidden="true" />
+              <h3 className="text-xl font-extrabold text-[#033505]">
+                Technology We Use
+              </h3>
+            </div>
+
+            <p className="mt-4 text-sm leading-7 text-slate-600">
+              Modern, secure and scalable technology that runs in the
+              browser and on mobile.
+            </p>
+
+            <ul className="mt-6 flex flex-wrap gap-3">
+              {techStack.map((tech) => (
+                <li
+                  key={tech}
+                  className="rounded-full border border-slate-200 bg-[#F8FAF7] px-4 py-2 text-sm font-semibold text-[#033505]"
+                >
+                  {tech}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -485,15 +745,15 @@ export default function CRMERPDevelopmentPage() {
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
-              How We Approach CRM & ERP Development
+              Our CRM & ERP Development Process
             </h2>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((step) => (
-              <article
+              <li
                 key={step.number}
-                className="rounded-2xl border border-slate-200 p-6"
+                className="rounded-2xl border border-slate-200 bg-white p-6"
               >
                 <span className="text-3xl font-black text-[#B88A00]">
                   {step.number}
@@ -506,9 +766,9 @@ export default function CRMERPDevelopmentPage() {
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   {step.description}
                 </p>
-              </article>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
@@ -545,41 +805,55 @@ export default function CRMERPDevelopmentPage() {
       </section>
 
       {/* RELATED SERVICES */}
-      <section className="py-12">
+      <section className="border-t border-slate-100 py-12">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <h2 className="text-xl font-extrabold text-[#033505]">
             Explore Related Services
           </h2>
 
-          <div className="mt-5 flex flex-wrap gap-5">
-            <Link
-              href="/services/software-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              Software Development →
-            </Link>
-
-            <Link
-              href="/services/ai-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              AI Development →
-            </Link>
-
-            <Link
-              href="/services/saas-cloud-solutions"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              SaaS & Cloud Solutions →
-            </Link>
-
-            <Link
-              href="/services/website-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              Website Development →
-            </Link>
-          </div>
+          {/* Make sure each of these routes exists before deploying */}
+          <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+            <li>
+              <Link
+                href="/services/business-automation"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Business Process Automation →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/ai-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                AI Development & AI Agents →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/software-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Custom Software Development →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/saas-cloud-solutions"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                SaaS & Cloud Solutions →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/website-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Website Development →
+              </Link>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -587,25 +861,35 @@ export default function CRMERPDevelopmentPage() {
       <section className="bg-[#033505] px-5 py-20 text-center text-white sm:px-8">
         <div className="mx-auto max-w-3xl">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E7B30F]/15">
-            <Lightbulb className="h-7 w-7 text-[#F4D545]" />
+            <Lightbulb className="h-7 w-7 text-[#F4D545]" aria-hidden="true" />
           </div>
 
           <h2 className="mt-6 text-3xl font-extrabold sm:text-4xl">
-            Ready to Organize Your Business with Custom Software?
+            Ready to Run Your Business on One System?
           </h2>
 
           <p className="mt-5 leading-8 text-white/70">
-            Share your business workflows, management
-            requirements and software goals with OPV AI Realty Tech.
+            Share your workflows and the problems you want solved. We'll
+            suggest the right CRM or ERP modules and a clear plan to
+            build them.
           </p>
 
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
-          >
-            Discuss Your Requirements
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
+            >
+              Discuss Your Requirements
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+
+            <a
+              href="tel:+919963513939"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-7 py-4 font-bold text-white transition hover:border-[#F4D545] hover:text-[#F4D545]"
+            >
+              Call +91 99635 13939
+            </a>
+          </div>
         </div>
       </section>
     </main>

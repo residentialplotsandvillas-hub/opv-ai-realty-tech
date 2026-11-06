@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -11,24 +10,53 @@ import {
   Smartphone,
   Layers3,
   CheckCircle2,
-  Cpu,
   Lightbulb,
+  MapPin,
+  Building2,
+  Scale,
+  ShieldCheck,
 } from "lucide-react";
 
+const SITE_URL = "https://www.opvairealtytech.com";
+const PAGE_PATH = "/services/software-development";
+const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
+const OG_IMAGE = `${SITE_URL}/images/opv-og-image.jpg`;
+
+const PAGE_TITLE =
+  "Custom Software Development Company in Hyderabad | OPV AI Realty Tech";
+const PAGE_DESCRIPTION =
+  "Custom web applications, business software, backends, APIs and software modernisation built with React, Next.js and Node.js for businesses in Hyderabad and India.";
+
 export const metadata: Metadata = {
-  title: "Custom Software Development Company in India | OPV AI Realty Tech",
-  description:
-    "OPV AI Realty Tech offers custom software development, enterprise applications, web application engineering, API development and business software solutions.",
+  // `absolute` bypasses the layout's title.template, so the brand is not added twice
+  title: { absolute: PAGE_TITLE },
+  description: PAGE_DESCRIPTION,
   alternates: {
-    canonical: "/services/software-development",
+    canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Custom Software Development | OPV AI Realty Tech",
+    title: "Custom Software Development in Hyderabad | OPV AI Realty Tech",
     description:
-      "Explore custom software engineering and scalable application development solutions for businesses.",
-    url: "https://www.opvairealtytech.com/services/software-development",
+      "Custom web applications, business software, APIs and backend systems built around how your business works.",
+    url: PAGE_URL,
     siteName: "OPV AI Realty Tech",
+    locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Custom software development by OPV AI Realty Tech, Hyderabad",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom Software Development Company in Hyderabad | OPV",
+    description:
+      "Custom web apps, business software, APIs and backend systems for growing businesses.",
+    images: [OG_IMAGE],
   },
 };
 
@@ -37,37 +65,98 @@ const solutions = [
     icon: Monitor,
     title: "Web Application Development",
     description:
-      "Develop responsive and scalable web applications designed around business workflows, customer requirements and digital operations.",
+      "Fast, responsive web applications such as customer portals, booking systems, dashboards and internal tools that work on any device.",
   },
   {
     icon: Layers3,
     title: "Custom Business Software",
     description:
-      "Build software applications tailored to specific organizational processes, operational needs and business objectives.",
+      "Software built around your exact processes, from order handling and approvals to inventory, billing and reporting.",
   },
   {
     icon: Database,
-    title: "Database & Backend Development",
+    title: "Backend & Database Development",
     description:
-      "Design application backends, database structures and data management systems that support reliable software operations.",
+      "Secure, scalable backends and well-designed PostgreSQL or MongoDB databases that keep your data accurate and fast to query.",
   },
   {
     icon: Workflow,
     title: "API Development & Integration",
     description:
-      "Connect applications and external services through APIs and integrations that support connected business systems.",
+      "Build REST APIs and connect your software with payment gateways, WhatsApp, CRMs, accounting tools and third-party services.",
   },
   {
     icon: Smartphone,
-    title: "Application Development",
+    title: "Web + Mobile Platforms",
     description:
-      "Develop digital applications that connect business teams, customers and services through useful software experiences.",
+      "One backend powering your web app, admin panel and Android or iOS apps, so data stays in sync everywhere.",
   },
   {
     icon: Cloud,
-    title: "Software Modernization",
+    title: "Software Modernisation",
     description:
-      "Explore improvements to existing software architecture, application performance, integrations and deployment approaches.",
+      "Rebuild slow or outdated software on a modern stack, improve performance and move it to the cloud without losing data.",
+  },
+];
+
+const softwareTypes = [
+  {
+    title: "Real Estate Software",
+    description:
+      "Property portals, project inventory, booking management, channel partner and sales tracking systems.",
+  },
+  {
+    title: "Customer & Partner Portals",
+    description:
+      "Secure logins where customers track orders, bookings, payments, documents and support tickets.",
+  },
+  {
+    title: "Internal Business Tools",
+    description:
+      "Approval workflows, task tracking, HR, inventory and operations tools that replace spreadsheets.",
+  },
+  {
+    title: "Booking & Scheduling Systems",
+    description:
+      "Appointment, reservation and slot booking with reminders and online payments.",
+  },
+  {
+    title: "Dashboards & Reporting",
+    description:
+      "Live dashboards that pull data from your systems into clear reports for management.",
+  },
+  {
+    title: "MVPs for Startups",
+    description:
+      "Focused first versions of new products, built quickly to test ideas with real users.",
+  },
+];
+
+const comparison = [
+  {
+    label: "Fit to your process",
+    custom: "Built around how your team works",
+    offTheShelf: "Your team adapts to the software",
+  },
+  {
+    label: "Cost over time",
+    custom: "One-time build plus maintenance",
+    offTheShelf: "Recurring per-user licence fees",
+  },
+  {
+    label: "Features",
+    custom: "Only what you need, added as you grow",
+    offTheShelf: "Many unused features, some gaps",
+  },
+  {
+    label: "Integrations",
+    custom: "Connected directly to your tools",
+    offTheShelf: "Limited to available plugins",
+  },
+  {
+    label: "Ownership",
+    custom: "You own the code and data",
+    offTheShelf: "Vendor controls the product and roadmap",
   },
 ];
 
@@ -85,12 +174,14 @@ const technologies = [
 ];
 
 const benefits = [
-  "Software designed around business requirements",
-  "Flexible application architecture",
-  "Integration with existing business systems",
-  "Responsive and user-focused interfaces",
-  "Scalable application development approach",
-  "Maintainable software solutions",
+  "Software that matches your workflow",
+  "No per-user licence fees",
+  "Integrates with your existing systems",
+  "Fast, mobile-friendly interfaces",
+  "Scales as your business grows",
+  "Clean code you fully own",
+  "Role-based security and access",
+  "Ongoing support and improvements",
 ];
 
 const process = [
@@ -98,25 +189,25 @@ const process = [
     number: "01",
     title: "Requirement Discovery",
     description:
-      "Understand the business problem, users, functional requirements and expected outcomes.",
+      "We map the business problem, users, must-have features and how success will be measured.",
   },
   {
     number: "02",
-    title: "Architecture & Planning",
+    title: "Architecture & Design",
     description:
-      "Plan the application structure, technology choices, integrations and development scope.",
+      "We plan the technology, database, integrations and screens, and agree a clear scope and timeline.",
   },
   {
     number: "03",
-    title: "Development",
+    title: "Agile Development",
     description:
-      "Build the application according to the agreed requirements and implementation plan.",
+      "We build in short sprints with regular demos, so you see progress and can give feedback early.",
   },
   {
     number: "04",
-    title: "Testing & Deployment",
+    title: "Testing, Launch & Support",
     description:
-      "Test application functionality and prepare the solution for deployment and ongoing improvement.",
+      "We test thoroughly, deploy to production, train your team and support the software after launch.",
   },
 ];
 
@@ -124,51 +215,127 @@ const faqs = [
   {
     question: "What is custom software development?",
     answer:
-      "Custom software development is the process of designing and building applications around the specific requirements, workflows and objectives of a business.",
+      "Custom software development is designing and building software specifically for one business's processes, users and goals, instead of using a generic off-the-shelf product.",
   },
   {
-    question: "What types of software can OPV develop?",
+    question: "What types of software does OPV AI Realty Tech develop?",
     answer:
-      "OPV's software development service areas include web applications, custom business software, backend systems, API integrations and application development.",
+      "We build web applications, custom business software, customer portals, internal tools, dashboards, backends, APIs and integrations, including real estate software and startup MVPs.",
   },
   {
-    question: "Can custom software integrate with existing systems?",
+    question: "Should I choose custom software or off-the-shelf software?",
     answer:
-      "Software can be integrated with existing applications and services when compatible APIs, data access and technical requirements are available.",
+      "Off-the-shelf software suits standard processes and small budgets. Custom software is better when your workflow is specific, you need deep integrations, your team is growing or licence fees are adding up.",
   },
   {
-    question: "Which technologies are used for software development?",
+    question: "Can custom software integrate with my existing systems?",
     answer:
-      "Technology choices depend on the project. Relevant technologies may include React, Next.js, TypeScript, Node.js, databases and cloud platforms.",
+      "Yes. We connect custom software to your existing CRM, ERP, accounting, payment and messaging tools through APIs, as long as those systems allow integration.",
   },
   {
-    question: "How do I start a software development project?",
+    question: "Which technologies do you use for software development?",
     answer:
-      "Contact OPV through the website and share your project objectives, required features, users and preferred timeline. The team can discuss the requirements and possible next steps.",
+      "We mainly use React, Next.js and TypeScript for the frontend, Node.js, Express.js and Python for the backend, and PostgreSQL or MongoDB databases, deployed on cloud platforms.",
+  },
+  {
+    question: "Who owns the source code?",
+    answer:
+      "You do. Once the project is complete and paid for, the source code and data belong to your business.",
+  },
+  {
+    question: "Do you provide support after launch?",
+    answer:
+      "Yes. We offer ongoing maintenance, bug fixes, security updates and new feature development after the software goes live.",
+  },
+  {
+    question: "Do you work with businesses outside Hyderabad?",
+    answer:
+      "Yes. Our office is in Madhapur, Hyderabad, and we work with businesses across India and abroad through remote collaboration.",
   },
 ];
 
 export default function SoftwareDevelopmentPage() {
-  const faqSchema = {
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${PAGE_URL}#service`,
+        name: "Custom Software Development",
+        serviceType: "Custom Software Development",
+        description: PAGE_DESCRIPTION,
+        url: PAGE_URL,
+        provider: {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: "OPV AI Realty Tech Private Limited",
+          url: SITE_URL,
+          telephone: "+91-9963513939",
+          email: "info@opvairealtytech.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress:
+              "#101, Road No: 10, Jaya Kesav Avenue, Kakatiya Hills, Madhapur",
+            addressLocality: "Hyderabad",
+            addressRegion: "Telangana",
+            addressCountry: "IN",
+          },
+        },
+        areaServed: [
+          { "@type": "City", name: "Hyderabad" },
+          { "@type": "Country", name: "India" },
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Software Development Services",
+          itemListElement: solutions.map((item) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: item.title,
+              description: item.description,
+            },
+          })),
+        },
       },
-    })),
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: `${SITE_URL}/services`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Software Development",
+            item: PAGE_URL,
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
     <main className="bg-white">
-      {/* FAQ STRUCTURED DATA */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
 
@@ -181,24 +348,45 @@ export default function SoftwareDevelopmentPage() {
         </div>
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+          {/* Visible breadcrumb (matches BreadcrumbList schema) */}
+          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/60">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <Link href="/" className="hover:text-[#F4D545]">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/services" className="hover:text-[#F4D545]">
+                  Services
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-white/85">
+                Software Development
+              </li>
+            </ol>
+          </nav>
+
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#E7B30F]/40 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#F4D545]">
-            <Code2 className="h-4 w-4" />
+            <Code2 className="h-4 w-4" aria-hidden="true" />
             Custom Software Engineering
           </div>
 
+          {/* {" "} keeps a real space between the two lines for crawlers and screen readers */}
           <h1 className="max-w-4xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-            Custom Software Development
+            Custom Software Development{" "}
             <span className="block text-[#F4D545]">
-              Company in India
+              Company in Hyderabad
             </span>
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
-            OPV AI Realty Tech focuses on custom software development
-            and digital application engineering for businesses.
-            From web applications and backend systems to API
-            integrations and business software, we build around
-            your specific requirements.
+            OPV AI Realty Tech builds custom web applications, business
+            software, backends and API integrations for businesses in
+            Hyderabad and across India. Software designed around how
+            your team actually works, and code you fully own.
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -217,6 +405,11 @@ export default function SoftwareDevelopmentPage() {
               Explore All Services
             </Link>
           </div>
+
+          <p className="mt-8 inline-flex items-center gap-2 text-sm text-white/60">
+            <MapPin className="h-4 w-4 text-[#F4D545]" aria-hidden="true" />
+            Madhapur, Hyderabad · Serving clients across India
+          </p>
         </div>
       </section>
 
@@ -233,59 +426,56 @@ export default function SoftwareDevelopmentPage() {
             </h2>
 
             <p className="mt-6 leading-8 text-slate-600">
-              Businesses often need software that supports their
-              specific operations rather than relying entirely on
-              generic applications. Custom software development
-              makes it possible to design digital systems around
-              particular workflows, users and business objectives.
+              Generic software forces teams into workarounds:
+              exporting to Excel, re-typing data and juggling several
+              tools that don't talk to each other. Custom software
+              removes that friction by fitting your exact workflow.
             </p>
 
             <p className="mt-5 leading-8 text-slate-600">
-              OPV AI Realty Tech focuses on application development,
-              backend engineering, database solutions and system
-              integration. The technology architecture is selected
-              according to project scope, functionality and
-              operational requirements.
+              We build web applications, backend systems, databases and
+              integrations, choosing the architecture that matches your
+              scope, users and growth plans.
             </p>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Our approach considers usability, maintainability,
-              scalability and integration requirements throughout
-              the software development process.
+              As a custom software development company in Hyderabad,
+              OPV AI Realty Tech focuses on usability, security and
+              maintainable code, so your software keeps working as the
+              business grows.
             </p>
           </div>
 
           <div className="rounded-3xl bg-[#033505] p-8 text-white sm:p-10">
-            <Code2 className="h-12 w-12 text-[#F4D545]" />
+            <Code2 className="h-12 w-12 text-[#F4D545]" aria-hidden="true" />
 
             <h3 className="mt-7 text-2xl font-extrabold sm:text-3xl">
-              Software Built Around
+              Software Built Around{" "}
               <span className="block text-[#F4D545]">
                 Your Business Needs
               </span>
             </h3>
 
             <p className="mt-5 leading-8 text-white/70">
-              Good software starts with understanding the people
-              who use it, the problems it needs to solve and the
-              systems it needs to connect with.
+              Good software starts with the people who use it, the
+              problems it solves and the systems it connects to.
             </p>
 
-            <div className="mt-8 space-y-4">
+            <ul className="mt-8 space-y-4">
               {[
                 "Business requirement analysis",
                 "Application architecture planning",
-                "Development and integration",
-                "Testing and deployment planning",
+                "Agile development and integration",
+                "Testing, launch and ongoing support",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
+                <li key={item} className="flex items-center gap-3">
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-[#F4D545]" />
                   <span className="text-sm font-medium text-white/85">
                     {item}
                   </span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </section>
@@ -303,9 +493,8 @@ export default function SoftwareDevelopmentPage() {
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Explore software engineering capabilities that can
-              support different business applications and digital
-              product requirements.
+              End-to-end engineering for business applications and
+              digital products.
             </p>
           </div>
 
@@ -319,7 +508,7 @@ export default function SoftwareDevelopmentPage() {
                   className="rounded-2xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#E7B30F]/60 hover:shadow-xl"
                 >
                   <div className="inline-flex rounded-xl bg-[#033505]/5 p-3">
-                    <Icon className="h-7 w-7 text-[#265921]" />
+                    <Icon className="h-7 w-7 text-[#265921]" aria-hidden="true" />
                   </div>
 
                   <h3 className="mt-6 text-xl font-bold text-[#033505]">
@@ -336,6 +525,110 @@ export default function SoftwareDevelopmentPage() {
         </div>
       </section>
 
+      {/* SOFTWARE TYPES */}
+      <section className="py-20 sm:py-24">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
+              What We Build
+            </span>
+
+            <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
+              Types of Custom Software We Develop
+            </h2>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {softwareTypes.map((item) => (
+              <article
+                key={item.title}
+                className="rounded-2xl border border-slate-200 bg-white p-6"
+              >
+                <div className="flex items-center gap-3">
+                  <Building2 className="h-5 w-5 text-[#B88A00]" aria-hidden="true" />
+                  <h3 className="text-lg font-bold text-[#033505]">
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-8 text-center text-sm text-slate-600">
+            Building for a property business?{" "}
+            <Link
+              href="/industries/real-estate"
+              className="font-semibold text-[#265921] underline-offset-4 hover:text-[#B88A00] hover:underline"
+            >
+              See our real estate technology solutions
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      {/* CUSTOM VS OFF-THE-SHELF */}
+      <section className="bg-[#F8FAF7] py-20 sm:py-24">
+        <div className="mx-auto max-w-5xl px-5 sm:px-8">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#B88A00]">
+              <Scale className="h-4 w-4" aria-hidden="true" />
+              Comparison
+            </span>
+
+            <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
+              Custom Software vs Off-the-Shelf Software
+            </h2>
+
+            <p className="mt-5 leading-8 text-slate-600">
+              Off-the-shelf tools suit standard needs. Custom software
+              pays off when your process is specific or licence fees
+              keep growing.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+            <table className="w-full min-w-[560px] text-left text-sm">
+              <thead className="bg-[#033505] text-white">
+                <tr>
+                  <th scope="col" className="px-5 py-4 font-bold">
+                    Factor
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-bold text-[#F4D545]">
+                    Custom Software
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-bold">
+                    Off-the-Shelf Software
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparison.map((row, index) => (
+                  <tr
+                    key={row.label}
+                    className={index % 2 === 0 ? "bg-white" : "bg-[#F8FAF7]"}
+                  >
+                    <th
+                      scope="row"
+                      className="px-5 py-4 font-semibold text-[#033505]"
+                    >
+                      {row.label}
+                    </th>
+                    <td className="px-5 py-4 text-slate-700">{row.custom}</td>
+                    <td className="px-5 py-4 text-slate-600">
+                      {row.offTheShelf}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* TECHNOLOGY STACK */}
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
@@ -345,26 +638,25 @@ export default function SoftwareDevelopmentPage() {
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
-              Technologies for Modern Software Development
+              Our Software Development Technology Stack
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Depending on project requirements, software solutions
-              may use modern frontend, backend, database and cloud
-              technologies.
+              Modern, widely supported technologies, so your software
+              is fast, secure and easy to maintain.
             </p>
           </div>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <ul className="mt-10 flex flex-wrap justify-center gap-3">
             {technologies.map((technology) => (
-              <span
+              <li
                 key={technology}
-                className="rounded-xl border border-slate-200 bg-[#F8FAF7] px-5 py-3 text-sm font-bold text-[#265921] transition hover:border-[#E7B30F] hover:bg-[#E7B30F]/10"
+                className="rounded-xl border border-slate-200 bg-[#F8FAF7] px-5 py-3 text-sm font-bold text-[#265921]"
               >
                 {technology}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -377,20 +669,26 @@ export default function SoftwareDevelopmentPage() {
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold leading-tight text-[#033505] sm:text-4xl">
-              Why Consider Custom Software Development?
+              Why Choose Custom Software Development?
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              A custom application can be designed around the
-              processes and users of a particular business.
-              Its suitability depends on the requirements,
-              available resources and long-term objectives.
+              Custom software removes daily workarounds, connects your
+              tools and becomes a long-term business asset you own.
             </p>
+
+            <div className="mt-6 flex items-start gap-3 rounded-xl border border-[#E7B30F]/40 bg-[#E7B30F]/10 p-5">
+              <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#B88A00]" aria-hidden="true" />
+              <p className="text-sm leading-6 text-[#033505]">
+                Security is built in: encrypted connections, role-based
+                access, input validation and regular updates.
+              </p>
+            </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <ul className="grid gap-4 sm:grid-cols-2">
             {benefits.map((benefit) => (
-              <div
+              <li
                 key={benefit}
                 className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5"
               >
@@ -398,9 +696,9 @@ export default function SoftwareDevelopmentPage() {
                 <span className="text-sm font-semibold leading-6 text-[#033505]">
                   {benefit}
                 </span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -417,11 +715,11 @@ export default function SoftwareDevelopmentPage() {
             </h2>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((step) => (
-              <article
+              <li
                 key={step.number}
-                className="rounded-2xl border border-slate-200 p-6"
+                className="rounded-2xl border border-slate-200 bg-white p-6"
               >
                 <span className="text-3xl font-black text-[#B88A00]">
                   {step.number}
@@ -434,9 +732,9 @@ export default function SoftwareDevelopmentPage() {
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   {step.description}
                 </p>
-              </article>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
@@ -473,41 +771,63 @@ export default function SoftwareDevelopmentPage() {
       </section>
 
       {/* RELATED SERVICES */}
-      <section className="py-12">
+      <section className="border-t border-slate-100 py-12">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <h2 className="text-xl font-extrabold text-[#033505]">
             Explore Related Services
           </h2>
 
-          <div className="mt-5 flex flex-wrap gap-5">
-            <Link
-              href="/services/ai-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              AI Development →
-            </Link>
-
-            <Link
-              href="/services/website-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              Website Development →
-            </Link>
-
-            <Link
-              href="/services/mobile-app-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              Mobile App Development →
-            </Link>
-
-            <Link
-              href="/services/saas-cloud-solutions"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              SaaS & Cloud Solutions →
-            </Link>
-          </div>
+          {/* Make sure each of these routes exists before deploying */}
+          <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+            <li>
+              <Link
+                href="/services/website-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Website Development →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/mobile-app-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Mobile App Development →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/saas-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                SaaS Product Development →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/crm-erp-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                CRM & ERP Development →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/saas-cloud-solutions"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Cloud & DevOps →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/ai-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                AI Development & AI Agents →
+              </Link>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -515,7 +835,7 @@ export default function SoftwareDevelopmentPage() {
       <section className="bg-[#033505] px-5 py-20 text-center text-white sm:px-8">
         <div className="mx-auto max-w-3xl">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E7B30F]/15">
-            <Lightbulb className="h-7 w-7 text-[#F4D545]" />
+            <Lightbulb className="h-7 w-7 text-[#F4D545]" aria-hidden="true" />
           </div>
 
           <h2 className="mt-6 text-3xl font-extrabold sm:text-4xl">
@@ -523,17 +843,26 @@ export default function SoftwareDevelopmentPage() {
           </h2>
 
           <p className="mt-5 leading-8 text-white/70">
-            Share your requirements and explore how custom software
-            development can support your business.
+            Share your requirements and the problem you want solved.
+            We'll suggest the right approach, scope and timeline.
           </p>
 
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
-          >
-            Discuss Your Project
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
+            >
+              Discuss Your Project
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+
+            <a
+              href="tel:+919963513939"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-7 py-4 font-bold text-white transition hover:border-[#F4D545] hover:text-[#F4D545]"
+            >
+              Call +91 99635 13939
+            </a>
+          </div>
         </div>
       </section>
     </main>

@@ -1,13 +1,10 @@
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
   Search,
   TrendingUp,
-  Target,
   BarChart3,
-  Globe,
   FileText,
   MapPin,
   MousePointerClick,
@@ -16,137 +13,216 @@ import {
   Lightbulb,
   Gauge,
   Link2,
+  Bot,
+  Building2,
+  Layers,
+  Scale,
 } from "lucide-react";
 
+const SITE_URL = "https://www.opvairealtytech.com";
+const PAGE_PATH = "/services/seo-digital-growth";
+const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
+const OG_IMAGE = `${SITE_URL}/images/opv-og-image.jpg`;
+
+const PAGE_TITLE = "SEO Company in Hyderabad | SEO, AEO & GEO | OPV AI Realty Tech";
+const PAGE_DESCRIPTION =
+  "Technical SEO, local SEO, content marketing and AI search optimisation (AEO & GEO) for businesses in Hyderabad. Get found on Google and AI assistants.";
+
 export const metadata: Metadata = {
-  title: "SEO Services & Digital Marketing Company in India | OPV AI Realty Tech",
-  description:
-    "Grow your online presence with SEO services, technical SEO, local SEO, content marketing, website optimization and digital growth strategies from OPV AI Realty Tech.",
+  // `absolute` bypasses the layout's title.template, so the brand is not added twice
+  title: { absolute: PAGE_TITLE },
+  description: PAGE_DESCRIPTION,
   alternates: {
-    canonical: "/services/seo-digital-growth",
+    canonical: PAGE_URL,
   },
   openGraph: {
-    title: "SEO Services & Digital Growth | OPV AI Realty Tech",
+    title: "SEO Company in Hyderabad | OPV AI Realty Tech",
     description:
-      "Explore search engine optimization, local SEO, content strategy and digital marketing solutions for business growth.",
-    url: "https://www.opvairealtytech.com/services/seo-digital-growth",
+      "Technical SEO, local SEO, content and AI search optimisation to help customers find your business on Google and AI assistants.",
+    url: PAGE_URL,
     siteName: "OPV AI Realty Tech",
+    locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "SEO and digital growth services by OPV AI Realty Tech, Hyderabad",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SEO Company in Hyderabad | OPV AI Realty Tech",
+    description:
+      "Technical SEO, local SEO, content marketing and AI search optimisation (AEO & GEO).",
+    images: [OG_IMAGE],
   },
 };
 
 const services = [
   {
     icon: Search,
-    title: "Search Engine Optimization",
+    title: "Search Engine Optimisation",
     description:
-      "Improve your website's search visibility through keyword research, on-page optimization, content improvements and search-focused website structure.",
+      "Keyword research, on-page optimisation and content improvements that help your service pages rank for searches your customers actually make.",
   },
   {
     icon: Gauge,
     title: "Technical SEO",
     description:
-      "Review website indexing, crawlability, page performance, mobile usability, structured data and technical issues that affect search accessibility.",
+      "Fix crawl and indexing issues, broken links, slow pages, mobile problems, duplicate titles and missing structured data.",
   },
   {
     icon: MapPin,
-    title: "Local SEO",
+    title: "Local SEO & Google Business Profile",
     description:
-      "Improve local search presence through location-focused website content, business profile optimization and relevant local search signals.",
+      "Set up and optimise your Google Business Profile, local citations and location pages to appear in Google Maps and \"near me\" searches.",
+  },
+  {
+    icon: Bot,
+    title: "AEO & GEO (AI Search Optimisation)",
+    description:
+      "Structure your content, FAQs and schema so ChatGPT, Gemini, Perplexity and Google AI Overviews can understand and cite your business.",
   },
   {
     icon: FileText,
     title: "Content Marketing",
     description:
-      "Plan useful website content, service pages, landing pages and blog articles around customer questions and relevant search intent.",
+      "Service pages, landing pages and blog articles written around real customer questions, with clear answers and expert detail.",
   },
   {
     icon: Link2,
     title: "On-Page SEO",
     description:
-      "Optimize page titles, meta descriptions, headings, internal links, image descriptions and page content for better search understanding.",
+      "Optimised titles, meta descriptions, headings, internal links, image alt text and page copy for every important page.",
+  },
+  {
+    icon: MousePointerClick,
+    title: "Conversion Optimisation",
+    description:
+      "Clearer calls to action, faster pages and simpler enquiry forms so more visitors become leads.",
   },
   {
     icon: Megaphone,
     title: "Digital Marketing Strategy",
     description:
-      "Plan digital marketing activities across relevant online channels to support brand visibility, audience engagement and business enquiries.",
+      "A joined-up plan across search, social and paid channels, focused on qualified enquiries rather than vanity metrics.",
   },
 ];
 
 const seoActivities = [
   "Keyword research and search intent analysis",
   "Competitor website analysis",
-  "SEO-friendly website architecture",
-  "Technical SEO audits",
-  "Page title and meta description optimization",
-  "Heading structure and content optimization",
+  "SEO-friendly site architecture",
+  "Full technical SEO audit",
+  "Title and meta description optimisation",
+  "Heading structure and content optimisation",
   "Internal linking strategy",
-  "Image optimization and alt text",
-  "XML sitemap and robots.txt review",
-  "Schema markup implementation",
-  "Local SEO optimization",
-  "Search performance monitoring",
+  "Image optimisation and alt text",
+  "XML sitemap and robots.txt setup",
+  "Schema markup (Organization, Service, FAQ)",
+  "Google Search Console and Analytics setup",
+  "Core Web Vitals and page speed fixes",
+  "Google Business Profile optimisation",
+  "Monthly ranking and traffic reports",
 ];
 
-const growthChannels = [
+const comparison = [
   {
-    title: "Organic Search",
-    description:
-      "Build long-term search visibility through technical improvements, useful content and relevant keyword targeting.",
+    label: "Where results appear",
+    seo: "Google and Bing search results",
+    aeo: "Featured snippets, voice and \"People also ask\"",
+    geo: "ChatGPT, Gemini, Perplexity, AI Overviews",
   },
   {
-    title: "Content Strategy",
-    description:
-      "Create educational and service-focused content that addresses customer questions and supports their decision-making.",
+    label: "Main goal",
+    seo: "Rank pages and earn clicks",
+    aeo: "Be the direct answer",
+    geo: "Be cited or recommended by AI",
   },
   {
-    title: "Local Search",
-    description:
-      "Improve visibility for location-based searches and help potential customers discover relevant business information.",
+    label: "Key tactics",
+    seo: "Keywords, technical fixes, links",
+    aeo: "Clear Q&A, FAQs, schema",
+    geo: "Expert content, brand mentions, consistent facts",
+  },
+];
+
+const industries = [
+  {
+    title: "Real Estate SEO",
+    text: "Location pages for areas like Madhapur, Gachibowli and Kokapet, project pages, property content and local search.",
   },
   {
-    title: "Conversion Optimization",
-    description:
-      "Review landing pages, calls to action, enquiry forms and user journeys to make it easier for visitors to take action.",
+    title: "Technology & SaaS",
+    text: "Service pages, comparison content and technical articles that reach business buyers.",
   },
+  {
+    title: "Healthcare & Clinics",
+    text: "Local SEO, doctor and service pages, and Google Business Profile reviews.",
+  },
+  {
+    title: "Education",
+    text: "Course pages, admission content and local visibility for institutes and schools.",
+  },
+  {
+    title: "Professional Services",
+    text: "Expertise-led content and local presence for consultants, firms and agencies.",
+  },
+  {
+    title: "Startups & SMEs",
+    text: "Strong SEO foundations from launch, with content that grows with the business.",
+  },
+];
+
+const tools = [
+  "Google Search Console",
+  "Google Analytics 4",
+  "Google Business Profile",
+  "PageSpeed Insights",
+  "Ahrefs / Semrush",
+  "Screaming Frog",
+  "Schema.org markup",
+  "Rich Results Test",
 ];
 
 const benefits = [
-  "Improve website search visibility",
-  "Build relevant organic traffic opportunities",
-  "Reach audiences searching for your services",
-  "Improve website content structure",
-  "Strengthen local search presence",
-  "Create better website user journeys",
-  "Support qualified enquiry generation",
-  "Measure performance using analytics",
+  "More visibility for high-intent searches",
+  "Steady organic traffic without ad spend",
+  "Appear in Google Maps and local results",
+  "Get mentioned in AI assistant answers",
+  "Faster, healthier website",
+  "Clearer, better-structured content",
+  "More qualified enquiries",
+  "Transparent monthly reporting",
 ];
 
 const process = [
   {
     number: "01",
-    title: "Website & SEO Audit",
+    title: "SEO Audit",
     description:
-      "Review website structure, indexing, technical performance, existing content and current search visibility.",
+      "We review your website's technical health, content, rankings, competitors and Google Business Profile.",
   },
   {
     number: "02",
-    title: "Keyword & Growth Strategy",
+    title: "Keyword & Content Strategy",
     description:
-      "Identify relevant search terms, customer intent, content opportunities and priority pages.",
+      "We pick the keywords and questions that bring buyers, and plan the pages and content to target them.",
   },
   {
     number: "03",
-    title: "Optimization & Implementation",
+    title: "Optimisation & Content",
     description:
-      "Improve technical SEO, page content, internal linking, local search elements and conversion paths.",
+      "We fix technical issues, optimise existing pages, add schema and publish new content.",
   },
   {
     number: "04",
-    title: "Monitoring & Improvement",
+    title: "Reporting & Growth",
     description:
-      "Review search performance, website analytics and enquiry activity to identify further opportunities.",
+      "We track rankings, traffic and enquiries every month and keep improving what works.",
   },
 ];
 
@@ -154,61 +230,132 @@ const faqs = [
   {
     question: "What SEO services does OPV AI Realty Tech provide?",
     answer:
-      "OPV's SEO and digital growth service areas include search engine optimization, technical SEO, local SEO, on-page optimization, content strategy, website optimization and digital marketing planning.",
+      "We provide technical SEO, on-page SEO, local SEO and Google Business Profile optimisation, content marketing, AI search optimisation (AEO and GEO), conversion optimisation and digital marketing strategy for businesses in Hyderabad and across India.",
   },
   {
     question: "What is technical SEO?",
     answer:
-      "Technical SEO focuses on website elements such as crawlability, indexing, site architecture, page performance, mobile usability, sitemaps and structured data.",
+      "Technical SEO fixes the parts of a website that affect how search engines crawl and index it, such as site structure, page speed, mobile usability, broken links, sitemaps, robots.txt and structured data.",
   },
   {
     question: "What is local SEO?",
     answer:
-      "Local SEO helps businesses improve their visibility for location-related searches through relevant website content, business profile information and local search optimization.",
+      "Local SEO helps your business appear in location-based searches and Google Maps. It includes Google Business Profile optimisation, consistent business details across directories, local landing pages and customer reviews.",
+  },
+  {
+    question: "What are AEO and GEO?",
+    answer:
+      "AEO (Answer Engine Optimisation) structures content so it appears as direct answers in featured snippets and voice search. GEO (Generative Engine Optimisation) helps AI assistants like ChatGPT, Gemini and Perplexity understand and cite your business.",
   },
   {
     question: "How long does SEO take to show results?",
     answer:
-      "SEO timelines vary based on website condition, competition, content quality, industry and implementation. Search improvements generally require consistent work and monitoring over time.",
+      "Technical fixes can show impact within weeks, but meaningful ranking and traffic growth usually takes 3 to 6 months, depending on competition, your website's starting point and how consistently content is published.",
   },
   {
     question: "Do you provide SEO for real estate websites?",
     answer:
-      "SEO strategies can be developed for real estate websites, including location-focused landing pages, property-related content, technical optimization and relevant internal linking.",
+      "Yes. Real estate is our specialist domain. We build location pages, project and property content, local SEO and internal linking for developers, agents and property portals.",
   },
   {
-    question: "Can SEO improve website enquiries?",
+    question: "Can SEO increase my website enquiries?",
     answer:
-      "SEO can attract relevant search visitors, while conversion improvements such as clear service information, contact options and enquiry forms can help visitors take the next step. Results depend on multiple factors.",
+      "Yes, when SEO brings the right visitors and the website makes it easy to contact you. We combine ranking work with conversion improvements such as clear calls to action and simple enquiry forms.",
   },
   {
     question: "Do you guarantee first-page Google rankings?",
     answer:
-      "No responsible SEO provider can guarantee a specific Google ranking. SEO work focuses on improving website quality, relevance, technical accessibility and search performance.",
+      "No. No responsible SEO provider can guarantee a specific Google ranking. We focus on measurable improvements in technical health, visibility, traffic and enquiries, and report on them every month.",
+  },
+  {
+    question: "Do you work with businesses outside Hyderabad?",
+    answer:
+      "Yes. Our office is in Madhapur, Hyderabad, and we work with businesses across India and abroad through remote collaboration.",
   },
 ];
 
 export default function SEODigitalGrowthPage() {
-  const faqSchema = {
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${PAGE_URL}#service`,
+        name: "SEO & Digital Growth Services",
+        serviceType: "Search Engine Optimization",
+        description: PAGE_DESCRIPTION,
+        url: PAGE_URL,
+        provider: {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: "OPV AI Realty Tech Private Limited",
+          url: SITE_URL,
+          telephone: "+91-9963513939",
+          email: "info@opvairealtytech.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress:
+              "#101, Road No: 10, Jaya Kesav Avenue, Kakatiya Hills, Madhapur",
+            addressLocality: "Hyderabad",
+            addressRegion: "Telangana",
+            addressCountry: "IN",
+          },
+        },
+        areaServed: [
+          { "@type": "City", name: "Hyderabad" },
+          { "@type": "Country", name: "India" },
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "SEO & Digital Growth Services",
+          itemListElement: services.map((item) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: item.title,
+              description: item.description,
+            },
+          })),
+        },
       },
-    })),
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: `${SITE_URL}/services`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "SEO & Digital Growth",
+            item: PAGE_URL,
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
     <main className="bg-white">
-      {/* FAQ STRUCTURED DATA */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
 
@@ -221,23 +368,46 @@ export default function SEODigitalGrowthPage() {
         </div>
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+          {/* Visible breadcrumb (matches BreadcrumbList schema) */}
+          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/60">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <Link href="/" className="hover:text-[#F4D545]">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/services" className="hover:text-[#F4D545]">
+                  Services
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-white/85">
+                SEO & Digital Growth
+              </li>
+            </ol>
+          </nav>
+
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#E7B30F]/40 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#F4D545]">
-            <TrendingUp className="h-4 w-4" />
-            SEO & Digital Growth
+            <TrendingUp className="h-4 w-4" aria-hidden="true" />
+            SEO, AEO & Digital Growth
           </div>
 
+          {/* {" "} keeps a real space between the two lines for crawlers and screen readers */}
           <h1 className="max-w-4xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-            SEO Services & Digital Marketing
+            SEO Company in Hyderabad{" "}
             <span className="block text-[#F4D545]">
-              for Sustainable Online Growth
+              Get Found on Google and AI Search
             </span>
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
-            OPV AI Realty Tech helps businesses strengthen
-            their online presence through search engine
-            optimization, technical SEO, content strategy,
-            local SEO and digital growth solutions.
+            OPV AI Realty Tech helps businesses in Hyderabad and across
+            India rank higher on Google, appear in Google Maps and get
+            recommended by AI assistants like ChatGPT and Gemini, with
+            technical SEO, local SEO, content and AI search
+            optimisation.
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -245,7 +415,7 @@ export default function SEODigitalGrowthPage() {
               href="/contact"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
             >
-              Grow Your Online Presence
+              Get a Free SEO Audit
               <ArrowRight className="h-5 w-5" />
             </Link>
 
@@ -256,6 +426,11 @@ export default function SEODigitalGrowthPage() {
               Explore All Services
             </Link>
           </div>
+
+          <p className="mt-8 inline-flex items-center gap-2 text-sm text-white/60">
+            <MapPin className="h-4 w-4 text-[#F4D545]" aria-hidden="true" />
+            Madhapur, Hyderabad · Serving clients across India
+          </p>
         </div>
       </section>
 
@@ -268,62 +443,61 @@ export default function SEODigitalGrowthPage() {
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold leading-tight text-[#033505] sm:text-4xl">
-              Help the Right Customers Discover Your Business Online
+              Help the Right Customers Find Your Business Online
             </h2>
 
             <p className="mt-6 leading-8 text-slate-600">
-              Your website is an important part of your
-              digital presence. However, simply publishing
-              a website does not ensure that potential
-              customers will discover it through search engines.
+              A website alone doesn't bring customers. If your pages
+              don't appear when people search for your services, those
+              enquiries go to competitors.
             </p>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Search engine optimization combines technical
-              improvements, useful content, keyword targeting
-              and website structure to help search engines
-              understand your pages and connect them with
-              relevant searches.
+              Search is also changing. Buyers now ask ChatGPT, Gemini
+              and Google AI Overviews for recommendations. To be found,
+              your website needs strong technical SEO, clear and
+              expert content, and consistent business information
+              across the web.
             </p>
 
             <p className="mt-5 leading-8 text-slate-600">
-              OPV AI Realty Tech approaches digital growth
-              by considering your industry, target audience,
-              website condition and business objectives.
+              As an SEO company in Hyderabad, OPV AI Realty Tech
+              combines traditional SEO with AEO and GEO, so your
+              business shows up in classic search results and in AI
+              answers.
             </p>
           </div>
 
           <div className="rounded-3xl bg-[#033505] p-8 text-white sm:p-10">
-            <TrendingUp className="h-12 w-12 text-[#F4D545]" />
+            <TrendingUp className="h-12 w-12 text-[#F4D545]" aria-hidden="true" />
 
             <h3 className="mt-7 text-2xl font-extrabold sm:text-3xl">
-              Better Visibility.
+              Better Visibility.{" "}
               <span className="block text-[#F4D545]">
-                Stronger Digital Presence.
+                More Qualified Enquiries.
               </span>
             </h3>
 
             <p className="mt-5 leading-8 text-white/70">
-              Build a digital growth strategy around
-              relevant search opportunities, useful content
-              and a website experience designed for visitors.
+              A growth strategy built around the searches that bring
+              real buyers, not just traffic.
             </p>
 
-            <div className="mt-8 space-y-4">
+            <ul className="mt-8 space-y-4">
               {[
-                "Search engine optimization",
                 "Technical and on-page SEO",
-                "Content and local SEO",
-                "Website conversion improvements",
+                "Local SEO and Google Business Profile",
+                "AEO and GEO for AI search",
+                "Content and conversion improvements",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
+                <li key={item} className="flex items-center gap-3">
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-[#F4D545]" />
                   <span className="text-sm font-medium text-white/85">
                     {item}
                   </span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </section>
@@ -337,17 +511,16 @@ export default function SEODigitalGrowthPage() {
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
-              Complete SEO & Digital Marketing Solutions
+              SEO & Digital Marketing Services
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Improve your website's search accessibility,
-              content relevance and digital customer journey
-              through a structured optimization approach.
+              Everything your website needs to rank, get cited by AI and
+              turn visitors into enquiries.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((item) => {
               const Icon = item.icon;
 
@@ -357,7 +530,7 @@ export default function SEODigitalGrowthPage() {
                   className="rounded-2xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#E7B30F]/60 hover:shadow-xl"
                 >
                   <div className="inline-flex rounded-xl bg-[#033505]/5 p-3">
-                    <Icon className="h-7 w-7 text-[#265921]" />
+                    <Icon className="h-7 w-7 text-[#265921]" aria-hidden="true" />
                   </div>
 
                   <h3 className="mt-6 text-xl font-bold text-[#033505]">
@@ -379,24 +552,42 @@ export default function SEODigitalGrowthPage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
           <div>
             <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
-              SEO Optimization Checklist
+              SEO Checklist
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold leading-tight text-[#033505] sm:text-4xl">
-              Build a Strong Technical and Content SEO Foundation
+              What's Included in Our SEO Services
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Effective SEO requires attention to both
-              website infrastructure and the content users
-              find on your pages. The work should be prioritized
-              according to your website's actual needs.
+              Every engagement starts with an audit, then we prioritise
+              the fixes and content that will move rankings and
+              enquiries fastest for your website.
             </p>
+
+            <div className="mt-8 rounded-2xl border border-slate-200 bg-[#F8FAF7] p-6">
+              <div className="flex items-center gap-3">
+                <Layers className="h-5 w-5 text-[#B88A00]" aria-hidden="true" />
+                <h3 className="text-lg font-bold text-[#033505]">
+                  Tools We Use
+                </h3>
+              </div>
+              <ul className="mt-4 flex flex-wrap gap-2">
+                {tools.map((tool) => (
+                  <li
+                    key={tool}
+                    className="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-semibold text-[#033505]"
+                  >
+                    {tool}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <ul className="grid gap-4 sm:grid-cols-2">
             {seoActivities.map((item) => (
-              <div
+              <li
                 key={item}
                 className="flex items-start gap-3 rounded-xl border border-slate-200 bg-[#F8FAF7] p-4"
               >
@@ -404,46 +595,68 @@ export default function SEODigitalGrowthPage() {
                 <span className="text-sm font-semibold leading-6 text-[#033505]">
                   {item}
                 </span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* DIGITAL GROWTH */}
-      <section className="bg-[#033505] py-20 text-white sm:py-24">
-        <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-[#F4D545]">
-              Digital Growth Strategy
+      {/* SEO VS AEO VS GEO */}
+      <section className="bg-[#F8FAF7] py-20 sm:py-24">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8">
+          <div className="mx-auto mb-10 max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#B88A00]">
+              <Scale className="h-4 w-4" aria-hidden="true" />
+              Comparison
             </span>
 
-            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
-              Go Beyond Website Rankings
+            <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
+              SEO vs AEO vs GEO: What's the Difference?
             </h2>
 
-            <p className="mt-5 leading-8 text-white/70">
-              Digital growth involves attracting relevant
-              visitors, communicating your value and helping
-              potential customers take meaningful action.
+            <p className="mt-5 leading-8 text-slate-600">
+              Customers now search in three ways. A complete strategy
+              covers all three.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {growthChannels.map((item) => (
-              <article
-                key={item.title}
-                className="rounded-2xl border border-white/15 bg-white/5 p-6"
-              >
-                <h3 className="text-xl font-bold text-[#F4D545]">
-                  {item.title}
-                </h3>
-
-                <p className="mt-4 text-sm leading-7 text-white/75">
-                  {item.description}
-                </p>
-              </article>
-            ))}
+          <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white">
+            <table className="w-full min-w-[640px] text-left text-sm">
+              <thead className="bg-[#033505] text-white">
+                <tr>
+                  <th scope="col" className="px-5 py-4 font-bold">
+                    Factor
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-bold text-[#F4D545]">
+                    SEO
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-bold text-[#F4D545]">
+                    AEO
+                  </th>
+                  <th scope="col" className="px-5 py-4 font-bold text-[#F4D545]">
+                    GEO
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparison.map((row, index) => (
+                  <tr
+                    key={row.label}
+                    className={index % 2 === 0 ? "bg-white" : "bg-[#F8FAF7]"}
+                  >
+                    <th
+                      scope="row"
+                      className="px-5 py-4 font-semibold text-[#033505]"
+                    >
+                      {row.label}
+                    </th>
+                    <td className="px-5 py-4 text-slate-700">{row.seo}</td>
+                    <td className="px-5 py-4 text-slate-700">{row.aeo}</td>
+                    <td className="px-5 py-4 text-slate-700">{row.geo}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
       </section>
@@ -457,41 +670,27 @@ export default function SEODigitalGrowthPage() {
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
-              Digital Growth Strategies for Different Industries
+              SEO Strategies for Different Industries
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Search strategies should reflect the language,
-              needs and search behaviour of each target audience.
+              Each industry searches differently. We build content and
+              keywords around how your customers actually look for you.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                title: "Real Estate",
-                text: "Location-focused landing pages, property content and local search optimization.",
-              },
-              {
-                title: "Technology",
-                text: "Service pages, technical content and search strategies for technology businesses.",
-              },
-              {
-                title: "Professional Services",
-                text: "Expertise-focused content and local visibility for professional firms.",
-              },
-              {
-                title: "Startups & SMEs",
-                text: "Search foundations and content strategies aligned with business growth goals.",
-              },
-            ].map((item) => (
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {industries.map((item) => (
               <article
                 key={item.title}
-                className="rounded-2xl border border-slate-200 p-6 transition hover:border-[#E7B30F] hover:shadow-lg"
+                className="rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-[#E7B30F] hover:shadow-lg"
               >
-                <h3 className="text-lg font-bold text-[#033505]">
-                  {item.title}
-                </h3>
+                <div className="flex items-center gap-3">
+                  <Building2 className="h-5 w-5 text-[#B88A00]" aria-hidden="true" />
+                  <h3 className="text-lg font-bold text-[#033505]">
+                    {item.title}
+                  </h3>
+                </div>
 
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   {item.text}
@@ -499,42 +698,57 @@ export default function SEODigitalGrowthPage() {
               </article>
             ))}
           </div>
+
+          <p className="mt-8 text-center text-sm text-slate-600">
+            Marketing property projects?{" "}
+            <Link
+              href="/industries/real-estate"
+              className="font-semibold text-[#265921] underline-offset-4 hover:text-[#B88A00] hover:underline"
+            >
+              See our real estate technology solutions
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
       {/* BENEFITS */}
-      <section className="bg-[#F8FAF7] py-20 sm:py-24">
+      <section className="bg-[#033505] py-20 text-white sm:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
           <div>
-            <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
+            <span className="text-sm font-bold uppercase tracking-widest text-[#F4D545]">
               Business Benefits
             </span>
 
-            <h2 className="mt-4 text-3xl font-extrabold leading-tight text-[#033505] sm:text-4xl">
-              Create More Opportunities Through Digital Visibility
+            <h2 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">
+              Turn Search Visibility into Business Growth
             </h2>
 
-            <p className="mt-5 leading-8 text-slate-600">
-              A consistent digital growth strategy can help
-              businesses build their online presence and
-              create more relevant opportunities to connect
-              with potential customers.
+            <p className="mt-5 leading-8 text-white/70">
+              SEO keeps bringing visitors long after the work is done,
+              which makes it one of the most cost-effective ways to
+              grow enquiries.
             </p>
+
+            <div className="mt-6 inline-flex items-center gap-2 text-sm text-white/60">
+              <BarChart3 className="h-4 w-4 text-[#F4D545]" aria-hidden="true" />
+              Monthly reports on rankings, traffic and enquiries
+            </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <ul className="grid gap-4 sm:grid-cols-2">
             {benefits.map((benefit) => (
-              <div
+              <li
                 key={benefit}
-                className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5"
+                className="flex items-start gap-3 rounded-xl border border-white/15 bg-white/5 p-5"
               >
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#B88A00]" />
-                <span className="text-sm font-semibold leading-6 text-[#033505]">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#F4D545]" />
+                <span className="text-sm font-semibold leading-6 text-white/90">
                   {benefit}
                 </span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -547,15 +761,15 @@ export default function SEODigitalGrowthPage() {
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
-              Our SEO & Digital Growth Process
+              Our SEO Process
             </h2>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((step) => (
-              <article
+              <li
                 key={step.number}
-                className="rounded-2xl border border-slate-200 p-6"
+                className="rounded-2xl border border-slate-200 bg-white p-6"
               >
                 <span className="text-3xl font-black text-[#B88A00]">
                   {step.number}
@@ -568,9 +782,9 @@ export default function SEODigitalGrowthPage() {
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   {step.description}
                 </p>
-              </article>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
@@ -607,41 +821,55 @@ export default function SEODigitalGrowthPage() {
       </section>
 
       {/* RELATED SERVICES */}
-      <section className="py-12">
+      <section className="border-t border-slate-100 py-12">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <h2 className="text-xl font-extrabold text-[#033505]">
             Explore Related Services
           </h2>
 
-          <div className="mt-5 flex flex-wrap gap-5">
-            <Link
-              href="/services/website-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              Website Development →
-            </Link>
-
-            <Link
-              href="/services/ai-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              AI Development →
-            </Link>
-
-            <Link
-              href="/services/business-automation"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              Business Automation →
-            </Link>
-
-            <Link
-              href="/services/data-analytics"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              Data Analytics →
-            </Link>
-          </div>
+          {/* Make sure each of these routes exists before deploying */}
+          <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+            <li>
+              <Link
+                href="/services/website-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Website Development →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/ai-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                AI Development & AI Agents →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/business-automation"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Business Process Automation →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/crm-erp-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                CRM & Lead Management →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/data-engineering"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Data Analytics & BI →
+              </Link>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -649,26 +877,35 @@ export default function SEODigitalGrowthPage() {
       <section className="bg-[#033505] px-5 py-20 text-center text-white sm:px-8">
         <div className="mx-auto max-w-3xl">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E7B30F]/15">
-            <Lightbulb className="h-7 w-7 text-[#F4D545]" />
+            <Lightbulb className="h-7 w-7 text-[#F4D545]" aria-hidden="true" />
           </div>
 
           <h2 className="mt-6 text-3xl font-extrabold sm:text-4xl">
-            Ready to Strengthen Your Digital Presence?
+            Want More Customers to Find You Online?
           </h2>
 
           <p className="mt-5 leading-8 text-white/70">
-            Share your website, target audience and business
-            goals. Let's discuss an SEO and digital growth
-            strategy for your organization.
+            Share your website and target customers. We'll run a free
+            SEO audit and show you the fixes that will make the
+            biggest difference.
           </p>
 
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
-          >
-            Discuss Your Growth Strategy
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
+            >
+              Get Your Free SEO Audit
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+
+            <a
+              href="tel:+919963513939"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-7 py-4 font-bold text-white transition hover:border-[#F4D545] hover:text-[#F4D545]"
+            >
+              Call +91 99635 13939
+            </a>
+          </div>
         </div>
       </section>
     </main>
