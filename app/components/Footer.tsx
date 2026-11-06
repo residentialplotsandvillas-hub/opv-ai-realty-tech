@@ -1,7 +1,7 @@
 
 import Link from "next/link";
+import Image from "next/image";
 import {
-  Globe2,
   ArrowUpRight,
   Mail,
   Phone,
@@ -151,6 +151,7 @@ function FooterLink({
         className="group flex items-start gap-2 text-sm text-slate-400 transition hover:text-emerald-300"
       >
         <ChevronRight className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-300/50 transition group-hover:translate-x-1 group-hover:text-emerald-300" />
+
         {label}
       </Link>
     </li>
@@ -164,6 +165,7 @@ function FooterLink({
 export default function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-[#06111f] text-white">
+
       {/* BACKGROUND DECORATION */}
 
       <div
@@ -177,10 +179,12 @@ export default function Footer() {
       />
 
       <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-10">
+
         {/* TOP CTA SECTION */}
 
         <div className="border-b border-white/10 py-14 sm:py-16 lg:py-20">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
+
             <div className="max-w-2xl">
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/[0.07] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-300">
                 <Sparkles className="h-3.5 w-3.5" />
@@ -207,39 +211,38 @@ export default function Footer() {
                 className="group inline-flex items-center gap-3 rounded-full bg-emerald-300 px-7 py-4 text-sm font-bold text-[#06111f] shadow-[0_8px_35px_rgba(110,231,183,0.14)] transition duration-300 hover:-translate-y-1 hover:bg-emerald-200"
               >
                 Let's Build With OPV
+
                 <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
             </div>
+
           </div>
         </div>
 
         {/* MAIN FOOTER GRID */}
 
         <div className="grid grid-cols-1 gap-12 py-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 lg:py-16">
+
           {/* BRAND COLUMN */}
 
           <div className="lg:col-span-4">
+
+            {/* OPV LOGO */}
+
             <Link
               href="/"
               aria-label="OPV AI Realty Tech homepage"
-              className="inline-flex items-center gap-3"
+              className="group inline-flex items-center"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-300/30 bg-gradient-to-br from-emerald-300/20 to-amber-300/10">
-                <Globe2
-                  className="h-7 w-7 text-emerald-300"
-                  strokeWidth={1.5}
-                />
-              </div>
-
-              <div className="leading-tight">
-                <div className="text-xl font-extrabold tracking-[0.12em]">
-                  OPV <span className="text-emerald-300">AI</span>
-                </div>
-
-                <div className="mt-1 text-[10px] font-bold tracking-[0.22em] text-slate-400">
-                  REALTY TECH
-                </div>
-              </div>
+              <Image
+                src="/images/logo2.png"
+                alt="OPV AI Realty Tech"
+                width={220}
+                height={90}
+                priority
+                sizes="(max-width: 640px) 180px, 220px"
+                className="h-16 w-auto max-w-[220px] object-contain object-left transition-transform duration-300 group-hover:scale-105 sm:h-[72px]"
+              />
             </Link>
 
             <p className="mt-6 max-w-sm text-sm font-semibold leading-6 text-white">
@@ -287,10 +290,13 @@ export default function Footer() {
                 className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/[0.07] px-4 py-2.5 text-sm font-semibold text-emerald-300 transition hover:bg-emerald-300 hover:text-[#06111f]"
               >
                 <MessageCircle className="h-4 w-4" />
+
                 WhatsApp Us
+
                 <ArrowUpRight className="h-4 w-4" />
               </a>
             </div>
+
           </div>
 
           {/* SERVICES */}
@@ -376,6 +382,7 @@ export default function Footer() {
                 className="mt-5 flex items-center gap-3 text-sm text-slate-400 transition hover:text-emerald-300"
               >
                 <Phone className="h-4 w-4 shrink-0 text-emerald-300" />
+
                 {DISPLAY_PHONE}
               </a>
 
@@ -386,6 +393,7 @@ export default function Footer() {
                 className="mt-4 flex items-center gap-3 break-all text-sm text-slate-400 transition hover:text-emerald-300"
               >
                 <Mail className="h-4 w-4 shrink-0 text-emerald-300" />
+
                 {EMAIL_ADDRESS}
               </a>
 
@@ -416,6 +424,7 @@ export default function Footer() {
                     className="mt-2 inline-flex items-center gap-1.5 text-xs font-bold text-emerald-300 transition hover:text-emerald-200"
                   >
                     Get Directions
+
                     <ArrowUpRight className="h-3.5 w-3.5" />
                   </a>
                 </div>
@@ -428,16 +437,19 @@ export default function Footer() {
                 className="mt-6 inline-flex items-center gap-2 rounded-lg border border-white/10 px-4 py-3 text-xs font-bold text-white transition hover:border-emerald-300/40 hover:text-emerald-300"
               >
                 Contact Our Team
+
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
+
         </div>
 
         {/* OPV ECOSYSTEM STRIP */}
 
         <div className="border-y border-white/10 py-6">
           <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-center">
+
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.17em] text-slate-500">
                 Part of the OPV Ecosystem
@@ -461,14 +473,17 @@ export default function Footer() {
 
             <div className="inline-flex items-center gap-2 text-xs text-slate-500">
               <ShieldCheck className="h-4 w-4 text-emerald-300" />
+
               Building Technology for Businesses Across Industries
             </div>
+
           </div>
         </div>
 
         {/* COPYRIGHT BAR */}
 
         <div className="flex flex-col gap-5 py-7 sm:flex-row sm:items-center sm:justify-between">
+
           <div>
             <p className="text-xs leading-6 text-slate-400">
               © {COPYRIGHT_YEAR}{" "}
@@ -505,7 +520,9 @@ export default function Footer() {
               Contact
             </Link>
           </div>
+
         </div>
+
       </div>
     </footer>
   );

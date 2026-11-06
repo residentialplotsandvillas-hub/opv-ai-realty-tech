@@ -27,6 +27,8 @@ import {
   Lightbulb,
 } from "lucide-react";
 
+import Image from "next/image";
+
 type DropdownName = "solutions" | "industries" | "products" | null;
 
 /* SOLUTION PAGE LINKS */
@@ -224,32 +226,25 @@ export default function Navbar() {
       <div className="mx-auto flex h-[78px] max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-10">
 
         {/* LOGO / BRAND */}
-        <Link
-          href="/"
-          onClick={closeAll}
-          aria-label="OPV AI Realty Tech Homepage"
-          className="group flex shrink-0 items-center gap-3"
-        >
-          <div className="relative flex h-12 w-12 items-center justify-center rounded-2xl border border-emerald-300/30 bg-gradient-to-br from-emerald-300/20 to-amber-300/10 shadow-[0_0_25px_rgba(52,211,153,0.12)]">
-            <Globe2
-              className="h-7 w-7 text-emerald-300 transition-transform duration-500 group-hover:rotate-12"
-              strokeWidth={1.5}
-            />
-
-            <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full border-2 border-[#06111f] bg-amber-300" />
-          </div>
-
-          <div className="leading-tight">
-            <div className="whitespace-nowrap text-[18px] font-extrabold tracking-[0.12em] sm:text-[20px]">
-              OPV{" "}
-              <span className="text-emerald-300">AI</span>
-            </div>
-
-            <div className="mt-1 whitespace-nowrap text-[9px] font-bold tracking-[0.22em] text-slate-400 sm:text-[10px]">
-              REALTY TECH
-            </div>
-          </div>
-        </Link>
+       {/* LOGO / BRAND */}
+<Link
+  href="/"
+  onClick={closeAll}
+  aria-label="OPV AI Realty Tech Homepage"
+  className="group flex shrink-0 items-center"
+>
+  <div className="relative flex h-14 w-36 shrink-0 items-center justify-start sm:h-16 sm:w-44">
+    <Image
+      src="/images/logo2.png"
+      alt="OPV AI Realty Tech"
+      width={220}
+      height={90}
+      priority
+      sizes="(max-width: 640px) 144px, 176px"
+      className="h-full w-full object-contain object-left transition-transform duration-300 group-hover:scale-105"
+    />
+  </div>
+</Link>
 
         {/* DESKTOP NAVIGATION */}
         <nav
