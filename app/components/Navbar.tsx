@@ -326,7 +326,7 @@ export default function Navbar() {
 
         {/* DESKTOP CTA */}
         <Link
-          href="/#contact"
+          href="/contact"
           onClick={closeAll}
           className="group hidden items-center gap-2 rounded-full bg-emerald-300 px-5 py-3 text-[13px] font-bold text-[#06111f] shadow-lg shadow-emerald-400/10 transition duration-300 hover:-translate-y-0.5 hover:bg-emerald-200 lg:inline-flex"
         >
@@ -629,7 +629,7 @@ export default function Navbar() {
 
             {/* MOBILE CTA */}
             <Link
-              href="/#contact"
+              href="/contact"
               onClick={closeAll}
               className="mt-6 flex items-center justify-center gap-2 rounded-full bg-emerald-300 px-5 py-4 text-sm font-bold text-[#06111f] transition hover:bg-emerald-200"
             >
