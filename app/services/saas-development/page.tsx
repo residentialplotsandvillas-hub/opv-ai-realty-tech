@@ -1,99 +1,182 @@
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
   Cloud,
-  Layers3,
-  Users,
-  CreditCard,
+  Server,
   Database,
   ShieldCheck,
   Workflow,
-  Code2,
-  BarChart3,
-  CheckCircle2,
+  Layers3,
+  Gauge,
   RefreshCw,
+  CheckCircle2,
   Lightbulb,
-  Settings,
+  Code2,
+  MapPin,
+  Building2,
+  Rocket,
 } from "lucide-react";
 
+const SITE_URL = "https://www.opvairealtytech.com";
+const PAGE_PATH = "/services/saas-cloud-solutions";
+const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
+const OG_IMAGE = `${SITE_URL}/images/opv-og-image.jpg`;
+
+const PAGE_TITLE =
+  "Cloud Application Development & DevOps in Hyderabad | OPV AI Realty Tech";
+const PAGE_DESCRIPTION =
+  "Cloud application development, cloud migration, DevOps, CI/CD and API integration with Next.js and Node.js, for businesses in Hyderabad and across India.";
+
 export const metadata: Metadata = {
-  title: "SaaS Development Company in India | Custom SaaS Solutions",
-  description:
-    "OPV AI Realty Tech offers custom SaaS development services in India, including SaaS product development, multi-tenant applications, subscription systems, dashboards and cloud-based software.",
+  // `absolute` bypasses the layout's title.template, so the brand is not added twice
+  title: { absolute: PAGE_TITLE },
+  description: PAGE_DESCRIPTION,
   alternates: {
-    canonical: "/services/saas-development",
+    canonical: PAGE_URL,
   },
   openGraph: {
-    title: "SaaS Development Services | OPV AI Realty Tech",
+    title: "Cloud Application Development in Hyderabad | OPV AI Realty Tech",
     description:
-      "Build custom SaaS platforms, subscription-based software and cloud applications with OPV AI Realty Tech.",
-    url: "https://www.opvairealtytech.com/services/saas-development",
+      "Cloud apps, cloud migration, DevOps, CI/CD and API integration for growing businesses.",
+    url: PAGE_URL,
     siteName: "OPV AI Realty Tech",
+    locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Cloud application development and DevOps by OPV AI Realty Tech, Hyderabad",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cloud Application Development in Hyderabad | OPV",
+    description:
+      "Cloud apps, migration, DevOps and API integration for growing businesses.",
+    images: [OG_IMAGE],
   },
 };
 
-const services = [
+const solutions = [
   {
     icon: Layers3,
-    title: "Custom SaaS Product Development",
+    title: "SaaS Product Development",
     description:
-      "Build software-as-a-service products around your business idea, target audience, product requirements and planned business model.",
+      "End-to-end development of subscription software products: user accounts, workspaces, billing, admin panels and the core features your customers pay for.",
   },
   {
-    icon: Users,
-    title: "Multi-Tenant SaaS Applications",
+    icon: Rocket,
+    title: "MVP Development",
     description:
-      "Plan applications that support multiple organizations or customers with appropriate account separation, permissions and data access rules.",
+      "Launch a focused first version quickly to test your idea with real users, then expand features based on feedback and traction.",
   },
   {
-    icon: CreditCard,
-    title: "Subscription & Billing Systems",
+    icon: Cloud,
+    title: "Cloud Application Development",
     description:
-      "Integrate subscription plans, payment workflows, billing information and account access according to your product requirements.",
+      "Web applications hosted in the cloud that your teams and customers can use securely from any device, anywhere.",
   },
   {
     icon: Database,
-    title: "SaaS Backend Development",
+    title: "Database Architecture",
     description:
-      "Develop application backends, database structures, APIs and business logic to support your SaaS product.",
+      "Scalable PostgreSQL and MongoDB data models designed for multi-tenant products, fast queries and reliable backups.",
   },
   {
-    icon: BarChart3,
-    title: "Admin Panels & Analytics",
+    icon: Workflow,
+    title: "API & System Integration",
     description:
-      "Build administration dashboards to manage users, review application activity and display relevant business information.",
+      "Connect your product to payment gateways, email, WhatsApp, CRMs and third-party services, and publish APIs for your own customers.",
+  },
+  {
+    icon: Server,
+    title: "Cloud Infrastructure & DevOps",
+    description:
+      "Hosting, Docker containers, CI/CD pipelines, staging and production environments, monitoring and automated deployments.",
   },
   {
     icon: RefreshCw,
-    title: "SaaS Maintenance & Upgrades",
+    title: "Maintenance & Scaling",
     description:
-      "Support application improvements, feature updates, technical maintenance and future product development.",
+      "Bug fixes, performance tuning, security updates and new features as your user base grows.",
+  },
+  {
+    icon: Code2,
+    title: "Legacy App Modernisation",
+    description:
+      "Move older desktop or on-premise software to a modern cloud architecture without losing your data or workflows.",
   },
 ];
 
-const features = [
-  "User registration and authentication",
-  "Organization and account management",
-  "Multi-user access and permissions",
-  "Subscription plan management",
-  "Payment gateway integration",
-  "Admin dashboard development",
-  "Database and API integration",
-  "Reports and analytics",
-  "Email and notification workflows",
-  "Cloud deployment planning",
-  "Application monitoring considerations",
-  "Feature and product enhancements",
+const saasFeatures = [
+  {
+    icon: Layers3,
+    title: "Multi-Tenant Architecture",
+    description:
+      "Each customer gets a separate, secure workspace while you run one codebase.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Subscription Billing",
+    description:
+      "Plans, trials, recurring payments, invoices and upgrades through payment gateways.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Security & Access Control",
+    description:
+      "Secure login, role-based permissions, encrypted data and audit logs.",
+  },
+  {
+    icon: Gauge,
+    title: "Performance & Scalability",
+    description:
+      "Fast page loads and infrastructure that grows with your users.",
+  },
+];
+
+const saasTypes = [
+  {
+    title: "Real Estate SaaS",
+    description:
+      "CRM, lead management, channel partner and project sales platforms for developers and agencies.",
+  },
+  {
+    title: "Business Management SaaS",
+    description:
+      "Tools for HR, inventory, billing, field staff and operations used by many businesses on subscription.",
+  },
+  {
+    title: "Booking & Scheduling SaaS",
+    description:
+      "Appointment, reservation and resource booking platforms for clinics, services and hospitality.",
+  },
+  {
+    title: "Education SaaS",
+    description:
+      "Learning management, student administration and online course platforms.",
+  },
+  {
+    title: "AI-Powered SaaS",
+    description:
+      "Products built around AI assistants, document processing, analytics and automation.",
+  },
+  {
+    title: "Internal Cloud Platforms",
+    description:
+      "Private cloud applications that connect teams, branches and partners on one system.",
+  },
 ];
 
 const technologies = [
   "Next.js",
   "React.js",
-  "TypeScript",
   "Node.js",
+  "TypeScript",
   "Express.js",
   "MongoDB",
   "PostgreSQL",
@@ -105,14 +188,14 @@ const technologies = [
 ];
 
 const benefits = [
-  "Develop a software product around your business idea",
-  "Provide users with online application access",
-  "Organize customers and accounts",
-  "Support recurring subscription models",
-  "Manage features through centralized dashboards",
-  "Connect payment and external services",
-  "Plan for additional users and product features",
-  "Build a foundation for continuous improvements",
+  "Access your software from any device",
+  "Recurring subscription revenue model",
+  "One codebase serving many customers",
+  "Easy integration with third-party services",
+  "Secure, centralised data management",
+  "Automated deployments and updates",
+  "Architecture that scales with demand",
+  "Faster launch with an MVP-first approach",
 ];
 
 const process = [
@@ -120,25 +203,25 @@ const process = [
     number: "01",
     title: "Product Discovery",
     description:
-      "Understand the product concept, target users, business model, essential features and market requirements.",
+      "We define your target users, business model, pricing plans and the core features for the first release.",
   },
   {
     number: "02",
-    title: "Architecture & UI/UX",
+    title: "Architecture & Design",
     description:
-      "Plan the application architecture, user experience, database structure, account management and subscription workflows.",
+      "We plan the multi-tenant structure, database, integrations and UI, and share clickable designs.",
   },
   {
     number: "03",
-    title: "SaaS Development",
+    title: "Development & Integration",
     description:
-      "Develop the frontend, backend, user modules, dashboards, integrations and required product functionality.",
+      "We build the product in short sprints with regular demos, including billing and third-party integrations.",
   },
   {
     number: "04",
-    title: "Testing & Launch Preparation",
+    title: "Launch & Scale",
     description:
-      "Test key user journeys, account access, payment workflows and application functionality before deployment.",
+      "We deploy to the cloud with CI/CD and monitoring, then improve and scale the product after launch.",
   },
 ];
 
@@ -146,61 +229,127 @@ const faqs = [
   {
     question: "What is SaaS development?",
     answer:
-      "SaaS development is the process of building software that users access through the internet, commonly through a web browser or connected application. SaaS products may use subscription-based or other access models.",
+      "SaaS (Software as a Service) development is building software that customers use through the internet on a subscription, instead of installing it. The provider hosts, updates and maintains the application for all users.",
   },
   {
-    question: "Does OPV AI Realty Tech develop custom SaaS products?",
+    question: "What SaaS and cloud services does OPV AI Realty Tech provide?",
     answer:
-      "Custom SaaS product development is a service area offered by OPV AI Realty Tech. The application scope, features and architecture are planned according to the product concept and business requirements.",
+      "We provide SaaS product and MVP development, cloud application development, multi-tenant database architecture, API integration, cloud infrastructure and DevOps, legacy modernisation and ongoing maintenance.",
   },
   {
-    question: "What is a multi-tenant SaaS application?",
+    question: "Can you build a SaaS product from just an idea?",
     answer:
-      "A multi-tenant application supports multiple customers or organizations within a shared application environment, with appropriate separation of their data and access permissions.",
+      "Yes. We start with product discovery to define users, features and pricing, then design, build and launch an MVP, and grow it into a full product based on user feedback.",
   },
   {
-    question: "Can a SaaS application include subscription payments?",
+    question: "What is an MVP and why start with one?",
     answer:
-      "Yes. Subscription plans and payment gateway integrations can be included according to the selected payment provider, billing requirements and product model.",
+      "An MVP (Minimum Viable Product) is the smallest version of your product that real users can pay for or test. It lets you launch faster, spend less upfront and validate demand before building more features.",
   },
   {
-    question: "Can I build a SaaS product with an admin dashboard?",
+    question: "Can a SaaS application support multiple companies and users?",
     answer:
-      "Yes. An administration dashboard can include user management, subscription information, application settings, reports and other product management features.",
+      "Yes. We use multi-tenant architecture so each customer company has its own secure workspace, with separate users, roles and permissions, all running on one platform.",
   },
   {
-    question: "Which technologies are used for SaaS development?",
+    question: "Can you add subscription billing to a SaaS product?",
     answer:
-      "Depending on project requirements, technologies may include Next.js, React.js, TypeScript, Node.js, databases, APIs and cloud hosting services.",
+      "Yes. We integrate payment gateways for subscription plans, free trials, recurring payments, invoices and plan upgrades or downgrades.",
   },
   {
-    question: "Can an existing application be converted into a SaaS product?",
+    question: "Which technologies do you use for SaaS and cloud applications?",
     answer:
-      "An existing application can be evaluated for SaaS architecture changes, including account management, user permissions, data separation, subscription workflows and deployment requirements.",
+      "We use Next.js, React.js, Node.js, TypeScript and Express.js, with PostgreSQL, MongoDB or Supabase databases, REST APIs, Docker and CI/CD pipelines on cloud hosting.",
+  },
+  {
+    question: "Do you work with startups outside Hyderabad?",
+    answer:
+      "Yes. Our office is in Madhapur, Hyderabad, and we work with startups and businesses across India and abroad through remote collaboration.",
   },
 ];
 
-export default function SaaSDevelopmentPage() {
-  const faqSchema = {
+export default function SaaSCloudSolutionsPage() {
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${PAGE_URL}#service`,
+        name: "SaaS Development & Cloud Solutions",
+        serviceType: "SaaS Product Development",
+        description: PAGE_DESCRIPTION,
+        url: PAGE_URL,
+        provider: {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: "OPV AI Realty Tech Private Limited",
+          url: SITE_URL,
+          telephone: "+91-9963513939",
+          email: "info@opvairealtytech.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress:
+              "#101, Road No: 10, Jaya Kesav Avenue, Kakatiya Hills, Madhapur",
+            addressLocality: "Hyderabad",
+            addressRegion: "Telangana",
+            addressCountry: "IN",
+          },
+        },
+        areaServed: [
+          { "@type": "City", name: "Hyderabad" },
+          { "@type": "Country", name: "India" },
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "SaaS & Cloud Services",
+          itemListElement: solutions.map((item) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: item.title,
+              description: item.description,
+            },
+          })),
+        },
       },
-    })),
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: `${SITE_URL}/services`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "SaaS & Cloud Solutions",
+            item: PAGE_URL,
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
     <main className="bg-white">
-      {/* FAQ STRUCTURED DATA */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
 
@@ -213,23 +362,46 @@ export default function SaaSDevelopmentPage() {
         </div>
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+          {/* Visible breadcrumb (matches BreadcrumbList schema) */}
+          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/60">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <Link href="/" className="hover:text-[#F4D545]">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/services" className="hover:text-[#F4D545]">
+                  Services
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-white/85">
+                SaaS & Cloud Solutions
+              </li>
+            </ol>
+          </nav>
+
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#E7B30F]/40 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#F4D545]">
-            <Cloud className="h-4 w-4" />
-            SaaS Product Development
+            <Cloud className="h-4 w-4" aria-hidden="true" />
+            SaaS & Cloud Solutions
           </div>
 
+          {/* {" "} keeps a real space between the two lines for crawlers and screen readers */}
           <h1 className="max-w-4xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-            SaaS Development Company
+            SaaS Development Company in Hyderabad{" "}
             <span className="block text-[#F4D545]">
-              in India
+              From MVP to Scalable Cloud Product
             </span>
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
-            Turn your software idea into a cloud-based
-            digital product. OPV AI Realty Tech focuses on
-            custom SaaS development, multi-user applications,
-            subscription systems and business software platforms.
+            OPV AI Realty Tech designs, builds and launches SaaS
+            products and cloud applications for startups and businesses
+            in Hyderabad and across India. We handle everything from
+            the first MVP to multi-tenant architecture, subscription
+            billing and cloud deployment.
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -237,7 +409,7 @@ export default function SaaSDevelopmentPage() {
               href="/contact"
               className="inline-flex items-center justify-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
             >
-              Build Your SaaS Product
+              Discuss Your SaaS Idea
               <ArrowRight className="h-5 w-5" />
             </Link>
 
@@ -248,6 +420,11 @@ export default function SaaSDevelopmentPage() {
               Explore All Services
             </Link>
           </div>
+
+          <p className="mt-8 inline-flex items-center gap-2 text-sm text-white/60">
+            <MapPin className="h-4 w-4 text-[#F4D545]" aria-hidden="true" />
+            Madhapur, Hyderabad · Serving clients across India
+          </p>
         </div>
       </section>
 
@@ -256,91 +433,89 @@ export default function SaaSDevelopmentPage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
           <div>
             <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
-              Custom SaaS Solutions
+              Cloud & Software Engineering
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold leading-tight text-[#033505] sm:text-4xl">
-              Build Your Own Software-as-a-Service Product
+              Build Software Products Designed for Growth
             </h2>
 
             <p className="mt-6 leading-8 text-slate-600">
-              SaaS allows businesses to deliver software
-              through the internet, giving customers access
-              to applications without managing the complete
-              software infrastructure themselves.
+              SaaS lets customers sign up, pay monthly and use your
+              software from any browser, with nothing to install. For
+              you, it means recurring revenue and one product that
+              serves hundreds of customers.
             </p>
 
             <p className="mt-5 leading-8 text-slate-600">
-              From business management platforms and CRM
-              products to specialized industry applications,
-              SaaS products can be designed around different
-              customer needs and business models.
+              Building it right takes more than features. Multi-tenant
+              data separation, secure logins, subscription billing and
+              reliable cloud infrastructure decide whether a product
+              can grow without being rebuilt.
             </p>
 
             <p className="mt-5 leading-8 text-slate-600">
-              OPV AI Realty Tech approaches SaaS development
-              by planning the product architecture, user
-              experience, backend systems and integrations
-              required for your application.
+              As a SaaS development company in Hyderabad, OPV AI Realty
+              Tech starts with your business model and users, launches
+              a focused MVP, then scales the product as customers
+              arrive.
             </p>
           </div>
 
           <div className="rounded-3xl bg-[#033505] p-8 text-white sm:p-10">
-            <Layers3 className="h-12 w-12 text-[#F4D545]" />
+            <Cloud className="h-12 w-12 text-[#F4D545]" aria-hidden="true" />
 
             <h3 className="mt-7 text-2xl font-extrabold sm:text-3xl">
-              Your Product Idea.
+              Connected Software.{" "}
               <span className="block text-[#F4D545]">
-                Your SaaS Platform.
+                Smarter Operations.
               </span>
             </h3>
 
             <p className="mt-5 leading-8 text-white/70">
-              Develop a software platform with user accounts,
-              product features, administration tools and
-              business workflows based on your requirements.
+              Cloud products built on a planned architecture, ready
+              for real users from day one.
             </p>
 
-            <div className="mt-8 space-y-4">
+            <ul className="mt-8 space-y-4">
               {[
-                "Custom SaaS product architecture",
-                "Multi-user application development",
-                "Subscription and payment integration",
-                "Admin dashboards and reporting",
+                "SaaS product and MVP development",
+                "Multi-tenant cloud architecture",
+                "Billing, database and API integration",
+                "Deployment, DevOps and maintenance",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
+                <li key={item} className="flex items-center gap-3">
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-[#F4D545]" />
                   <span className="text-sm font-medium text-white/85">
                     {item}
                   </span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* SOLUTIONS */}
       <section className="bg-[#F8FAF7] py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="mx-auto mb-14 max-w-3xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
-              Our SaaS Development Services
+              Our Solutions
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
-              Complete SaaS Product Development Solutions
+              SaaS & Cloud Development Services
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              From product planning to application development,
-              create software experiences designed around
-              your customers and business requirements.
+              Everything you need to plan, build, launch and grow a
+              cloud software product.
             </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((item) => {
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {solutions.map((item) => {
               const Icon = item.icon;
 
               return (
@@ -349,7 +524,7 @@ export default function SaaSDevelopmentPage() {
                   className="rounded-2xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#E7B30F]/60 hover:shadow-xl"
                 >
                   <div className="inline-flex rounded-xl bg-[#033505]/5 p-3">
-                    <Icon className="h-7 w-7 text-[#265921]" />
+                    <Icon className="h-7 w-7 text-[#265921]" aria-hidden="true" />
                   </div>
 
                   <h3 className="mt-6 text-xl font-bold text-[#033505]">
@@ -366,94 +541,84 @@ export default function SaaSDevelopmentPage() {
         </div>
       </section>
 
-      {/* FEATURES */}
+      {/* SAAS ESSENTIALS */}
       <section className="py-20 sm:py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
-          <div>
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
-              SaaS Platform Features
+              Built In From Day One
             </span>
 
-            <h2 className="mt-4 text-3xl font-extrabold leading-tight text-[#033505] sm:text-4xl">
-              Essential Features for a SaaS Application
+            <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
+              Essential Features of Every SaaS Product We Build
             </h2>
-
-            <p className="mt-5 leading-8 text-slate-600">
-              Every SaaS product has different requirements.
-              Its features should be selected according to
-              the intended users, business model and
-              application workflows.
-            </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {features.map((feature) => (
-              <div
-                key={feature}
-                className="flex items-start gap-3 rounded-xl border border-slate-200 bg-[#F8FAF7] p-4"
-              >
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#B88A00]" />
-                <span className="text-sm font-semibold leading-6 text-[#033505]">
-                  {feature}
-                </span>
-              </div>
-            ))}
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {saasFeatures.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <article
+                  key={item.title}
+                  className="rounded-2xl border border-slate-200 bg-[#F8FAF7] p-6"
+                >
+                  <Icon className="h-7 w-7 text-[#B88A00]" aria-hidden="true" />
+                  <h3 className="mt-5 text-lg font-bold text-[#033505]">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                    {item.description}
+                  </p>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* SAAS BUSINESS MODEL */}
-      <section className="bg-[#033505] py-20 text-white sm:py-24">
+      {/* SAAS TYPES */}
+      <section className="bg-[#F8FAF7] py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-[#F4D545]">
-              SaaS Business Models
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
+              What We Build
             </span>
 
-            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
-              Build Software Around Your Business Model
+            <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
+              Types of SaaS Products We Develop
             </h2>
-
-            <p className="mt-5 leading-8 text-white/70">
-              Choose a product access and pricing structure
-              that aligns with your target customers and
-              commercial requirements.
-            </p>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                title: "Monthly Subscription",
-                text: "Provide access through recurring monthly subscription plans.",
-              },
-              {
-                title: "Annual Subscription",
-                text: "Offer annual access plans with billing based on the selected product model.",
-              },
-              {
-                title: "Freemium Model",
-                text: "Provide selected product features at no cost with optional paid upgrades.",
-              },
-              {
-                title: "Custom Enterprise Plans",
-                text: "Define product access and pricing based on enterprise requirements.",
-              },
-            ].map((item) => (
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {saasTypes.map((item) => (
               <article
                 key={item.title}
-                className="rounded-2xl border border-white/15 bg-white/5 p-6"
+                className="rounded-2xl border border-slate-200 bg-white p-6"
               >
-                <h3 className="text-xl font-bold text-[#F4D545]">
-                  {item.title}
-                </h3>
-
-                <p className="mt-4 text-sm leading-7 text-white/75">
-                  {item.text}
+                <div className="flex items-center gap-3">
+                  <Building2 className="h-5 w-5 text-[#B88A00]" aria-hidden="true" />
+                  <h3 className="text-lg font-bold text-[#033505]">
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  {item.description}
                 </p>
               </article>
             ))}
           </div>
+
+          <p className="mt-8 text-center text-sm text-slate-600">
+            Building software for property businesses?{" "}
+            <Link
+              href="/industries/real-estate"
+              className="font-semibold text-[#265921] underline-offset-4 hover:text-[#B88A00] hover:underline"
+            >
+              See our real estate technology solutions
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
@@ -466,26 +631,25 @@ export default function SaaSDevelopmentPage() {
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
-              Technologies for SaaS Product Development
+              Our SaaS & Cloud Technology Stack
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              We select suitable technologies based on the
-              product architecture, performance requirements,
-              integrations and future maintenance needs.
+              Proven, modern technologies chosen for speed, security
+              and long-term maintainability.
             </p>
           </div>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
+          <ul className="mt-10 flex flex-wrap justify-center gap-3">
             {technologies.map((technology) => (
-              <span
+              <li
                 key={technology}
-                className="rounded-xl border border-slate-200 bg-[#F8FAF7] px-5 py-3 text-sm font-bold text-[#265921] transition hover:border-[#E7B30F] hover:bg-[#E7B30F]/10"
+                className="rounded-xl border border-slate-200 bg-[#F8FAF7] px-5 py-3 text-sm font-bold text-[#265921]"
               >
                 {technology}
-              </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
@@ -494,47 +658,37 @@ export default function SaaSDevelopmentPage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
           <div>
             <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
-              Why Build a SaaS Product?
+              Business Benefits
             </span>
 
             <h2 className="mt-4 text-3xl font-extrabold leading-tight text-[#033505] sm:text-4xl">
-              Create a Digital Product That Can Evolve with Your Business
+              Why Build Your Product as SaaS?
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              SaaS products can provide a structured way to
-              deliver software, manage customer access and
-              introduce new features as product requirements
-              develop.
+              SaaS products are easier to sell, update and scale than
+              installed software, and they create predictable
+              recurring revenue.
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              "Centralized software delivery",
-              "Online access for customers",
-              "Subscription-based revenue options",
-              "Structured user management",
-              "Centralized product administration",
-              "Connected business integrations",
-              "Continuous product improvement",
-              "Flexible feature development",
-            ].map((item) => (
-              <div
-                key={item}
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {benefits.map((benefit) => (
+              <li
+                key={benefit}
                 className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5"
               >
                 <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#B88A00]" />
                 <span className="text-sm font-semibold leading-6 text-[#033505]">
-                  {item}
+                  {benefit}
                 </span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* DEVELOPMENT PROCESS */}
+      {/* PROCESS */}
       <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="mx-auto mb-12 max-w-3xl text-center">
@@ -547,11 +701,11 @@ export default function SaaSDevelopmentPage() {
             </h2>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((step) => (
-              <article
+              <li
                 key={step.number}
-                className="rounded-2xl border border-slate-200 p-6"
+                className="rounded-2xl border border-slate-200 bg-white p-6"
               >
                 <span className="text-3xl font-black text-[#B88A00]">
                   {step.number}
@@ -564,9 +718,9 @@ export default function SaaSDevelopmentPage() {
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   {step.description}
                 </p>
-              </article>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
@@ -603,41 +757,55 @@ export default function SaaSDevelopmentPage() {
       </section>
 
       {/* RELATED SERVICES */}
-      <section className="py-12">
+      <section className="border-t border-slate-100 py-12">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <h2 className="text-xl font-extrabold text-[#033505]">
             Explore Related Services
           </h2>
 
-          <div className="mt-5 flex flex-wrap gap-5">
-            <Link
-              href="/services/saas-cloud-solutions"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              SaaS & Cloud Solutions →
-            </Link>
-
-            <Link
-              href="/services/software-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              Software Development →
-            </Link>
-
-            <Link
-              href="/services/crm-erp-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              CRM & ERP Development →
-            </Link>
-
-            <Link
-              href="/services/business-automation"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              Business Automation →
-            </Link>
-          </div>
+          {/* Make sure each of these routes exists before deploying */}
+          <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+            <li>
+              <Link
+                href="/services/software-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Custom Software Development →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/mobile-app-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Mobile App Development →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/crm-erp-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                CRM & ERP Development →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/ai-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                AI Development & AI Agents →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/website-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Website Development →
+              </Link>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -645,26 +813,34 @@ export default function SaaSDevelopmentPage() {
       <section className="bg-[#033505] px-5 py-20 text-center text-white sm:px-8">
         <div className="mx-auto max-w-3xl">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E7B30F]/15">
-            <Lightbulb className="h-7 w-7 text-[#F4D545]" />
+            <Lightbulb className="h-7 w-7 text-[#F4D545]" aria-hidden="true" />
           </div>
 
           <h2 className="mt-6 text-3xl font-extrabold sm:text-4xl">
-            Have an Idea for Your Own SaaS Platform?
+            Planning to Build a SaaS Product?
           </h2>
 
           <p className="mt-5 leading-8 text-white/70">
-            Share your product concept, target audience,
-            essential features and business model with
-            OPV AI Realty Tech.
+            Share your product idea and target customers. We'll help
+            you define the MVP and a clear roadmap to launch.
           </p>
 
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
-          >
-            Start Your SaaS Project
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
+            >
+              Discuss Your SaaS Project
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+
+            <a
+              href="tel:+919963513939"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-7 py-4 font-bold text-white transition hover:border-[#F4D545] hover:text-[#F4D545]"
+            >
+              Call +91 99635 13939
+            </a>
+          </div>
         </div>
       </section>
     </main>

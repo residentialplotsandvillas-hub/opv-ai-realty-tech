@@ -1,36 +1,61 @@
-
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
   Workflow,
   Bot,
-  Settings,
   Zap,
   Database,
   MessageSquare,
   RefreshCw,
-  ShieldCheck,
   CheckCircle2,
-  Clock,
   Network,
   Lightbulb,
+  MapPin,
+  Building2,
+  Layers,
 } from "lucide-react";
 
+const SITE_URL = "https://www.opvairealtytech.com";
+const PAGE_PATH = "/services/business-automation";
+const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
+const OG_IMAGE = `${SITE_URL}/images/opv-og-image.jpg`;
+
+const PAGE_TITLE =
+  "Business Process Automation Company in Hyderabad | OPV AI Realty Tech";
+const PAGE_DESCRIPTION =
+  "Automate lead management, CRM updates, WhatsApp notifications, approvals and reports. Business process automation for companies in Hyderabad and across India.";
+
 export const metadata: Metadata = {
-  title: "Business Automation Services in India | OPV AI Realty Tech",
-  description:
-    "Automate business workflows with OPV AI Realty Tech. Explore AI automation, process automation, CRM integration, automated notifications and custom business systems.",
+  // `absolute` bypasses the layout's title.template, so the brand is not added twice
+  title: { absolute: PAGE_TITLE },
+  description: PAGE_DESCRIPTION,
   alternates: {
-    canonical: "/services/business-automation",
+    canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Business Automation Services | OPV AI Realty Tech",
+    title: "Business Process Automation in Hyderabad | OPV AI Realty Tech",
     description:
-      "Explore intelligent business process automation, workflow integration and custom automation solutions for modern businesses.",
-    url: "https://www.opvairealtytech.com/services/business-automation",
+      "Workflow automation, CRM and API integration, automated notifications and AI-assisted processes for growing businesses.",
+    url: PAGE_URL,
     siteName: "OPV AI Realty Tech",
+    locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Business process automation services by OPV AI Realty Tech, Hyderabad",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Business Process Automation Company in Hyderabad | OPV",
+    description:
+      "Automate leads, CRM updates, notifications, approvals and reports with OPV AI Realty Tech.",
+    images: [OG_IMAGE],
   },
 };
 
@@ -39,37 +64,37 @@ const solutions = [
     icon: Workflow,
     title: "Business Process Automation",
     description:
-      "Organize repetitive business activities into structured digital workflows, reducing the need for manual coordination.",
+      "Turn repetitive tasks such as data entry, approvals and task handovers into structured digital workflows that run without manual follow-up.",
   },
   {
     icon: Bot,
     title: "AI-Powered Automation",
     description:
-      "Explore AI-assisted workflows for information processing, customer interactions and selected business operations.",
+      "Add AI to workflows that read emails and documents, classify enquiries, extract data and draft replies, with human review where it matters.",
   },
   {
     icon: MessageSquare,
     title: "Automated Customer Communication",
     description:
-      "Plan automated communication workflows for enquiries, notifications, reminders and customer updates.",
+      "Send instant WhatsApp, SMS and email replies, reminders and status updates when customers enquire, book or buy.",
   },
   {
     icon: Database,
     title: "CRM & Database Automation",
     description:
-      "Connect customer records, lead information and business databases to support consistent information management.",
+      "Capture leads from your website, ads and portals straight into your CRM, assign them to the right person and keep records up to date.",
   },
   {
     icon: Network,
     title: "Application & API Integration",
     description:
-      "Connect websites, mobile applications, business tools and external services through suitable APIs and integrations.",
+      "Connect your website, mobile app, CRM, accounting, payment and messaging tools through APIs and webhooks so data flows between them.",
   },
   {
     icon: RefreshCw,
     title: "Reporting & Task Automation",
     description:
-      "Create workflows for recurring reports, task assignments, status updates and business activity tracking.",
+      "Generate daily and weekly reports automatically, assign recurring tasks and alert managers when something needs attention.",
   },
 ];
 
@@ -84,19 +109,65 @@ const useCases = [
   "Automated business reports",
   "Employee task assignments",
   "Customer support workflows",
-  "Data synchronization",
-  "Administrative operations",
+  "Data synchronisation between apps",
+  "Invoice and payment reminders",
+];
+
+const industryExamples = [
+  {
+    industry: "Real Estate",
+    example:
+      "Capture enquiries from property portals and ads, assign them to sales executives, send WhatsApp brochures and schedule site-visit reminders automatically.",
+  },
+  {
+    industry: "Retail & E-commerce",
+    example:
+      "Automate order confirmations, stock alerts, abandoned-cart reminders and delivery updates.",
+  },
+  {
+    industry: "Healthcare",
+    example:
+      "Send appointment confirmations and reminders, and sync patient bookings with clinic schedules.",
+  },
+  {
+    industry: "Education",
+    example:
+      "Route admission enquiries to counsellors, send fee reminders and automate student communication.",
+  },
+  {
+    industry: "Manufacturing & Logistics",
+    example:
+      "Automate purchase approvals, inventory updates, dispatch notifications and operations reports.",
+  },
+  {
+    industry: "Professional Services",
+    example:
+      "Automate client onboarding, document collection, invoicing and recurring task assignments.",
+  },
+];
+
+const tools = [
+  "WhatsApp Business API",
+  "Email & SMS gateways",
+  "n8n, Zapier & Make",
+  "Custom Node.js & Python workflows",
+  "REST APIs & webhooks",
+  "CRM platforms & custom CRMs",
+  "Google Workspace & Microsoft 365",
+  "Payment gateways",
+  "Supabase & PostgreSQL",
+  "OpenAI & other AI models",
 ];
 
 const benefits = [
-  "Reduce repetitive manual activities",
-  "Organize business workflows",
-  "Improve information consistency",
-  "Support faster task coordination",
+  "Cut repetitive manual work",
+  "Respond to leads within minutes",
+  "Keep data consistent across systems",
+  "Coordinate teams with fewer follow-ups",
   "Connect separate business applications",
-  "Create structured notification processes",
-  "Improve operational visibility",
-  "Support business process scalability",
+  "Never miss a reminder or notification",
+  "See operations in real time",
+  "Scale without adding admin headcount",
 ];
 
 const process = [
@@ -104,25 +175,25 @@ const process = [
     number: "01",
     title: "Understand Your Workflow",
     description:
-      "Identify repetitive tasks, existing business processes, operational challenges and automation opportunities.",
+      "We map your current process, the tools you use and the repetitive tasks that cost your team the most time.",
   },
   {
     number: "02",
     title: "Automation Planning",
     description:
-      "Define workflow steps, system connections, triggers, user permissions and expected outcomes.",
+      "We define triggers, workflow steps, system connections, permissions and how success will be measured.",
   },
   {
     number: "03",
     title: "Development & Integration",
     description:
-      "Implement automation workflows and connect the relevant applications, databases and services.",
+      "We build the workflows and connect your apps, databases, CRM and messaging channels.",
   },
   {
     number: "04",
     title: "Testing & Improvement",
     description:
-      "Test workflow execution, handle exceptions and review the automation based on business requirements.",
+      "We test every path including errors and exceptions, go live, then monitor and refine the automation.",
   },
 ];
 
@@ -130,56 +201,122 @@ const faqs = [
   {
     question: "What is business process automation?",
     answer:
-      "Business process automation uses software and digital workflows to perform repetitive tasks and coordinate business activities with less manual intervention.",
+      "Business process automation uses software to run repetitive tasks and coordinate business activities, such as capturing leads, updating records, sending notifications and generating reports, with little or no manual work.",
   },
   {
-    question: "What business automation services does OPV offer?",
+    question: "What business automation services does OPV AI Realty Tech offer?",
     answer:
-      "OPV's business automation service areas include process automation, AI-assisted workflows, customer communication, CRM and database automation, API integrations and reporting workflows.",
+      "We offer workflow and process automation, AI-powered automation, automated WhatsApp, SMS and email communication, CRM and database automation, API integration between business applications, and automated reporting.",
   },
   {
     question: "Can you automate lead management?",
     answer:
-      "Lead management workflows can be designed to capture enquiries, organize customer records, assign leads, send notifications and support follow-up activities.",
+      "Yes. We can capture leads from your website, ads and property portals, add them to your CRM, assign them to the right team member, send instant replies and schedule follow-up reminders.",
   },
   {
     question: "Can automation connect different business applications?",
     answer:
-      "Yes. Applications can be connected through available APIs, webhooks or other supported integration methods, depending on their technical capabilities.",
+      "Yes. Applications can be connected through APIs, webhooks or automation platforms, as long as each application supports integration.",
   },
   {
     question: "Can AI be used in business automation?",
     answer:
-      "AI can support selected workflows such as information classification, content processing, customer interaction assistance and other tasks where AI is suitable. Human review may still be necessary for important decisions.",
+      "Yes. AI can classify enquiries, read documents, extract data and draft responses inside a workflow. We keep human review in place for important decisions.",
   },
   {
     question: "Is business automation suitable for small businesses?",
     answer:
-      "Yes. Small businesses can automate selected repetitive activities such as enquiry management, notifications, task coordination and reporting based on their needs and available resources.",
+      "Yes. Small businesses often benefit most, because automating enquiries, reminders and reports frees a small team to focus on customers and growth.",
+  },
+  {
+    question: "Do you work with businesses outside Hyderabad?",
+    answer:
+      "Yes. Our office is in Madhapur, Hyderabad, and we work with businesses across India and abroad through remote collaboration.",
   },
 ];
 
 export default function BusinessAutomationPage() {
-  const faqSchema = {
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${PAGE_URL}#service`,
+        name: "Business Process Automation Services",
+        serviceType: "Business Process Automation",
+        description: PAGE_DESCRIPTION,
+        url: PAGE_URL,
+        provider: {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name: "OPV AI Realty Tech Private Limited",
+          url: SITE_URL,
+          telephone: "+91-9963513939",
+          email: "info@opvairealtytech.com",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress:
+              "#101, Road No: 10, Jaya Kesav Avenue, Kakatiya Hills, Madhapur",
+            addressLocality: "Hyderabad",
+            addressRegion: "Telangana",
+            addressCountry: "IN",
+          },
+        },
+        areaServed: [
+          { "@type": "City", name: "Hyderabad" },
+          { "@type": "Country", name: "India" },
+        ],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Business Automation Services",
+          itemListElement: solutions.map((item) => ({
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Service",
+              name: item.title,
+              description: item.description,
+            },
+          })),
+        },
       },
-    })),
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services",
+            item: `${SITE_URL}/services`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Business Automation",
+            item: PAGE_URL,
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      },
+    ],
   };
 
   return (
     <main className="bg-white">
-      {/* FAQ STRUCTURED DATA */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
 
@@ -192,23 +329,45 @@ export default function BusinessAutomationPage() {
         </div>
 
         <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+          {/* Visible breadcrumb (matches BreadcrumbList schema) */}
+          <nav aria-label="Breadcrumb" className="mb-6 text-sm text-white/60">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <Link href="/" className="hover:text-[#F4D545]">
+                  Home
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li>
+                <Link href="/services" className="hover:text-[#F4D545]">
+                  Services
+                </Link>
+              </li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-white/85">
+                Business Automation
+              </li>
+            </ol>
+          </nav>
+
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#E7B30F]/40 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#F4D545]">
-            <Zap className="h-4 w-4" />
+            <Zap className="h-4 w-4" aria-hidden="true" />
             Intelligent Business Automation
           </div>
 
+          {/* {" "} keeps a real space between the two lines for crawlers and screen readers */}
           <h1 className="max-w-4xl text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-            Business Process Automation
+            Business Process Automation in Hyderabad{" "}
             <span className="block text-[#F4D545]">
-              for Smarter Operations
+              for Smarter, Faster Operations
             </span>
           </h1>
 
           <p className="mt-7 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
-            OPV AI Realty Tech helps businesses streamline
-            repetitive activities, connect digital systems
-            and organize operational workflows through
-            custom automation and AI-assisted solutions.
+            OPV AI Realty Tech automates lead management, CRM updates,
+            WhatsApp and email notifications, approvals and reports for
+            businesses in Hyderabad and across India. We connect your
+            tools so work moves forward without manual follow-up.
           </p>
 
           <div className="mt-9 flex flex-col gap-4 sm:flex-row">
@@ -227,6 +386,11 @@ export default function BusinessAutomationPage() {
               Explore All Services
             </Link>
           </div>
+
+          <p className="mt-8 inline-flex items-center gap-2 text-sm text-white/60">
+            <MapPin className="h-4 w-4 text-[#F4D545]" aria-hidden="true" />
+            Madhapur, Hyderabad · Serving clients across India
+          </p>
         </div>
       </section>
 
@@ -243,58 +407,57 @@ export default function BusinessAutomationPage() {
             </h2>
 
             <p className="mt-6 leading-8 text-slate-600">
-              Businesses perform many recurring activities
-              every day, including managing enquiries,
-              updating records, assigning tasks, sending
-              notifications and preparing reports.
+              Every business repeats the same tasks daily: answering
+              enquiries, updating records, assigning work, sending
+              reminders and preparing reports. Done by hand, these
+              tasks slow teams down and cause missed follow-ups.
             </p>
 
             <p className="mt-5 leading-8 text-slate-600">
-              When these activities depend entirely on
-              manual coordination, teams may spend valuable
-              time on repetitive tasks instead of focusing
-              on important business activities.
+              Business process automation lets software handle these
+              steps. A new lead can reach your CRM, get assigned to a
+              salesperson and receive a WhatsApp reply within seconds,
+              with no one copying data between screens.
             </p>
 
             <p className="mt-5 leading-8 text-slate-600">
-              OPV AI Realty Tech helps identify suitable
-              automation opportunities and develop workflows
-              that connect applications, data and business
-              processes.
+              As a business automation company in Hyderabad, OPV AI
+              Realty Tech finds the tasks worth automating, builds the
+              workflows and connects the applications your team
+              already uses.
             </p>
           </div>
 
           <div className="rounded-3xl bg-[#033505] p-8 text-white sm:p-10">
-            <Workflow className="h-12 w-12 text-[#F4D545]" />
+            <Workflow className="h-12 w-12 text-[#F4D545]" aria-hidden="true" />
 
             <h3 className="mt-7 text-2xl font-extrabold sm:text-3xl">
-              Automate Repetitive Tasks.
+              Automate Repetitive Tasks.{" "}
               <span className="block text-[#F4D545]">
-                Organize Business Workflows.
+                Organise Business Workflows.
               </span>
             </h3>
 
             <p className="mt-5 leading-8 text-white/70">
-              Connect the systems your business uses and
-              create structured workflows around your
-              operational requirements.
+              Connect the systems your business uses and build
+              workflows around how your team actually works.
             </p>
 
-            <div className="mt-8 space-y-4">
+            <ul className="mt-8 space-y-4">
               {[
                 "Workflow automation",
                 "AI-assisted business processes",
                 "Application and API integration",
                 "Automated notifications and reports",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3">
+                <li key={item} className="flex items-center gap-3">
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-[#F4D545]" />
                   <span className="text-sm font-medium text-white/85">
                     {item}
                   </span>
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         </div>
       </section>
@@ -312,9 +475,8 @@ export default function BusinessAutomationPage() {
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Practical automation capabilities for customer
-              management, internal operations and connected
-              business applications.
+              Automation for customer management, internal operations
+              and connected business applications.
             </p>
           </div>
 
@@ -328,7 +490,7 @@ export default function BusinessAutomationPage() {
                   className="rounded-2xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-[#E7B30F]/60 hover:shadow-xl"
                 >
                   <div className="inline-flex rounded-xl bg-[#033505]/5 p-3">
-                    <Icon className="h-7 w-7 text-[#265921]" />
+                    <Icon className="h-7 w-7 text-[#265921]" aria-hidden="true" />
                   </div>
 
                   <h3 className="mt-6 text-xl font-bold text-[#033505]">
@@ -358,30 +520,72 @@ export default function BusinessAutomationPage() {
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Automation opportunities depend on your existing
-              systems, business rules and workflow requirements.
+              Common workflows we automate for growing businesses.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {useCases.map((item) => (
-              <div
+              <li
                 key={item}
                 className="flex items-center gap-3 rounded-xl border border-slate-200 bg-[#F8FAF7] p-5"
               >
                 <CheckCircle2 className="h-5 w-5 shrink-0 text-[#B88A00]" />
-                <span className="font-semibold text-[#033505]">
-                  {item}
-                </span>
-              </div>
+                <span className="font-semibold text-[#033505]">{item}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
-      {/* BENEFITS */}
+      {/* INDUSTRY EXAMPLES */}
       <section className="bg-[#F8FAF7] py-20 sm:py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
+              Industry Examples
+            </span>
+
+            <h2 className="mt-4 text-3xl font-extrabold text-[#033505] sm:text-4xl">
+              Workflow Automation by Industry
+            </h2>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {industryExamples.map((item) => (
+              <article
+                key={item.industry}
+                className="rounded-2xl border border-slate-200 bg-white p-6"
+              >
+                <div className="flex items-center gap-3">
+                  <Building2 className="h-5 w-5 text-[#B88A00]" aria-hidden="true" />
+                  <h3 className="text-lg font-bold text-[#033505]">
+                    Automation for {item.industry}
+                  </h3>
+                </div>
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  {item.example}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-8 text-center text-sm text-slate-600">
+            Working in property?{" "}
+            <Link
+              href="/industries/real-estate"
+              className="font-semibold text-[#265921] underline-offset-4 hover:text-[#B88A00] hover:underline"
+            >
+              See our real estate technology solutions
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      {/* BENEFITS + TOOLS */}
+      <section className="py-20 sm:py-24">
+        <div className="mx-auto grid max-w-7xl items-start gap-12 px-5 sm:px-8 lg:grid-cols-2">
           <div>
             <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
               Business Benefits
@@ -392,30 +596,56 @@ export default function BusinessAutomationPage() {
             </h2>
 
             <p className="mt-5 leading-8 text-slate-600">
-              Well-designed automation can help teams
-              coordinate work, reduce repetitive data entry
-              and maintain more consistent business processes.
+              Well-designed automation helps teams coordinate work,
+              cut repetitive data entry and keep processes consistent
+              as the business grows.
             </p>
+
+            <ul className="mt-8 grid gap-4 sm:grid-cols-2">
+              {benefits.map((benefit) => (
+                <li
+                  key={benefit}
+                  className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5"
+                >
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#B88A00]" />
+                  <span className="text-sm font-semibold leading-6 text-[#033505]">
+                    {benefit}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            {benefits.map((benefit) => (
-              <div
-                key={benefit}
-                className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-5"
-              >
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#B88A00]" />
-                <span className="text-sm font-semibold leading-6 text-[#033505]">
-                  {benefit}
-                </span>
-              </div>
-            ))}
+          <div className="rounded-3xl border border-slate-200 bg-[#F8FAF7] p-8 sm:p-10">
+            <div className="flex items-center gap-3">
+              <Layers className="h-6 w-6 text-[#B88A00]" aria-hidden="true" />
+              <h3 className="text-xl font-extrabold text-[#033505]">
+                Automation Tools & Platforms We Use
+              </h3>
+            </div>
+
+            <p className="mt-4 text-sm leading-7 text-slate-600">
+              We pick the right tool for each workflow, from no-code
+              platforms for quick wins to custom code for complex
+              processes.
+            </p>
+
+            <ul className="mt-6 flex flex-wrap gap-3">
+              {tools.map((tool) => (
+                <li
+                  key={tool}
+                  className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-[#033505]"
+                >
+                  {tool}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
 
       {/* PROCESS */}
-      <section className="py-20 sm:py-24">
+      <section className="bg-[#F8FAF7] py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="mx-auto mb-12 max-w-3xl text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
@@ -427,11 +657,11 @@ export default function BusinessAutomationPage() {
             </h2>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {process.map((step) => (
-              <article
+              <li
                 key={step.number}
-                className="rounded-2xl border border-slate-200 p-6"
+                className="rounded-2xl border border-slate-200 bg-white p-6"
               >
                 <span className="text-3xl font-black text-[#B88A00]">
                   {step.number}
@@ -444,14 +674,14 @@ export default function BusinessAutomationPage() {
                 <p className="mt-3 text-sm leading-7 text-slate-600">
                   {step.description}
                 </p>
-              </article>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="bg-[#F8FAF7] py-20 sm:py-24">
+      <section className="py-20 sm:py-24">
         <div className="mx-auto max-w-4xl px-5 sm:px-8">
           <div className="mb-12 text-center">
             <span className="text-sm font-bold uppercase tracking-widest text-[#B88A00]">
@@ -483,41 +713,47 @@ export default function BusinessAutomationPage() {
       </section>
 
       {/* RELATED SERVICES */}
-      <section className="py-12">
+      <section className="border-t border-slate-100 py-12">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <h2 className="text-xl font-extrabold text-[#033505]">
             Explore Related Services
           </h2>
 
-          <div className="mt-5 flex flex-wrap gap-5">
-            <Link
-              href="/services/ai-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              AI Development →
-            </Link>
-
-            <Link
-              href="/services/crm-erp-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              CRM & ERP Development →
-            </Link>
-
-            <Link
-              href="/services/software-development"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              Software Development →
-            </Link>
-
-            <Link
-              href="/services/data-engineering"
-              className="font-semibold text-[#265921] hover:text-[#B88A00]"
-            >
-              Data Engineering →
-            </Link>
-          </div>
+          {/* Make sure each of these routes exists before deploying */}
+          <ul className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+            <li>
+              <Link
+                href="/services/ai-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                AI Development & AI Agents →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/crm-erp-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                CRM & ERP Development →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/software-development"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Custom Software Development →
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/services/data-engineering"
+                className="font-semibold text-[#265921] hover:text-[#B88A00]"
+              >
+                Data Engineering & BI →
+              </Link>
+            </li>
+          </ul>
         </div>
       </section>
 
@@ -525,7 +761,7 @@ export default function BusinessAutomationPage() {
       <section className="bg-[#033505] px-5 py-20 text-center text-white sm:px-8">
         <div className="mx-auto max-w-3xl">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[#E7B30F]/15">
-            <Lightbulb className="h-7 w-7 text-[#F4D545]" />
+            <Lightbulb className="h-7 w-7 text-[#F4D545]" aria-hidden="true" />
           </div>
 
           <h2 className="mt-6 text-3xl font-extrabold sm:text-4xl">
@@ -533,20 +769,29 @@ export default function BusinessAutomationPage() {
           </h2>
 
           <p className="mt-5 leading-8 text-white/70">
-            Tell us about your repetitive tasks, business
-            workflows and systems that need to work together.
+            Tell us which tasks eat up your team's time and which
+            systems need to work together. We'll suggest what to
+            automate first.
           </p>
 
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
-          >
-            Discuss Your Automation Project
-            <ArrowRight className="h-5 w-5" />
-          </Link>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-3 rounded-lg bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
+            >
+              Discuss Your Automation Project
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+
+            <a
+              href="tel:+919963513939"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-7 py-4 font-bold text-white transition hover:border-[#F4D545] hover:text-[#F4D545]"
+            >
+              Call +91 99635 13939
+            </a>
+          </div>
         </div>
       </section>
     </main>
   );
 }
-

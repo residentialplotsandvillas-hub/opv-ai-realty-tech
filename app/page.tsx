@@ -15,6 +15,7 @@ import ContactSection from "./components/home/ContactSection";
 import HeroSection from "./components/home/HeroSection";
 import AboutSection from "./components/home/AboutSection";
 import ProductsSection from "./components/home/ProductsSection";
+import FestivalBanner from "./components/home/FestivalBanner";
 
 // ==========================================
 // HOMEPAGE SEO METADATA
@@ -128,6 +129,9 @@ export default function HomePage() {
 
       {/* 01. HERO SECTION */}
       <HeroSection />
+
+
+      <FestivalBanner />
 
       {/* 02. ABOUT OPV AI REALTY TECH */}
       <AboutSection />
