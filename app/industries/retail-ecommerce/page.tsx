@@ -1,16 +1,18 @@
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
+  ArrowUpRight,
   BarChart3,
   Bot,
   CheckCircle2,
-  Cloud,
+  ChevronRight,
   CreditCard,
   Headphones,
-  Layers3,
+  MapPin,
   Package,
-  RefreshCw,
+  Phone,
   Rocket,
   Search,
   ShieldCheck,
@@ -23,21 +25,62 @@ import {
   Workflow,
 } from "lucide-react";
 
+// ==========================================
+// SEO CONFIGURATION
+// ==========================================
+
+const SITE_URL = "https://www.opvairealtytech.com";
+const PAGE_URL = `${SITE_URL}/industries/retail-ecommerce`;
+
+const PAGE_TITLE =
+  "Retail & E-commerce Technology Solutions in Hyderabad | OPV AI";
+
+const PAGE_DESCRIPTION =
+  "Retail and e-commerce technology solutions in Hyderabad. Online store development, mobile apps, retail CRM, inventory systems, AI automation, SEO and analytics by OPV AI Realty Tech.";
+
 export const metadata: Metadata = {
-  title: "Retail & E-commerce Technology Solutions | OPV AI Realty Tech",
-  description:
-    "Explore e-commerce development, online stores, retail CRM, inventory management, AI automation, digital marketing and business intelligence solutions.",
+  title: { absolute: PAGE_TITLE },
+  description: PAGE_DESCRIPTION,
+  keywords: [
+    "Retail technology solutions Hyderabad",
+    "E-commerce website development Hyderabad",
+    "Online store development",
+    "Retail software development",
+    "Retail CRM software",
+    "Inventory management software",
+    "Order management systems",
+    "AI shopping assistant",
+    "E-commerce mobile app development",
+    "Retail automation",
+    "E-commerce SEO Hyderabad",
+    "Retail analytics dashboards",
+    "OPV AI Realty Tech",
+  ],
   alternates: {
-    canonical: "/industries/retail-ecommerce",
+    canonical: PAGE_URL,
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   openGraph: {
-    title: "Retail & E-commerce Technology Solutions | OPV AI Realty Tech",
-    description:
-      "Transform retail and e-commerce operations with AI, software, automation and connected digital commerce solutions.",
-    url: "/industries/retail-ecommerce",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: PAGE_URL,
+    siteName: "OPV AI Realty Tech",
     type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
   },
 };
+
+// ==========================================
+// TECHNOLOGY SOLUTIONS
+// ==========================================
 
 const solutions = [
   {
@@ -90,6 +133,10 @@ const solutions = [
   },
 ];
 
+// ==========================================
+// BUSINESS TYPES
+// ==========================================
+
 const businessTypes = [
   {
     title: "Online Stores",
@@ -123,6 +170,45 @@ const businessTypes = [
   },
 ];
 
+// ==========================================
+// CUSTOMER JOURNEY
+// ==========================================
+
+const customerJourney = [
+  {
+    number: "01",
+    icon: Search,
+    title: "Discover",
+    description:
+      "Help customers explore products, services and relevant information.",
+  },
+  {
+    number: "02",
+    icon: ShoppingCart,
+    title: "Purchase",
+    description:
+      "Create structured shopping, checkout and order experiences.",
+  },
+  {
+    number: "03",
+    icon: Truck,
+    title: "Fulfil",
+    description:
+      "Coordinate orders, inventory and fulfilment-related workflows.",
+  },
+  {
+    number: "04",
+    icon: Headphones,
+    title: "Engage",
+    description:
+      "Support customer communication, service and ongoing relationships.",
+  },
+];
+
+// ==========================================
+// CAPABILITIES
+// ==========================================
+
 const capabilities = [
   "E-commerce website development",
   "Online store design and development",
@@ -137,6 +223,10 @@ const capabilities = [
   "SEO and digital marketing",
   "Sales and inventory dashboards",
 ];
+
+// ==========================================
+// BUSINESS OUTCOMES
+// ==========================================
 
 const benefits = [
   {
@@ -160,6 +250,10 @@ const benefits = [
       "Use structured reporting and analytics to review sales, customer activity and operational information.",
   },
 ];
+
+// ==========================================
+// IMPLEMENTATION PROCESS
+// ==========================================
 
 const process = [
   {
@@ -194,202 +288,435 @@ const process = [
   },
 ];
 
+// ==========================================
+// FREQUENTLY ASKED QUESTIONS
+// ==========================================
+
+const faqs = [
+  {
+    question: "What are retail and e-commerce technology solutions?",
+    answer:
+      "Retail and e-commerce technology solutions include online stores, shopping applications, product catalogue management, inventory and order systems, CRM software, AI customer assistance, marketing automation and business analytics.",
+  },
+  {
+    question:
+      "Does OPV AI Realty Tech develop e-commerce websites in Hyderabad?",
+    answer:
+      "OPV AI Realty Tech is based in Hyderabad and offers e-commerce website development, retail applications, AI automation, CRM systems and digital growth solutions.",
+  },
+  {
+    question: "Can you develop a custom online shopping website?",
+    answer:
+      "Custom online stores can be planned with product catalogues, search, shopping carts, checkout, payment integrations, customer accounts, order tracking and administrative tools according to project requirements.",
+  },
+  {
+    question: "Can retail websites integrate payment gateways?",
+    answer:
+      "Payment gateway integrations can be included where supported by the selected payment provider, platform and business requirements. Merchant onboarding, charges and compliance conditions depend on the provider.",
+  },
+  {
+    question: "Can AI assistants help online shoppers?",
+    answer:
+      "AI assistants can support product discovery, answer suitable customer questions, guide users through shopping journeys and help route service enquiries.",
+  },
+  {
+    question: "Do you provide inventory and order management systems?",
+    answer:
+      "Inventory and order management solutions can be designed to organise product records, stock information, order processing and relevant fulfilment workflows.",
+  },
+  {
+    question: "Can e-commerce websites be optimised for search engines?",
+    answer:
+      "E-commerce SEO can include technical optimisation, product and category page structure, metadata, structured data, content planning and search-friendly navigation.",
+  },
+  {
+    question: "How much does e-commerce website development cost?",
+    answer:
+      "Development costs depend on the number of products, design requirements, checkout features, payment integrations, inventory systems, custom functionality, hosting and ongoing maintenance.",
+  },
+];
+
+// ==========================================
+// RELATED SOLUTIONS
+// ==========================================
+
+const relatedSolutions = [
+  {
+    title: "Web & Mobile Experiences",
+    href: "/solutions/web-mobile-experiences",
+  },
+  {
+    title: "CRM, ERP & Business Systems",
+    href: "/solutions/crm-erp-business-systems",
+  },
+  {
+    title: "AI & Intelligent Automation",
+    href: "/solutions/ai-intelligent-automation",
+  },
+];
+
+// ==========================================
+// STRUCTURED DATA
+// ==========================================
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: "OPV AI Realty Tech Private Limited",
+      url: SITE_URL,
+      telephone: "+91-9963513939",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Hyderabad",
+        addressRegion: "Telangana",
+        addressCountry: "IN",
+      },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${PAGE_URL}#webpage`,
+      url: PAGE_URL,
+      name: PAGE_TITLE,
+      description: PAGE_DESCRIPTION,
+      inLanguage: "en-IN",
+      breadcrumb: {
+        "@id": `${PAGE_URL}#breadcrumb`,
+      },
+      about: {
+        "@id": `${PAGE_URL}#service`,
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": `${PAGE_URL}#service`,
+      name: "Retail & E-commerce Technology Solutions",
+      serviceType:
+        "E-commerce Development, Retail Software, CRM, AI and Automation",
+      description: PAGE_DESCRIPTION,
+      url: PAGE_URL,
+      provider: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      areaServed: [
+        {
+          "@type": "City",
+          name: "Hyderabad",
+        },
+        {
+          "@type": "State",
+          name: "Telangana",
+        },
+        {
+          "@type": "Country",
+          name: "India",
+        },
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Retail Technology Services",
+        itemListElement: solutions.map((solution) => ({
+          "@type": "OfferCatalog",
+          name: solution.title,
+          description: solution.description,
+        })),
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${PAGE_URL}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Industries",
+          item: `${SITE_URL}/industries`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Retail & E-commerce",
+          item: PAGE_URL,
+        },
+      ],
+    },
+  ],
+};
+
+// ==========================================
+// MAIN PAGE
+// ==========================================
+
 export default function RetailEcommercePage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main className="min-h-screen overflow-hidden bg-white text-[#263C50]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(
+            /</g,
+            "\\u003c"
+          ),
+        }}
+      />
 
       {/* HERO SECTION */}
-      <section className="relative isolate overflow-hidden bg-[#071426]">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.18),transparent_35%),radial-gradient(circle_at_10%_90%,rgba(234,179,8,0.10),transparent_30%)]" />
+      <section className="border-b border-[#E5E9E3] bg-[#F8F6F0]">
+        <div className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:py-28">
+          <nav aria-label="Breadcrumb" className="mb-9">
+            <ol className="flex flex-wrap items-center gap-2 text-xs text-[#647586]">
+              <li>
+                <Link href="/" className="hover:text-[#075B3B]">
+                  Home
+                </Link>
+              </li>
 
-        <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 sm:px-10 lg:grid-cols-2 lg:py-32">
+              <li>
+                <ChevronRight className="h-3 w-3" />
+              </li>
 
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm font-medium text-emerald-300">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              Retail & E-commerce Technology
+              <li>
+                <Link
+                  href="/industries"
+                  className="hover:text-[#075B3B]"
+                >
+                  Industries
+                </Link>
+              </li>
+
+              <li>
+                <ChevronRight className="h-3 w-3" />
+              </li>
+
+              <li
+                aria-current="page"
+                className="font-semibold text-[#075B3B]"
+              >
+                Retail & E-commerce
+              </li>
+            </ol>
+          </nav>
+
+          <div className="grid items-center gap-14 lg:grid-cols-2">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#075B3B]/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#075B3B]">
+                <ShoppingBag className="h-4 w-4" />
+                Retail & E-commerce Technology
+              </div>
+
+              <h1 className="mt-7 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-[54px]">
+                Retail & E-commerce
+                <span className="block text-[#075B3B]">
+                  Technology Solutions
+                </span>
+                <span className="mt-3 block text-2xl font-bold text-[#526577] sm:text-3xl">
+                  In Hyderabad
+                </span>
+              </h1>
+
+              <p className="mt-7 max-w-xl text-lg font-semibold leading-8 text-[#526577]">
+                Transform Retail. Accelerate Digital Commerce.
+              </p>
+
+              <p className="mt-4 max-w-xl leading-8 text-[#526577]">
+                Connect online shopping, customer engagement,
+                inventory operations and business intelligence
+                with modern technology. OPV AI Realty Tech
+                helps retail businesses create connected
+                digital experiences and smarter business workflows.
+              </p>
+
+              <div className="mt-9 flex flex-wrap gap-4">
+                <Link
+                  href="/#contact"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#075B3B] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#06472F]"
+                >
+                  Discuss Your Retail Project
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+
+                <Link
+                  href="#retail-solutions"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#075B3B]/20 bg-white px-7 py-4 text-sm font-bold text-[#075B3B] transition hover:bg-[#F0F6F1]"
+                >
+                  Explore Our Solutions
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+
+              <p className="mt-8 flex items-center gap-2 text-sm text-[#647586]">
+                <MapPin className="h-4 w-4 shrink-0 text-[#075B3B]" />
+                Hyderabad, Telangana · Serving businesses across India
+              </p>
             </div>
 
-            <h1 className="mt-7 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Transform Retail.
-              <span className="block text-emerald-400">
-                Accelerate Digital Commerce.
-              </span>
-            </h1>
-
-            <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300">
-              Connect online shopping, customer engagement, inventory
-              operations and business intelligence with modern technology.
-              OPV AI Realty Tech helps retail businesses create connected
-              digital experiences and smarter business workflows.
-            </p>
-
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="/#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-500 px-7 py-4 font-semibold text-white transition hover:bg-emerald-400"
-              >
-                Discuss Your Retail Project
-                <ArrowRight size={18} />
-              </Link>
-
-              <Link
-                href="/#solutions"
-                className="inline-flex items-center justify-center rounded-lg border border-white/20 px-7 py-4 font-semibold text-white transition hover:border-emerald-400 hover:text-emerald-300"
-              >
-                Explore Our Solutions
-              </Link>
-            </div>
-
-            <p className="mt-8 text-sm text-slate-400">
-              Digital commerce. Intelligent operations. Connected customers.
-            </p>
-          </div>
-
-          {/* HERO VISUAL */}
-          <div className="relative">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.05] p-6 shadow-2xl backdrop-blur sm:p-8">
-
-              <div className="flex items-center justify-between border-b border-white/10 pb-5">
+            {/* COMMERCE VISUAL */}
+            <div className="rounded-3xl border border-[#E5E9E3] bg-white p-6 shadow-[0_20px_60px_rgba(38,60,80,0.07)] sm:p-9">
+              <div className="flex items-center justify-between gap-4 border-b border-[#E5E9E3] pb-5">
                 <div>
-                  <p className="text-xs font-semibold tracking-[0.2em] text-emerald-300">
-                    OPV DIGITAL COMMERCE
+                  <p className="text-xs font-bold uppercase tracking-widest text-[#98732F]">
+                    OPV Digital Commerce
                   </p>
 
-                  <h2 className="mt-2 text-xl font-bold text-white">
+                  <h2 className="mt-2 text-2xl font-extrabold">
                     Connected Retail Ecosystem
                   </h2>
                 </div>
 
-                <div className="rounded-xl bg-emerald-400/10 p-3 text-emerald-300">
-                  <ShoppingBag size={28} />
+                <div className="rounded-xl bg-[#F0F6F1] p-3 text-[#075B3B]">
+                  <ShoppingBag className="h-7 w-7" />
                 </div>
               </div>
 
-              <div className="mt-7 grid grid-cols-2 gap-4">
-
-                <div className="rounded-2xl border border-white/10 bg-[#10233a] p-5">
-                  <ShoppingCart className="mb-4 text-emerald-400" size={26} />
-                  <h3 className="font-semibold text-white">
-                    Online Store
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">
-                    Digital shopping experiences.
-                  </p>
+              <div className="mt-6 flex items-center gap-4 rounded-2xl border border-[#075B3B]/15 bg-[#F0F6F1] p-5">
+                <div className="rounded-xl bg-white p-3 text-[#075B3B]">
+                  <ShoppingCart className="h-7 w-7" />
                 </div>
 
-                <div className="rounded-2xl border border-white/10 bg-[#10233a] p-5">
-                  <Package className="mb-4 text-emerald-400" size={26} />
-                  <h3 className="font-semibold text-white">
-                    Inventory
+                <div>
+                  <h3 className="font-extrabold">
+                    Connected Commerce Operations
                   </h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">
-                    Product and stock management.
-                  </p>
-                </div>
 
-                <div className="rounded-2xl border border-white/10 bg-[#10233a] p-5">
-                  <Bot className="mb-4 text-emerald-400" size={26} />
-                  <h3 className="font-semibold text-white">
-                    AI Shopping
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">
-                    Intelligent customer assistance.
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-white/10 bg-[#10233a] p-5">
-                  <BarChart3 className="mb-4 text-emerald-400" size={26} />
-                  <h3 className="font-semibold text-white">
-                    Analytics
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">
-                    Sales and business insights.
+                  <p className="mt-1 text-sm text-[#526577]">
+                    Technology across the customer journey
                   </p>
                 </div>
               </div>
 
-              <div className="mt-5 rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-5">
-                <div className="flex items-center gap-3">
-                  <Workflow className="shrink-0 text-emerald-300" size={22} />
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-4">
+                {[
+                  {
+                    icon: ShoppingCart,
+                    title: "Online Store",
+                    description: "Digital shopping experiences",
+                  },
+                  {
+                    icon: Package,
+                    title: "Inventory",
+                    description: "Product and stock management",
+                  },
+                  {
+                    icon: Bot,
+                    title: "AI Shopping",
+                    description: "Intelligent customer assistance",
+                  },
+                  {
+                    icon: BarChart3,
+                    title: "Analytics",
+                    description: "Sales and business insights",
+                  },
+                ].map((item) => {
+                  const Icon = item.icon;
 
-                  <div>
-                    <p className="font-semibold text-white">
-                      Connected Commerce Operations
-                    </p>
-                    <p className="mt-1 text-sm text-slate-300">
-                      Technology across the customer journey.
-                    </p>
-                  </div>
-                </div>
+                  return (
+                    <div
+                      key={item.title}
+                      className="rounded-2xl border border-[#E5E9E3] bg-[#F8F6F0] p-4 sm:p-5"
+                    >
+                      <Icon className="h-7 w-7 text-[#075B3B]" />
+
+                      <h3 className="mt-4 text-sm font-extrabold">
+                        {item.title}
+                      </h3>
+
+                      <p className="mt-2 text-xs leading-6 text-[#526577]">
+                        {item.description}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="mt-5 flex items-start gap-3 rounded-xl bg-[#F0F6F1] p-4">
+                <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#075B3B]" />
+
+                <p className="text-sm font-medium leading-6">
+                  Digital commerce solutions planned around your
+                  business operations and customer needs
+                </p>
               </div>
             </div>
-
-            <div className="absolute -right-5 -top-5 -z-10 h-36 w-36 rounded-full bg-emerald-400/20 blur-3xl" />
           </div>
         </div>
       </section>
 
       {/* INTRODUCTION */}
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:py-24">
-        <div className="mx-auto max-w-3xl text-center">
+      <section className="py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#075B3B]">
+              The Future of Retail
+            </p>
 
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
-            The future of retail
-          </p>
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              Build a More Connected Retail Business
+            </h2>
 
-          <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            Build a More Connected Retail Business
-          </h2>
+            <p className="mt-6 leading-8 text-[#526577]">
+              Modern retail combines physical and digital customer
+              experiences. Businesses need suitable technology to
+              manage products, customer relationships, orders,
+              marketing and operational information.
+            </p>
 
-          <p className="mt-6 text-lg leading-8 text-slate-600">
-            Modern retail combines physical and digital customer experiences.
-            Businesses need suitable technology to manage products,
-            customer relationships, orders, marketing and operational
-            information. Connected applications and intelligent workflows
-            can help bring these activities together around a consistent
-            business experience.
-          </p>
+            <p className="mt-4 leading-8 text-[#526577]">
+              Connected applications and intelligent workflows
+              can help bring these activities together around
+              a consistent business experience.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* SOLUTIONS */}
-      <section className="bg-slate-50 py-20 lg:py-24">
+      <section
+        id="retail-solutions"
+        className="scroll-mt-24 border-y border-[#E5E9E3] bg-[#F8F6F0] py-20 lg:py-24"
+      >
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
-
-          <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
-              Our capabilities
+          <div className="mb-12 max-w-3xl">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#075B3B]">
+              Our Capabilities
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
               Retail & E-commerce Technology Solutions
             </h2>
 
-            <p className="mt-5 leading-7 text-slate-600">
-              Explore software, AI and automation capabilities designed
-              around your retail business model and digital commerce needs.
+            <p className="mt-5 leading-8 text-[#526577]">
+              Explore software, AI and automation capabilities
+              designed around your retail business model
+              and digital commerce needs.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {solutions.map((solution) => {
               const Icon = solution.icon;
 
               return (
                 <article
                   key={solution.title}
-                  className="group rounded-2xl border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl"
+                  className="rounded-2xl border border-[#E5E9E3] bg-white p-6 transition duration-300 hover:-translate-y-1 hover:border-[#075B3B]/30 hover:shadow-lg"
                 >
-                  <div className="inline-flex rounded-xl bg-emerald-50 p-3 text-emerald-700 transition group-hover:bg-emerald-500 group-hover:text-white">
-                    <Icon size={25} />
+                  <div className="inline-flex rounded-xl bg-[#F0F6F1] p-3 text-[#075B3B]">
+                    <Icon className="h-7 w-7" />
                   </div>
 
-                  <h3 className="mt-5 text-lg font-bold">
+                  <h3 className="mt-5 text-lg font-extrabold">
                     {solution.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-6 text-slate-600">
+                  <p className="mt-3 text-sm leading-7 text-[#526577]">
                     {solution.description}
                   </p>
                 </article>
@@ -400,153 +727,121 @@ export default function RetailEcommercePage() {
       </section>
 
       {/* BUSINESS TYPES */}
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:py-24">
+      <section className="py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#075B3B]">
+              Who We Serve
+            </p>
 
-        <div className="mx-auto max-w-2xl text-center">
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              Technology for Different Retail Business Models
+            </h2>
 
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
-            Who we serve
-          </p>
+            <p className="mt-5 leading-8 text-[#526577]">
+              Each retail model has different product, customer,
+              sales and operational requirements. Technology
+              should be designed with those differences in mind.
+            </p>
+          </div>
 
-          <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            Technology for Different Retail Business Models
-          </h2>
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {businessTypes.map((business) => (
+              <article
+                key={business.title}
+                className="rounded-2xl border border-[#E5E9E3] bg-white p-7 transition hover:border-[#075B3B]/30 hover:shadow-lg"
+              >
+                <div className="inline-flex rounded-xl bg-[#F0F6F1] p-3 text-[#075B3B]">
+                  <ShoppingBag className="h-7 w-7" />
+                </div>
 
-          <p className="mt-5 leading-7 text-slate-600">
-            Each retail model has different product, customer, sales and
-            operational requirements. Technology should be designed with
-            those differences in mind.
-          </p>
-        </div>
+                <h3 className="mt-5 text-xl font-extrabold">
+                  {business.title}
+                </h3>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {businessTypes.map((business) => (
-            <article
-              key={business.title}
-              className="rounded-2xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-emerald-300 hover:shadow-lg"
-            >
-              <div className="inline-flex rounded-xl bg-emerald-50 p-3 text-emerald-700">
-                <ShoppingBag size={25} />
-              </div>
-
-              <h3 className="mt-5 text-xl font-bold">
-                {business.title}
-              </h3>
-
-              <p className="mt-3 leading-7 text-slate-600">
-                {business.description}
-              </p>
-            </article>
-          ))}
+                <p className="mt-3 leading-8 text-[#526577]">
+                  {business.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* CUSTOMER JOURNEY */}
-      <section className="bg-[#071426] py-20 text-white lg:py-24">
+      <section className="border-y border-[#E5E9E3] bg-[#F8F6F0] py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
-
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-400">
-              Connected customer journey
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#075B3B]">
+              Connected Customer Journey
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
               From Product Discovery to Customer Relationship
             </h2>
 
-            <p className="mt-5 leading-7 text-slate-300">
-              Digital commerce connects several stages of the customer
-              experience. Suitable technology can help coordinate those
-              stages more effectively.
+            <p className="mt-5 leading-8 text-[#526577]">
+              Digital commerce connects several stages of the
+              customer experience. Suitable technology can
+              help coordinate those stages more effectively.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-            {[
-              {
-                number: "01",
-                icon: Search,
-                title: "Discover",
-                description:
-                  "Help customers explore products, services and relevant information.",
-              },
-              {
-                number: "02",
-                icon: ShoppingCart,
-                title: "Purchase",
-                description:
-                  "Create structured shopping, checkout and order experiences.",
-              },
-              {
-                number: "03",
-                icon: Truck,
-                title: "Fulfil",
-                description:
-                  "Coordinate orders, inventory and fulfilment-related workflows.",
-              },
-              {
-                number: "04",
-                icon: Headphones,
-                title: "Engage",
-                description:
-                  "Support customer communication, service and ongoing relationships.",
-              },
-            ].map((stage) => {
+          <ol className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {customerJourney.map((stage) => {
               const Icon = stage.icon;
 
               return (
-                <article
+                <li
                   key={stage.number}
-                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-6"
+                  className="rounded-2xl border border-[#E5E9E3] bg-white p-6"
                 >
-                  <p className="text-sm font-bold text-emerald-400">
-                    STAGE {stage.number}
+                  <p className="text-xs font-bold uppercase tracking-widest text-[#98732F]">
+                    Stage {stage.number}
                   </p>
 
-                  <div className="mt-5 inline-flex rounded-xl bg-emerald-400/10 p-3 text-emerald-300">
-                    <Icon size={25} />
+                  <div className="mt-5 inline-flex rounded-xl bg-[#F0F6F1] p-3 text-[#075B3B]">
+                    <Icon className="h-7 w-7" />
                   </div>
 
-                  <h3 className="mt-5 text-xl font-bold">
+                  <h3 className="mt-5 text-xl font-extrabold">
                     {stage.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-6 text-slate-300">
+                  <p className="mt-3 text-sm leading-7 text-[#526577]">
                     {stage.description}
                   </p>
-                </article>
+                </li>
               );
             })}
-          </div>
+          </ol>
         </div>
       </section>
 
       {/* CAPABILITIES */}
-      <section className="bg-slate-50 py-20 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 sm:px-10 lg:grid-cols-2 lg:items-center">
-
+      <section className="py-20 lg:py-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 sm:px-10 lg:grid-cols-2">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
-              Technology capabilities
+            <p className="text-xs font-bold uppercase tracking-widest text-[#075B3B]">
+              Technology Capabilities
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
               A Connected Digital Toolkit for Retail Businesses
             </h2>
 
-            <p className="mt-5 leading-7 text-slate-600">
-              From online storefronts to inventory applications and
-              customer engagement systems, we help identify suitable
-              technology capabilities for your requirements.
+            <p className="mt-6 leading-8 text-[#526577]">
+              From online storefronts to inventory applications
+              and customer engagement systems, we help identify
+              suitable technology capabilities for your requirements.
             </p>
 
             <Link
               href="/#contact"
-              className="mt-8 inline-flex items-center gap-2 font-semibold text-emerald-700 transition hover:text-emerald-800"
+              className="mt-8 inline-flex items-center gap-2 font-bold text-[#075B3B] hover:underline"
             >
-              Discuss your retail requirements
-              <ArrowRight size={18} />
+              Discuss Your Retail Requirements
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
@@ -554,14 +849,11 @@ export default function RetailEcommercePage() {
             {capabilities.map((item) => (
               <div
                 key={item}
-                className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4"
+                className="flex items-start gap-3 rounded-xl border border-[#E5E9E3] bg-[#F8F6F0] p-4"
               >
-                <CheckCircle2
-                  size={19}
-                  className="mt-0.5 shrink-0 text-emerald-600"
-                />
+                <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#075B3B]" />
 
-                <span className="text-sm font-medium leading-6 text-slate-700">
+                <span className="text-sm font-medium leading-7 text-[#526577]">
                   {item}
                 </span>
               </div>
@@ -570,116 +862,207 @@ export default function RetailEcommercePage() {
         </div>
       </section>
 
-      {/* BENEFITS */}
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:py-24">
+      {/* BUSINESS OUTCOMES */}
+      <section className="border-y border-[#E5E9E3] bg-[#F8F6F0] py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#075B3B]">
+              Business Outcomes
+            </p>
 
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
-            Business outcomes
-          </p>
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              Technology That Supports Retail Growth
+            </h2>
 
-          <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-            Technology That Supports Retail Growth
-          </h2>
+            <p className="mt-5 leading-8 text-[#526577]">
+              The right digital tools can help businesses improve
+              customer experiences, coordinate operations and
+              understand business performance.
+            </p>
+          </div>
 
-          <p className="mt-5 leading-7 text-slate-600">
-            The right digital tools can help businesses improve customer
-            experiences, coordinate operations and understand business
-            performance.
-          </p>
-        </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {benefits.map((benefit, index) => (
+              <article
+                key={benefit.title}
+                className="rounded-2xl border border-[#E5E9E3] bg-white p-7"
+              >
+                <p className="text-xs font-bold uppercase tracking-widest text-[#98732F]">
+                  Outcome {String(index + 1).padStart(2, "0")}
+                </p>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {benefits.map((benefit, index) => (
-            <article
-              key={benefit.title}
-              className="rounded-2xl border border-slate-200 bg-white p-7"
-            >
-              <p className="text-sm font-bold text-emerald-600">
-                OUTCOME 0{index + 1}
-              </p>
+                <h3 className="mt-4 text-xl font-extrabold">
+                  {benefit.title}
+                </h3>
 
-              <h3 className="mt-4 text-xl font-bold">
-                {benefit.title}
-              </h3>
-
-              <p className="mt-3 leading-7 text-slate-600">
-                {benefit.description}
-              </p>
-            </article>
-          ))}
+                <p className="mt-4 leading-8 text-[#526577]">
+                  {benefit.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* IMPLEMENTATION PROCESS */}
-      <section className="bg-[#071426] py-20 text-white lg:py-24">
-
+      <section className="py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
-
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-400">
-              Our approach
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#075B3B]">
+              Our Approach
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
               From Retail Challenges to Digital Solutions
             </h2>
 
-            <p className="mt-5 leading-7 text-slate-300">
-              A structured process helps align technology decisions with
-              your products, customers and retail operating model.
+            <p className="mt-5 leading-8 text-[#526577]">
+              A structured process helps align technology decisions
+              with your products, customers and retail operating model.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
             {process.map((step) => (
-              <div
+              <li
                 key={step.number}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6"
+                className="rounded-2xl border border-[#E5E9E3] bg-[#F8F6F0] p-6"
               >
-                <p className="text-3xl font-bold text-emerald-400">
+                <span className="text-3xl font-black text-[#C6A052]">
                   {step.number}
-                </p>
+                </span>
 
-                <h3 className="mt-5 text-lg font-bold">
+                <h3 className="mt-5 text-lg font-extrabold">
                   {step.title}
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-slate-300">
+                <p className="mt-4 text-sm leading-7 text-[#526577]">
                   {step.description}
                 </p>
-              </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="border-t border-[#E5E9E3] bg-[#F8F6F0] py-20 lg:py-24">
+        <div className="mx-auto max-w-4xl px-6 sm:px-10">
+          <div className="mb-12 text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#075B3B]">
+              Frequently Asked Questions
+            </p>
+
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              Retail & E-commerce Technology FAQs
+            </h2>
+
+            <p className="mt-5 leading-8 text-[#526577]">
+              Answers to common questions about e-commerce
+              development, retail software, AI and automation.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq) => (
+              <details
+                key={faq.question}
+                className="group rounded-xl border border-[#E5E9E3] bg-white p-6"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-bold [&::-webkit-details-marker]:hidden">
+                  {faq.question}
+
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 text-xl text-[#075B3B] transition-transform group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+
+                <p className="mt-5 border-t border-[#E5E9E3] pt-5 text-sm leading-8 text-[#526577]">
+                  {faq.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* RELATED SOLUTIONS */}
+      <section className="py-16">
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+          <h2 className="text-2xl font-extrabold">
+            Explore Related Technology Solutions
+          </h2>
+
+          <p className="mt-4 max-w-3xl leading-8 text-[#526577]">
+            Connect your retail business with web and mobile
+            development, intelligent automation and customer
+            relationship systems.
+          </p>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {relatedSolutions.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex items-center justify-between gap-4 rounded-xl border border-[#E5E9E3] bg-[#F8F6F0] p-5 transition hover:border-[#075B3B]/30"
+              >
+                <span className="text-sm font-bold">
+                  {item.title}
+                </span>
+
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-[#075B3B]" />
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* FINAL CTA */}
-      <section className="px-6 py-20 sm:px-10 lg:py-24">
-
-        <div className="mx-auto max-w-5xl rounded-3xl bg-emerald-600 px-7 py-14 text-center text-white sm:px-14">
-
-          <div className="mx-auto inline-flex rounded-2xl bg-white/15 p-3">
-            <Rocket size={28} />
+      <section className="bg-[#075B3B] py-20 text-white lg:py-24">
+        <div className="mx-auto max-w-4xl px-6 text-center sm:px-10">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10">
+            <Rocket className="h-7 w-7 text-[#E9CF91]" />
           </div>
 
-          <h2 className="mx-auto mt-5 max-w-3xl text-3xl font-bold sm:text-4xl">
+          <h2 className="mt-7 text-3xl font-extrabold sm:text-4xl">
             Ready to Transform Your Retail Business?
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl leading-7 text-emerald-50">
-            Whether you operate an online store, retail chain, consumer brand
-            or distribution business, let's explore how AI, software and
-            connected technology can support your next stage of growth.
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/80">
+            Whether you operate an online store, retail chain,
+            consumer brand or distribution business, explore
+            how AI, software and connected technology can
+            support your next stage of growth.
           </p>
 
-          <Link
-            href="/#contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-white px-7 py-4 font-semibold text-emerald-700 transition hover:bg-slate-100"
-          >
-            Discuss Your Retail Project
-            <ArrowRight size={18} />
-          </Link>
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/#contact"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#C6A052] px-7 py-4 text-sm font-bold text-[#263C50] transition hover:bg-[#D8B76C]"
+            >
+              Discuss Your Retail Project
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+
+            <a
+              href="tel:+919963513939"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-7 py-4 text-sm font-bold text-white transition hover:bg-white/10"
+            >
+              <Phone className="h-4 w-4" />
+              +91 99635 13939
+            </a>
+          </div>
+
+          <p className="mt-9 text-xs tracking-widest text-white/65">
+            OPV AI REALTY TECH PRIVATE LIMITED
+          </p>
+
+          <p className="mt-2 text-sm font-medium text-white/80">
+            Build Smarter • Automate Better • Grow Faster
+          </p>
         </div>
       </section>
     </main>

@@ -4,25 +4,33 @@ import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
+  Building2,
+  CheckCircle2,
   ChevronRight,
   FileText,
-  ShieldCheck,
-  Scale,
   Globe2,
-  Mail,
-  CheckCircle2,
-  AlertCircle,
   LockKeyhole,
-  Building2,
+  Mail,
+  Phone,
+  Scale,
+  ShieldCheck,
 } from "lucide-react";
+
+// ==========================================
+// CONFIGURATION
+// ==========================================
+
+const SITE_URL = "https://www.opvairealtytech.com";
+const PAGE_URL = `${SITE_URL}/terms-and-conditions`;
+const COMPANY = "OPV AI Realty Tech Private Limited";
+const LAST_UPDATED = "November 6, 2026";
 
 export const metadata: Metadata = {
   title: "Terms and Conditions | OPV AI Realty Tech",
   description:
-    "Read the Terms and Conditions of OPV AI Realty Tech, including website usage, intellectual property, services, payment terms, liability, privacy and legal policies.",
+    "Read the Terms and Conditions of OPV AI Realty Tech, covering website usage, intellectual property, project agreements, payments, privacy, liability and applicable laws.",
   alternates: {
-    canonical:
-      "https://www.opvairealtytech.com/terms-and-conditions",
+    canonical: PAGE_URL,
   },
   robots: {
     index: true,
@@ -32,12 +40,22 @@ export const metadata: Metadata = {
     title: "Terms and Conditions | OPV AI Realty Tech",
     description:
       "Understand the terms governing access to and use of the OPV AI Realty Tech website and services.",
-    url: "https://www.opvairealtytech.com/terms-and-conditions",
+    url: PAGE_URL,
+    siteName: "OPV AI Realty Tech",
     type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary",
+    title: "Terms and Conditions | OPV AI Realty Tech",
+    description:
+      "Website usage, services, project agreements, privacy and legal terms.",
   },
 };
 
-const lastUpdated = "November 6, 2026";
+// ==========================================
+// LEGAL CONTENT
+// ==========================================
 
 const sections = [
   {
@@ -181,233 +199,162 @@ const sections = [
   },
 ];
 
-const breadcrumbSchema = {
+// ==========================================
+// STRUCTURED DATA
+// ==========================================
+
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
+  "@graph": [
     {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://www.opvairealtytech.com/",
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: COMPANY,
+      url: SITE_URL,
+      telephone: "+91-9963513939",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Hyderabad",
+        addressRegion: "Telangana",
+        addressCountry: "IN",
+      },
     },
     {
-      "@type": "ListItem",
-      position: 2,
+      "@type": "WebPage",
+      "@id": `${PAGE_URL}#webpage`,
       name: "Terms and Conditions",
-      item:
-        "https://www.opvairealtytech.com/terms-and-conditions",
+      url: PAGE_URL,
+      description:
+        "Terms and Conditions governing use of the OPV AI Realty Tech website.",
+      inLanguage: "en-IN",
+      dateModified: "2026-11-06",
+      publisher: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      breadcrumb: {
+        "@id": `${PAGE_URL}#breadcrumb`,
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${PAGE_URL}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Terms and Conditions",
+          item: PAGE_URL,
+        },
+      ],
     },
   ],
 };
 
+// ==========================================
+// PAGE COMPONENT
+// ==========================================
+
 export default function TermsAndConditionsPage() {
   return (
-    <main className="min-h-screen bg-[#06111f] text-white">
+    <main className="min-h-screen overflow-hidden bg-white text-[#263C50]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(breadcrumbSchema).replace(
+          __html: JSON.stringify(structuredData).replace(
             /</g,
             "\\u003c"
           ),
         }}
       />
 
-      {/* HERO SECTION */}
-      <section className="relative overflow-hidden border-b border-white/[0.07]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.13),transparent_55%)]" />
+      {/* HERO */}
+      <section className="border-b border-[#E5E9E3] bg-[#F8F6F0]">
+        <div className="mx-auto max-w-7xl px-6 pb-16 pt-16 sm:px-10 lg:pb-20 lg:pt-24">
+          <nav aria-label="Breadcrumb" className="mb-10">
+            <ol className="flex flex-wrap items-center gap-2 text-xs text-[#647586]">
+              <li>
+                <Link
+                  href="/"
+                  className="transition hover:text-[#075B3B]"
+                >
+                  Home
+                </Link>
+              </li>
 
-        <div className="relative mx-auto max-w-[1200px] px-5 pb-16 pt-20 sm:px-8 sm:pb-20 sm:pt-28 lg:px-10">
-          {/* BREADCRUMB */}
-          <nav
-            aria-label="Breadcrumb"
-            className="mb-10 flex flex-wrap items-center gap-2 text-xs text-slate-400"
-          >
-            <Link
-              href="/"
-              className="transition hover:text-emerald-300"
-            >
-              Home
-            </Link>
+              <li>
+                <ChevronRight className="h-3.5 w-3.5" />
+              </li>
 
-            <ChevronRight className="h-3.5 w-3.5" />
-
-            <span className="text-emerald-300">
-              Terms and Conditions
-            </span>
+              <li
+                aria-current="page"
+                className="font-semibold text-[#075B3B]"
+              >
+                Terms and Conditions
+              </li>
+            </ol>
           </nav>
 
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/[0.07] px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-emerald-300">
-            <Scale className="h-4 w-4" />
-            Legal Information
-          </div>
-
-          <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Terms &
-            <span className="block text-emerald-300">
-              Conditions
-            </span>
-          </h1>
-
-          <p className="mt-6 max-w-2xl text-sm leading-8 text-slate-400 sm:text-base">
-            Please read these Terms and Conditions carefully
-            before accessing our website or engaging with
-            OPV AI Realty Tech services.
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4 text-xs text-slate-400">
-            <span className="inline-flex items-center gap-2">
-              <FileText className="h-4 w-4 text-emerald-300" />
-              Last Updated: {lastUpdated}
-            </span>
-
-            <span className="inline-flex items-center gap-2">
-              <Globe2 className="h-4 w-4 text-emerald-300" />
-              www.opvairealtytech.com
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* LEGAL CONTENT */}
-      <section className="mx-auto max-w-[1200px] px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
-        <div className="grid gap-10 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-14">
-
-          {/* DESKTOP TABLE OF CONTENTS */}
-          <aside className="hidden lg:block">
-            <div className="sticky top-28 rounded-2xl border border-white/[0.08] bg-[#0a1a2b] p-6">
-              <div className="mb-5 flex items-center gap-2">
-                <FileText className="h-5 w-5 text-emerald-300" />
-                <h2 className="text-sm font-bold">
-                  On This Page
-                </h2>
+          <div className="grid items-center gap-12 lg:grid-cols-[1.4fr_0.6fr]">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#075B3B]/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#075B3B]">
+                <Scale className="h-4 w-4" />
+                Legal Information
               </div>
 
-              <nav
-                aria-label="Terms sections"
-                className="max-h-[65vh] space-y-1 overflow-y-auto pr-2"
-              >
-                {sections.map((section) => (
-                  <a
-                    key={section.id}
-                    href={`#${section.id}`}
-                    className="block rounded-lg px-3 py-2 text-xs leading-5 text-slate-400 transition hover:bg-emerald-300/[0.07] hover:text-emerald-300"
-                  >
-                    {section.number}. {section.title}
-                  </a>
-                ))}
-              </nav>
-            </div>
-          </aside>
+              <h1 className="mt-7 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+                Terms &
+                <span className="block text-[#075B3B]">
+                  Conditions
+                </span>
+              </h1>
 
-          {/* MAIN CONTENT */}
-          <div className="min-w-0">
+              <p className="mt-6 max-w-2xl text-base leading-8 text-[#526577]">
+                Please read these Terms and Conditions carefully
+                before accessing our website or engaging with
+                OPV AI Realty Tech services.
+              </p>
 
-            {/* INTRO CARD */}
-            <div className="mb-12 rounded-2xl border border-emerald-300/15 bg-emerald-300/[0.045] p-6 sm:p-8">
-              <div className="flex items-start gap-4">
-                <ShieldCheck className="mt-1 h-6 w-6 shrink-0 text-emerald-300" />
+              <div className="mt-8 flex flex-wrap items-center gap-5 text-sm text-[#526577]">
+                <span className="inline-flex items-center gap-2">
+                  <FileText className="h-4 w-4 text-[#075B3B]" />
+                  Last Updated: {LAST_UPDATED}
+                </span>
 
-                <div>
-                  <h2 className="text-lg font-bold">
-                    Welcome to OPV AI Realty Tech
-                  </h2>
-
-                  <p className="mt-3 text-sm leading-8 text-slate-400">
-                    These Terms and Conditions explain the
-                    rules governing access to our website,
-                    general use of website content and the
-                    relationship between website visitors and
-                    OPV AI Realty Tech.
-                  </p>
-                </div>
+                <span className="inline-flex items-center gap-2">
+                  <Globe2 className="h-4 w-4 text-[#075B3B]" />
+                  www.opvairealtytech.com
+                </span>
               </div>
             </div>
 
-            {/* TERMS SECTIONS */}
-            <div className="space-y-12">
-              {sections.map((section) => (
-                <section
-                  key={section.id}
-                  id={section.id}
-                  className="scroll-mt-28 border-b border-white/[0.07] pb-10 last:border-0"
-                >
-                  <div className="mb-5 flex items-start gap-4">
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-emerald-300/15 bg-emerald-300/[0.07] text-xs font-bold text-emerald-300">
-                      {section.number}
-                    </span>
+            <div className="rounded-3xl border border-[#E5E9E3] bg-white p-7 shadow-[0_20px_60px_rgba(38,60,80,0.06)]">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F0F6F1] text-[#075B3B]">
+                <ShieldCheck className="h-8 w-8" />
+              </div>
 
-                    <h2 className="pt-1 text-xl font-bold leading-8 sm:text-2xl">
-                      {section.title}
-                    </h2>
-                  </div>
+              <h2 className="mt-6 text-xl font-extrabold">
+                Website Legal Framework
+              </h2>
 
-                  <div className="space-y-4 pl-0 sm:pl-14">
-                    {section.paragraphs.map((paragraph, index) => (
-                      <p
-                        key={index}
-                        className="text-sm leading-8 text-slate-400"
-                      >
-                        {paragraph}
-                      </p>
-                    ))}
+              <p className="mt-4 text-sm leading-7 text-[#526577]">
+                Information about website access, services,
+                intellectual property, project agreements
+                and applicable legal responsibilities.
+              </p>
 
-                    {section.id === "privacy" && (
-                      <Link
-                        href="/privacy-policy"
-                        className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-300 hover:text-emerald-200"
-                      >
-                        Read Our Privacy Policy
-                        <ArrowUpRight className="h-4 w-4" />
-                      </Link>
-                    )}
+              <div className="mt-6 border-t border-[#E5E9E3] pt-5">
+                <p className="text-xs font-bold uppercase tracking-widest text-[#98732F]">
+                  Document Overview
+                </p>
 
-                    {section.id === "contact" && (
-                      <div className="mt-6 rounded-xl border border-white/10 bg-[#0a1a2b] p-5">
-                        <div className="flex items-center gap-3">
-                          <Mail className="h-5 w-5 text-emerald-300" />
-                          <a
-                            href="mailto:info@opvairealtytech.com"
-                            className="break-all text-sm font-semibold text-white hover:text-emerald-300"
-                          >
-                            info@opvairealtytech.com
-                          </a>
-                        </div>
-
-                        <div className="mt-4 flex items-center gap-3">
-                          <Building2 className="h-5 w-5 text-emerald-300" />
-                          <span className="text-sm text-slate-400">
-                            Hyderabad, Telangana, India
-                          </span>
-                        </div>
-
-                        <Link
-                          href="/contact"
-                          className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-emerald-300 hover:text-emerald-200"
-                        >
-                          Contact Our Team
-                          <ArrowUpRight className="h-4 w-4" />
-                        </Link>
-                      </div>
-                    )}
-                  </div>
-                </section>
-              ))}
-            </div>
-
-            {/* NOTICE */}
-            <div className="mt-12 rounded-2xl border border-amber-300/15 bg-amber-300/[0.04] p-6">
-              <div className="flex items-start gap-3">
-                <AlertCircle className="mt-1 h-5 w-5 shrink-0 text-amber-300" />
-
-                <p className="text-xs leading-7 text-slate-400">
-                  These website terms are separate from any
-                  specific software development, subscription,
-                  maintenance or consulting agreement entered
-                  into with OPV AI Realty Tech. Where a
-                  separately executed agreement applies,
-                  its terms govern that engagement.
+                <p className="mt-2 text-sm font-semibold">
+                  15 Legal Sections
                 </p>
               </div>
             </div>
@@ -415,9 +362,208 @@ export default function TermsAndConditionsPage() {
         </div>
       </section>
 
-      {/* TRUST STRIP */}
-      <section className="border-y border-white/[0.07] bg-[#081725]">
-        <div className="mx-auto grid max-w-[1200px] gap-6 px-5 py-10 sm:grid-cols-3 sm:px-8 lg:px-10">
+      {/* MAIN LEGAL CONTENT */}
+      <section className="py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+          <div className="grid items-start gap-10 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-14">
+
+            {/* TABLE OF CONTENTS */}
+            <aside className="hidden lg:block">
+              <div className="sticky top-28 rounded-2xl border border-[#E5E9E3] bg-[#F8F6F0] p-6">
+                <div className="mb-5 flex items-center gap-3">
+                  <FileText className="h-5 w-5 text-[#075B3B]" />
+
+                  <h2 className="text-sm font-extrabold">
+                    On This Page
+                  </h2>
+                </div>
+
+                <nav
+                  aria-label="Terms sections"
+                  className="max-h-[65vh] space-y-1 overflow-y-auto pr-2"
+                >
+                  {sections.map((section) => (
+                    <a
+                      key={section.id}
+                      href={`#${section.id}`}
+                      className="block rounded-lg px-3 py-2 text-xs leading-5 text-[#526577] transition hover:bg-white hover:text-[#075B3B]"
+                    >
+                      <span className="mr-2 font-bold text-[#98732F]">
+                        {section.number}
+                      </span>
+                      {section.title}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            </aside>
+
+            {/* LEGAL DOCUMENT */}
+            <div className="min-w-0">
+
+              {/* INTRODUCTION */}
+              <div className="mb-12 rounded-2xl border border-[#075B3B]/15 bg-[#F0F6F1] p-6 sm:p-8">
+                <div className="flex items-start gap-4">
+                  <ShieldCheck className="mt-1 h-6 w-6 shrink-0 text-[#075B3B]" />
+
+                  <div>
+                    <h2 className="text-xl font-extrabold">
+                      Welcome to OPV AI Realty Tech
+                    </h2>
+
+                    <p className="mt-4 text-sm leading-8 text-[#526577]">
+                      These Terms and Conditions explain the
+                      rules governing access to our website,
+                      general use of website content and the
+                      relationship between website visitors
+                      and OPV AI Realty Tech.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* MOBILE SECTION NAVIGATION */}
+              <details className="mb-10 rounded-xl border border-[#E5E9E3] bg-[#F8F6F0] p-5 lg:hidden">
+                <summary className="cursor-pointer font-bold text-[#075B3B]">
+                  Browse Legal Sections
+                </summary>
+
+                <nav
+                  aria-label="Mobile terms navigation"
+                  className="mt-5 grid gap-3"
+                >
+                  {sections.map((section) => (
+                    <a
+                      key={section.id}
+                      href={`#${section.id}`}
+                      className="text-sm text-[#526577] hover:text-[#075B3B]"
+                    >
+                      {section.number}. {section.title}
+                    </a>
+                  ))}
+                </nav>
+              </details>
+
+              {/* SECTIONS */}
+              <div className="space-y-11">
+                {sections.map((section) => (
+                  <section
+                    key={section.id}
+                    id={section.id}
+                    className="scroll-mt-28 border-b border-[#E5E9E3] pb-10 last:border-0"
+                  >
+                    <div className="mb-6 flex items-start gap-4">
+                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#F0F6F1] text-xs font-extrabold text-[#075B3B]">
+                        {section.number}
+                      </span>
+
+                      <h2 className="pt-1 text-xl font-extrabold leading-8 sm:text-2xl">
+                        {section.title}
+                      </h2>
+                    </div>
+
+                    <div className="space-y-4 sm:pl-[60px]">
+                      {section.paragraphs.map((paragraph, index) => (
+                        <p
+                          key={index}
+                          className="text-sm leading-8 text-[#526577] sm:text-[15px]"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+
+                      {section.id === "privacy" && (
+                        <Link
+                          href="/privacy-policy"
+                          className="inline-flex items-center gap-2 text-sm font-bold text-[#075B3B] hover:underline"
+                        >
+                          Read Our Privacy Policy
+                          <ArrowUpRight className="h-4 w-4" />
+                        </Link>
+                      )}
+
+                      {section.id === "contact" && (
+                        <div className="mt-6 rounded-2xl border border-[#E5E9E3] bg-[#F8F6F0] p-6">
+                          <h3 className="mb-5 text-base font-extrabold">
+                            Contact OPV AI Realty Tech
+                          </h3>
+
+                          <div className="space-y-5">
+                            <div className="flex items-center gap-3">
+                              <Mail className="h-5 w-5 shrink-0 text-[#075B3B]" />
+
+                              <a
+                                href="mailto:info@opvairealtytech.com"
+                                className="break-all text-sm font-semibold hover:text-[#075B3B]"
+                              >
+                                info@opvairealtytech.com
+                              </a>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                              <Phone className="h-5 w-5 shrink-0 text-[#075B3B]" />
+
+                              <a
+                                href="tel:+919963513939"
+                                className="text-sm font-semibold hover:text-[#075B3B]"
+                              >
+                                +91 99635 13939
+                              </a>
+                            </div>
+
+                            <div className="flex items-center gap-3">
+                              <Building2 className="h-5 w-5 shrink-0 text-[#075B3B]" />
+
+                              <span className="text-sm text-[#526577]">
+                                Hyderabad, Telangana, India
+                              </span>
+                            </div>
+                          </div>
+
+                          <Link
+                            href="/contact"
+                            className="mt-7 inline-flex items-center gap-2 text-sm font-bold text-[#075B3B] hover:underline"
+                          >
+                            Contact Our Team
+                            <ArrowUpRight className="h-4 w-4" />
+                          </Link>
+                        </div>
+                      )}
+                    </div>
+                  </section>
+                ))}
+              </div>
+
+              {/* IMPORTANT NOTICE */}
+              <div className="mt-12 rounded-2xl border border-[#C6A052]/30 bg-[#FCF9F0] p-6 sm:p-8">
+                <div className="flex items-start gap-4">
+                  <Scale className="mt-1 h-6 w-6 shrink-0 text-[#98732F]" />
+
+                  <div>
+                    <h2 className="text-base font-extrabold">
+                      Important Legal Notice
+                    </h2>
+
+                    <p className="mt-3 text-sm leading-8 text-[#526577]">
+                      These website terms are separate from any
+                      specific software development, subscription,
+                      maintenance or consulting agreement entered
+                      into with OPV AI Realty Tech. Where a
+                      separately executed agreement applies,
+                      its terms govern that engagement.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* LEGAL PRINCIPLES */}
+      <section className="border-y border-[#E5E9E3] bg-[#F8F6F0] py-14">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 sm:grid-cols-3 sm:px-10">
           {[
             {
               icon: ShieldCheck,
@@ -442,15 +588,16 @@ export default function TermsAndConditionsPage() {
                 key={item.title}
                 className="flex items-start gap-4"
               >
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-emerald-300/10 text-emerald-300">
-                  <Icon className="h-5 w-5" />
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#075B3B]/10 bg-white text-[#075B3B]">
+                  <Icon className="h-6 w-6" />
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-bold">
+                  <h3 className="text-base font-extrabold">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-xs text-slate-400">
+
+                  <p className="mt-2 text-sm leading-6 text-[#526577]">
                     {item.description}
                   </p>
                 </div>
@@ -460,30 +607,85 @@ export default function TermsAndConditionsPage() {
         </div>
       </section>
 
-      {/* BOTTOM CTA */}
-      <section className="relative overflow-hidden py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.09),transparent_65%)]" />
-
-        <div className="relative mx-auto max-w-[850px] px-5 text-center">
-          <h2 className="text-3xl font-extrabold sm:text-4xl">
-            Have Questions About
-            <span className="block text-emerald-300">
-              Our Terms?
-            </span>
+      {/* RELATED LEGAL LINKS */}
+      <section className="py-16">
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+          <h2 className="text-2xl font-extrabold">
+            Related Information
           </h2>
 
-          <p className="mx-auto mt-5 max-w-xl text-sm leading-8 text-slate-400">
+          <p className="mt-4 max-w-2xl text-sm leading-8 text-[#526577]">
+            Learn more about our privacy practices or contact
+            our team regarding our services and agreements.
+          </p>
+
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            <Link
+              href="/privacy-policy"
+              className="flex items-center justify-between gap-4 rounded-xl border border-[#E5E9E3] bg-[#F8F6F0] p-6 transition hover:border-[#075B3B]/30"
+            >
+              <span className="font-bold">
+                Privacy Policy
+              </span>
+
+              <ArrowUpRight className="h-5 w-5 text-[#075B3B]" />
+            </Link>
+
+            <Link
+              href="/contact"
+              className="flex items-center justify-between gap-4 rounded-xl border border-[#E5E9E3] bg-[#F8F6F0] p-6 transition hover:border-[#075B3B]/30"
+            >
+              <span className="font-bold">
+                Contact Us
+              </span>
+
+              <ArrowUpRight className="h-5 w-5 text-[#075B3B]" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="bg-[#075B3B] py-20 text-white">
+        <div className="mx-auto max-w-4xl px-6 text-center sm:px-10">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10">
+            <Scale className="h-7 w-7 text-[#E9CF91]" />
+          </div>
+
+          <h2 className="mt-7 text-3xl font-extrabold sm:text-4xl">
+            Have Questions About Our Terms?
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/80">
             Contact our team for clarification about website
             usage, business enquiries or service agreements.
           </p>
 
-          <Link
-            href="/contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-emerald-300 px-8 py-4 text-sm font-bold text-[#06111f] transition hover:-translate-y-1 hover:bg-emerald-200"
-          >
-            Contact Us
-            <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="mt-9 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#C6A052] px-7 py-4 text-sm font-bold text-[#263C50] transition hover:bg-[#D8B76C]"
+            >
+              Contact Our Team
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+
+            <a
+              href="tel:+919963513939"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-7 py-4 text-sm font-bold text-white transition hover:bg-white/10"
+            >
+              <Phone className="h-4 w-4" />
+              +91 99635 13939
+            </a>
+          </div>
+
+          <p className="mt-10 text-xs tracking-widest text-white/65">
+            OPV AI REALTY TECH PRIVATE LIMITED
+          </p>
+
+          <p className="mt-2 text-sm text-white/80">
+            Build Smarter • Automate Better • Grow Faster
+          </p>
         </div>
       </section>
     </main>
