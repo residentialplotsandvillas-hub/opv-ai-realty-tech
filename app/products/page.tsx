@@ -1,7 +1,9 @@
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
+  ArrowUpRight,
   Building2,
   BrainCircuit,
   ChartNoAxesCombined,
@@ -12,52 +14,64 @@ import {
   ShieldCheck,
   Workflow,
   Zap,
+  CheckCircle2,
+  Layers3,
 } from "lucide-react";
 
+// ==========================================
+// SEO METADATA
+// ==========================================
+
 export const metadata: Metadata = {
-  title: "Our Products | OPV AI Realty Tech Private Limited",
+  title: {
+    absolute: "Our Products | OPV AI Realty Tech Private Limited",
+  },
   description:
     "Explore OPV AI Realty Tech products and digital platforms, including Open Plots & Villas, Aarna GrowthOS, AI Sales Agents and Business Automation Systems.",
   alternates: {
-    canonical: "https://www.opvairealtytech.com/products",
+    canonical: "/products",
   },
   openGraph: {
     title: "Our Products | OPV AI Realty Tech",
     description:
       "Discover technology products and intelligent business platforms from OPV AI Realty Tech.",
-    url: "https://www.opvairealtytech.com/products",
+    url: "/products",
     siteName: "OPV AI Realty Tech",
     type: "website",
   },
 };
+
+// ==========================================
+// PRODUCT DATA
+// ==========================================
 
 const products = [
   {
     number: "01",
     name: "Open Plots & Villas",
     category: "Real Estate Technology",
+    status: "Live Platform",
     description:
-      "A real estate-focused digital platform designed to connect property discovery, digital experiences and technology-driven property workflows.",
+      "An AI-powered real estate discovery platform connecting property seekers, owners, builders, developers and property professionals through digital property experiences.",
     icon: Building2,
-    color: "from-green-700 to-emerald-500",
     features: [
       "Digital property discovery",
       "Property listing experiences",
-      "Real estate-focused digital solutions",
+      "AI-assisted real estate solutions",
       "Web and mobile platform experiences",
     ],
-    href: "https://openplotsandvillas.com",
+    href: "https://www.openplotsandvillas.com",
     external: true,
-    label: "Explore Platform",
+    label: "Explore Live Platform",
   },
   {
     number: "02",
     name: "Aarna GrowthOS",
     category: "Business Growth Platform",
+    status: "Product Initiative",
     description:
-      "A business growth platform concept focused on bringing digital operations, growth activities and technology-enabled workflows together.",
+      "A business growth and operations platform initiative focused on connecting digital workflows, operational activities and technology-enabled business management.",
     icon: ChartNoAxesCombined,
-    color: "from-amber-600 to-yellow-400",
     features: [
       "Digital business workflows",
       "Growth-oriented technology",
@@ -72,10 +86,10 @@ const products = [
     number: "03",
     name: "AI Sales Agents",
     category: "Artificial Intelligence",
+    status: "AI Solutions",
     description:
-      "AI-powered sales assistance solutions designed to support customer interactions, lead engagement and sales-related workflows.",
+      "AI-powered sales assistance solutions designed to support customer interactions, lead engagement and sales-related business workflows.",
     icon: BrainCircuit,
-    color: "from-blue-700 to-cyan-500",
     features: [
       "AI-assisted customer interactions",
       "Lead engagement workflows",
@@ -90,10 +104,10 @@ const products = [
     number: "04",
     name: "Business Automation Systems",
     category: "Business Technology",
+    status: "Automation Solutions",
     description:
       "Technology solutions designed to help businesses streamline repetitive processes, organize operations and improve workflow efficiency.",
     icon: Workflow,
-    color: "from-purple-700 to-indigo-500",
     features: [
       "Workflow automation",
       "Business process digitization",
@@ -105,6 +119,10 @@ const products = [
     label: "Discuss Your Requirements",
   },
 ];
+
+// ==========================================
+// TECHNOLOGY CAPABILITIES
+// ==========================================
 
 const capabilities = [
   {
@@ -145,6 +163,21 @@ const capabilities = [
   },
 ];
 
+// ==========================================
+// BUSINESS PRINCIPLES
+// ==========================================
+
+const principles = [
+  "Business-focused thinking",
+  "Scalable technology approach",
+  "AI-enabled innovation",
+  "Connected digital experiences",
+];
+
+// ==========================================
+// FAQ DATA
+// ==========================================
+
 const faqs = [
   {
     question: "What products does OPV AI Realty Tech offer?",
@@ -154,12 +187,12 @@ const faqs = [
   {
     question: "What is Open Plots & Villas?",
     answer:
-      "Open Plots & Villas is a real estate-focused digital platform designed around property discovery and digital property experiences.",
+      "Open Plots & Villas is an AI-powered real estate discovery platform designed around property search, listings and digital property experiences.",
   },
   {
     question: "What is Aarna GrowthOS?",
     answer:
-      "Aarna GrowthOS is a business growth platform concept focused on digital operations, business workflows and technology-enabled growth activities.",
+      "Aarna GrowthOS is a business growth platform initiative focused on digital operations, business workflows and technology-enabled growth activities.",
   },
   {
     question: "Can OPV develop custom technology products?",
@@ -172,6 +205,10 @@ const faqs = [
       "You can contact the OPV team through the website contact page to discuss product information and business requirements.",
   },
 ];
+
+// ==========================================
+// FAQ STRUCTURED DATA
+// ==========================================
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -186,139 +223,196 @@ const faqSchema = {
   })),
 };
 
+// ==========================================
+// PRODUCTS PAGE
+// ==========================================
+
 export default function ProductsPage() {
   return (
-    <main className="overflow-hidden bg-white text-[#111111]">
-      {/* HERO */}
-      <section className="relative isolate overflow-hidden bg-[#033505] px-5 py-24 text-white sm:px-8 lg:py-32">
-        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[#E7B30F]/10 blur-3xl" />
-        <div className="absolute -bottom-40 -left-20 h-96 w-96 rounded-full bg-emerald-400/10 blur-3xl" />
+    <main className="min-h-screen overflow-hidden bg-white text-[#263C50]">
 
-        <div className="relative mx-auto max-w-7xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#E7B30F]/40 bg-white/5 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#F4D545]">
-            <Zap size={14} />
-            Our Products & Platforms
-          </span>
+      {/* STRUCTURED DATA */}
 
-          <h1 className="mt-7 max-w-4xl text-4xl font-black leading-tight sm:text-5xl lg:text-7xl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqSchema).replace(
+            /</g,
+            "\\u003c"
+          ),
+        }}
+      />
+
+      {/* ======================================
+          01 — HERO SECTION
+      ====================================== */}
+
+      <section className="relative overflow-hidden border-b border-[#E5E9E3] bg-[#F8F6F0]">
+        <div className="mx-auto max-w-7xl px-6 pb-20 pt-24 sm:px-10 sm:pb-24 lg:pt-28">
+
+          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#075B3B]/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#075B3B]">
+            <Zap className="h-4 w-4" />
+            Our Products &amp; Platforms
+          </div>
+
+          <h1 className="max-w-4xl text-4xl font-extrabold leading-[1.12] tracking-tight text-[#263C50] sm:text-5xl lg:text-6xl">
             Technology Products
-            <span className="block text-[#F4D545]">
-              Built for Business Growth
+            <span className="block text-[#075B3B]">
+              Built for Business Growth.
             </span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-base leading-8 text-white/75 sm:text-lg">
-            Discover digital platforms and intelligent technology solutions
-            from OPV AI Realty Tech. We bring together AI, software engineering
-            and business-focused innovation to support modern organizations.
+          <p className="mt-7 max-w-2xl text-base leading-8 text-[#526577] sm:text-lg">
+            Discover digital platforms and intelligent
+            technology solutions from OPV AI Realty Tech.
+            We bring together AI, software engineering
+            and business-focused innovation to support
+            modern organizations.
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-9 flex flex-col gap-4 sm:flex-row">
             <Link
               href="#our-products"
-              className="inline-flex items-center gap-2 rounded-xl bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#075B3B] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#06472F]"
             >
-              Explore Products <ArrowRight size={18} />
+              Explore Products
+              <ArrowRight className="h-4 w-4" />
             </Link>
 
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-7 py-4 font-bold text-white transition hover:bg-white hover:text-[#033505]"
+              className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#075B3B]/20 bg-white px-7 py-4 text-sm font-bold text-[#075B3B] transition hover:border-[#075B3B] hover:bg-[#F0F6F1]"
             >
               Contact Our Team
+              <ArrowUpRight className="h-4 w-4" />
             </Link>
+          </div>
+
+          {/* PRODUCT CATEGORY HIGHLIGHTS */}
+
+          <div className="mt-16 grid grid-cols-2 gap-6 border-t border-[#E5E9E3] pt-8 sm:grid-cols-4">
+            {[
+              ["01", "Live Platform"],
+              ["AI", "Intelligent Solutions"],
+              ["SaaS", "Business Technology"],
+              ["360°", "Digital Capabilities"],
+            ].map(([value, label]) => (
+              <div key={label}>
+                <p className="text-2xl font-extrabold text-[#075B3B]">
+                  {value}
+                </p>
+
+                <p className="mt-2 text-xs text-[#647586]">
+                  {label}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* INTRO */}
-      <section className="px-5 py-20 sm:px-8 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <span className="text-sm font-extrabold uppercase tracking-[0.2em] text-[#265921]">
-              Innovation in Action
-            </span>
+      {/* ======================================
+          02 — INTRODUCTION
+      ====================================== */}
 
-            <h2 className="mt-4 text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
+      <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:py-24">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#075B3B]">
+              Innovation in Action
+            </p>
+
+            <h2 className="mt-5 text-3xl font-extrabold leading-tight text-[#263C50] sm:text-4xl">
               One Technology Vision.
-              <span className="block text-[#265921]">
+              <span className="block text-[#075B3B]">
                 Multiple Digital Solutions.
               </span>
             </h2>
           </div>
 
-          <p className="text-base leading-8 text-slate-600 sm:text-lg">
-            Our product ecosystem brings together real estate technology,
-            business growth platforms, AI-assisted sales solutions and
-            intelligent automation systems. Each product represents our
-            approach to solving business challenges through practical digital
-            technology.
+          <p className="text-sm leading-8 text-[#526577] sm:text-base">
+            Our product ecosystem brings together real
+            estate technology, business growth platforms,
+            AI-assisted sales solutions and intelligent
+            automation systems. Each offering reflects
+            our approach to solving business challenges
+            through practical digital technology.
           </p>
         </div>
       </section>
 
-      {/* PRODUCTS */}
+      {/* ======================================
+          03 — PRODUCTS GRID
+      ====================================== */}
+
       <section
         id="our-products"
-        className="scroll-mt-20 bg-[#F7F9F5] px-5 py-20 sm:px-8 lg:py-28"
+        className="scroll-mt-28 border-y border-[#E5E9E3] bg-[#F8F6F0] py-20 lg:py-24"
       >
-        <div className="mx-auto max-w-7xl">
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-            <span className="text-sm font-extrabold uppercase tracking-[0.2em] text-[#265921]">
-              Product Ecosystem
-            </span>
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
 
-            <h2 className="mt-4 text-3xl font-black sm:text-5xl">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
+            <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#075B3B]">
+              Product Ecosystem
+            </p>
+
+            <h2 className="mt-4 text-3xl font-extrabold text-[#263C50] sm:text-4xl">
               Explore Our Products
             </h2>
 
-            <p className="mt-5 leading-8 text-slate-600">
-              Digital platforms and technology solutions designed around
-              evolving business needs.
+            <p className="mt-5 leading-8 text-[#526577]">
+              Digital platforms and technology solutions
+              designed around evolving business needs.
             </p>
           </div>
 
-          <div className="grid gap-7 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2">
             {products.map((product) => {
               const Icon = product.icon;
 
               return (
                 <article
                   key={product.number}
-                  className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[#E5E9E3] bg-white transition duration-300 hover:-translate-y-1 hover:border-[#075B3B]/25 hover:shadow-[0_18px_45px_rgba(38,60,80,0.07)]"
                 >
-                  <div
-                    className={`relative overflow-hidden bg-gradient-to-br ${product.color} p-8 text-white sm:p-10`}
-                  >
-                    <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full border border-white/15" />
-                    <div className="absolute -bottom-20 right-20 h-48 w-48 rounded-full border border-white/10" />
+                  {/* PRODUCT HEADER */}
 
-                    <div className="relative flex items-center justify-between">
-                      <span className="text-sm font-bold tracking-widest text-white/70">
-                        PRODUCT {product.number}
-                      </span>
-
-                      <div className="rounded-2xl border border-white/20 bg-white/15 p-3">
-                        <Icon size={30} />
+                  <div className="border-b border-[#E5E9E3] bg-white p-7 sm:p-9">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F0F6F1] text-[#075B3B] transition group-hover:bg-[#075B3B] group-hover:text-white">
+                        <Icon className="h-7 w-7" />
                       </div>
+
+                      <span className="text-2xl font-extrabold text-[#C6A052]">
+                        {product.number}
+                      </span>
                     </div>
 
-                    <p className="relative mt-12 text-xs font-bold uppercase tracking-[0.2em] text-white/75">
-                      {product.category}
-                    </p>
+                    <div className="mt-7 flex flex-wrap items-center gap-3">
+                      <span className="text-xs font-bold uppercase tracking-[0.14em] text-[#075B3B]">
+                        {product.category}
+                      </span>
 
-                    <h3 className="relative mt-3 text-3xl font-black sm:text-4xl">
+                      <span className="rounded-full border border-[#E5E9E3] bg-[#F8F6F0] px-3 py-1 text-[11px] font-semibold text-[#526577]">
+                        {product.status}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-4 text-2xl font-extrabold tracking-tight text-[#263C50] sm:text-3xl">
                       {product.name}
                     </h3>
                   </div>
 
-                  <div className="p-8 sm:p-10">
-                    <p className="leading-8 text-slate-600">
+                  {/* PRODUCT DETAILS */}
+
+                  <div className="flex flex-1 flex-col p-7 sm:p-9">
+                    <p className="text-sm leading-8 text-[#526577]">
                       {product.description}
                     </p>
 
                     <div className="mt-7">
-                      <h4 className="text-sm font-extrabold uppercase tracking-wider text-[#033505]">
+                      <h4 className="text-xs font-extrabold uppercase tracking-wider text-[#263C50]">
                         Key Focus Areas
                       </h4>
 
@@ -326,32 +420,36 @@ export default function ProductsPage() {
                         {product.features.map((feature) => (
                           <li
                             key={feature}
-                            className="flex items-start gap-2 text-sm leading-6 text-slate-600"
+                            className="flex items-start gap-2 text-sm leading-6 text-[#526577]"
                           >
-                            <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-[#E7B30F]" />
-                            {feature}
+                            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#075B3B]" />
+                            <span>{feature}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    {product.external ? (
-                      <a
-                        href={product.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-8 inline-flex items-center gap-2 font-bold text-[#265921] transition group-hover:gap-3"
-                      >
-                        {product.label} <ArrowRight size={18} />
-                      </a>
-                    ) : (
-                      <Link
-                        href={product.href}
-                        className="mt-8 inline-flex items-center gap-2 font-bold text-[#265921] transition group-hover:gap-3"
-                      >
-                        {product.label} <ArrowRight size={18} />
-                      </Link>
-                    )}
+                    <div className="mt-auto pt-8">
+                      {product.external ? (
+                        <a
+                          href={product.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-sm font-bold text-[#075B3B] transition group-hover:gap-3"
+                        >
+                          {product.label}
+                          <ArrowUpRight className="h-4 w-4" />
+                        </a>
+                      ) : (
+                        <Link
+                          href={product.href}
+                          className="inline-flex items-center gap-2 text-sm font-bold text-[#075B3B] transition group-hover:gap-3"
+                        >
+                          {product.label}
+                          <ArrowRight className="h-4 w-4" />
+                        </Link>
+                      )}
+                    </div>
                   </div>
                 </article>
               );
@@ -360,21 +458,27 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* TECHNOLOGY FOUNDATION */}
-      <section className="px-5 py-20 sm:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <span className="text-sm font-extrabold uppercase tracking-[0.2em] text-[#265921]">
-              Technology Foundation
-            </span>
+      {/* ======================================
+          04 — TECHNOLOGY FOUNDATION
+      ====================================== */}
 
-            <h2 className="mt-4 text-3xl font-black sm:text-5xl">
+      <section className="bg-white py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+
+          <div className="max-w-3xl">
+            <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#075B3B]">
+              Technology Foundation
+            </p>
+
+            <h2 className="mt-4 text-3xl font-extrabold text-[#263C50] sm:text-4xl">
               Technology Behind Our Solutions
             </h2>
 
-            <p className="mt-5 leading-8 text-slate-600">
-              Our technology capabilities support the development and evolution
-              of digital products, business platforms and intelligent systems.
+            <p className="mt-5 leading-8 text-[#526577]">
+              Our technology capabilities support
+              the development and evolution of
+              digital products, business platforms
+              and intelligent systems.
             </p>
           </div>
 
@@ -383,84 +487,102 @@ export default function ProductsPage() {
               const Icon = item.icon;
 
               return (
-                <div
+                <article
                   key={item.title}
-                  className="rounded-2xl border border-slate-200 bg-white p-7 transition hover:border-[#265921]/40 hover:shadow-lg"
+                  className="rounded-2xl border border-[#E5E9E3] bg-white p-7 transition hover:border-[#075B3B]/30 hover:shadow-[0_10px_30px_rgba(38,60,80,0.05)]"
                 >
-                  <div className="mb-5 inline-flex rounded-xl bg-[#033505]/10 p-3 text-[#265921]">
-                    <Icon size={25} />
+                  <div className="mb-5 inline-flex rounded-xl bg-[#F0F6F1] p-3 text-[#075B3B]">
+                    <Icon className="h-6 w-6" />
                   </div>
 
-                  <h3 className="text-lg font-extrabold">{item.title}</h3>
+                  <h3 className="text-lg font-extrabold text-[#263C50]">
+                    {item.title}
+                  </h3>
 
-                  <p className="mt-3 text-sm leading-7 text-slate-600">
+                  <p className="mt-3 text-sm leading-7 text-[#526577]">
                     {item.description}
                   </p>
-                </div>
+                </article>
               );
             })}
           </div>
         </div>
       </section>
 
-      {/* WHY OUR PRODUCTS */}
-      <section className="bg-[#033505] px-5 py-20 text-white sm:px-8 lg:py-24">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <span className="text-sm font-bold uppercase tracking-[0.2em] text-[#F4D545]">
-              Our Approach
-            </span>
+      {/* ======================================
+          05 — BUSINESS APPROACH
+      ====================================== */}
 
-            <h2 className="mt-5 text-3xl font-black leading-tight sm:text-5xl">
-              Designed Around Real Business Needs
+      <section className="border-y border-[#E5E9E3] bg-[#F8F6F0] py-20 lg:py-24">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 sm:px-10 lg:grid-cols-2 lg:items-center">
+
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#075B3B]">
+              Our Approach
+            </p>
+
+            <h2 className="mt-5 text-3xl font-extrabold leading-tight text-[#263C50] sm:text-4xl">
+              Designed Around
+              <span className="block text-[#075B3B]">
+                Real Business Needs.
+              </span>
             </h2>
 
-            <p className="mt-6 leading-8 text-white/70">
-              We focus on understanding business requirements before shaping
-              technology solutions. Our approach combines software
-              engineering, AI, automation and digital experiences to address
+            <p className="mt-6 leading-8 text-[#526577]">
+              We focus on understanding business
+              requirements before shaping technology
+              solutions. Our approach combines
+              software engineering, AI, automation
+              and digital experiences to address
               practical operational challenges.
             </p>
 
             <Link
               href="/services"
-              className="mt-9 inline-flex items-center gap-2 rounded-xl bg-[#E7B30F] px-7 py-4 font-bold text-[#111111] transition hover:bg-[#F4D545]"
+              className="mt-9 inline-flex items-center gap-2 rounded-xl bg-[#075B3B] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#06472F]"
             >
-              Explore Our Services <ArrowRight size={18} />
+              Explore Our Services
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              "Business-focused thinking",
-              "Scalable technology approach",
-              "AI-enabled innovation",
-              "Connected digital experiences",
-            ].map((item, index) => (
-              <div
+            {principles.map((item, index) => (
+              <article
                 key={item}
-                className="rounded-2xl border border-white/15 bg-white/[0.06] p-6"
+                className="rounded-2xl border border-[#E5E9E3] bg-white p-6"
               >
-                <span className="text-3xl font-black text-[#F4D545]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#F0F6F1] text-[#075B3B]">
+                  <Layers3 className="h-5 w-5" />
+                </div>
+
+                <span className="mt-5 block text-sm font-extrabold text-[#C6A052]">
                   0{index + 1}
                 </span>
-                <h3 className="mt-5 font-bold leading-7">{item}</h3>
-              </div>
+
+                <h3 className="mt-3 text-base font-extrabold leading-7 text-[#263C50]">
+                  {item}
+                </h3>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="px-5 py-20 sm:px-8 lg:py-24">
-        <div className="mx-auto max-w-4xl">
-          <div className="mb-12 text-center">
-            <span className="text-sm font-extrabold uppercase tracking-[0.2em] text-[#265921]">
-              FAQs
-            </span>
+      {/* ======================================
+          06 — FREQUENTLY ASKED QUESTIONS
+      ====================================== */}
 
-            <h2 className="mt-4 text-3xl font-black sm:text-4xl">
-              Products – Frequently Asked Questions
+      <section className="bg-white py-20 lg:py-24">
+        <div className="mx-auto max-w-4xl px-6 sm:px-10">
+
+          <div className="mb-12 text-center">
+            <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#075B3B]">
+              Frequently Asked Questions
+            </p>
+
+            <h2 className="mt-4 text-3xl font-extrabold text-[#263C50] sm:text-4xl">
+              Questions About Our Products
             </h2>
           </div>
 
@@ -468,49 +590,57 @@ export default function ProductsPage() {
             {faqs.map((faq) => (
               <details
                 key={faq.question}
-                className="group rounded-2xl border border-slate-200 bg-white p-6"
+                className="group rounded-2xl border border-[#E5E9E3] bg-white p-6"
               >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-5 font-bold text-[#111111]">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-sm font-bold text-[#263C50] sm:text-base">
                   {faq.question}
-                  <span className="text-2xl text-[#265921] transition group-open:rotate-45">
+
+                  <span
+                    aria-hidden="true"
+                    className="text-2xl text-[#075B3B] transition-transform group-open:rotate-45"
+                  >
                     +
                   </span>
                 </summary>
 
-                <p className="mt-4 leading-7 text-slate-600">{faq.answer}</p>
+                <p className="mt-4 text-sm leading-7 text-[#526577]">
+                  {faq.answer}
+                </p>
               </details>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-5 pb-20 sm:px-8 lg:pb-28">
-        <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[#F4D545] px-7 py-14 text-center sm:px-14 sm:py-20">
-          <h2 className="mx-auto max-w-3xl text-3xl font-black leading-tight text-[#033505] sm:text-5xl">
-            Have a Business Idea or Product Requirement?
+      {/* ======================================
+          07 — FINAL CTA
+      ====================================== */}
+
+      <section className="bg-white px-6 pb-24 sm:px-10">
+        <div className="mx-auto max-w-7xl rounded-3xl border border-[#E5E9E3] bg-[#F8F6F0] px-7 py-14 text-center sm:px-14 sm:py-16">
+
+          <h2 className="mx-auto max-w-3xl text-3xl font-extrabold leading-tight text-[#263C50] sm:text-4xl">
+            Have a Business Idea or
+            <span className="block text-[#075B3B]">
+              Product Requirement?
+            </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl leading-8 text-[#033505]/75">
-            Let us discuss how OPV AI Realty Tech can help shape your next
-            digital product or technology solution.
+          <p className="mx-auto mt-5 max-w-2xl leading-8 text-[#526577]">
+            Let us discuss how OPV AI Realty Tech
+            can help shape your next digital
+            product or technology solution.
           </p>
 
           <Link
             href="/contact"
-            className="mt-9 inline-flex items-center gap-2 rounded-xl bg-[#033505] px-8 py-4 font-bold text-white transition hover:bg-[#265921]"
+            className="mt-9 inline-flex items-center gap-2 rounded-xl bg-[#075B3B] px-8 py-4 text-sm font-bold text-white transition hover:bg-[#06472F]"
           >
-            Talk to Our Team <ArrowRight size={18} />
+            Talk to Our Team
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c"),
-        }}
-      />
     </main>
   );
 }

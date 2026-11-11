@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
@@ -18,60 +19,81 @@ import {
   Workflow,
 } from "lucide-react";
 
+// ==========================================
+// ABOUT PAGE SEO METADATA
+// ==========================================
+
 export const metadata: Metadata = {
-  title: "About OPV AI Realty Tech | AI-Powered Business Technology",
+  title: {
+    absolute:
+      "About OPV AI Realty Tech | AI & Business Technology Company",
+  },
+
   description:
-    "Discover OPV AI Realty Tech Private Limited, an AI-powered business technology and growth platform focused on software, AI, automation, cloud, digital platforms and business transformation.",
+    "Learn about OPV AI Realty Tech Private Limited, a Hyderabad-based AI and software development company focused on intelligent automation, SaaS, CRM, ERP, cloud technology and digital business growth.",
+
   alternates: {
     canonical: "/about",
   },
+
   openGraph: {
-    title: "About OPV AI Realty Tech",
+    title:
+      "About OPV AI Realty Tech | AI-Powered Business Technology",
+
     description:
-      "Building smarter business technology through AI, software engineering, automation and digital innovation.",
+      "Discover our mission, vision, values and commitment to AI development, software engineering, intelligent automation and digital innovation across industries.",
+
     url: "/about",
     type: "website",
   },
 };
+
+// ==========================================
+// TECHNOLOGY CAPABILITIES
+// ==========================================
 
 const focusAreas = [
   {
     icon: BrainCircuit,
     title: "Artificial Intelligence",
     description:
-      "AI-powered applications, intelligent assistants, generative AI and business automation opportunities.",
+      "AI-powered applications, intelligent assistants, generative AI, AI agents and business automation solutions.",
   },
   {
     icon: Code2,
     title: "Software Engineering",
     description:
-      "Custom software, web applications, mobile experiences and digital product development.",
+      "Custom software development, business websites, web applications, mobile apps and digital product engineering.",
   },
   {
     icon: Layers3,
     title: "Business Technology",
     description:
-      "CRM, ERP, SaaS platforms and connected applications for business operations.",
+      "CRM, ERP, SaaS platforms and integrated business management systems designed around operational requirements.",
   },
   {
     icon: Workflow,
     title: "Intelligent Automation",
     description:
-      "Connected workflows and automation approaches designed to simplify repetitive business activities.",
+      "Workflow automation, connected business processes and intelligent systems that simplify repetitive activities.",
   },
   {
     icon: Globe2,
     title: "Digital Growth",
     description:
-      "Web presence, SEO, AEO, GEO, content strategy and digital lead generation.",
+      "Website optimization, SEO, AEO, GEO, digital marketing, content strategy and business lead generation.",
   },
   {
     icon: ShieldCheck,
     title: "Technology & Security",
     description:
-      "Cloud, infrastructure, application security and responsible technology planning.",
+      "Cloud infrastructure, application security, technology integration and responsible digital solution planning.",
   },
 ];
+
+// ==========================================
+// CORPORATE VALUES
+// ==========================================
 
 const values = [
   {
@@ -112,6 +134,10 @@ const values = [
   },
 ];
 
+// ==========================================
+// INDUSTRIES
+// ==========================================
+
 const industries = [
   "Real Estate",
   "Retail & E-commerce",
@@ -123,112 +149,146 @@ const industries = [
   "Enterprise & Corporate",
 ];
 
+// ==========================================
+// ABOUT PAGE COMPONENT
+// ==========================================
+
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main className="min-h-screen bg-white text-[#263C50]">
 
-      {/* HERO */}
-      <section className="relative isolate overflow-hidden bg-[#071426]">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.18),transparent_35%),radial-gradient(circle_at_10%_90%,rgba(234,179,8,0.10),transparent_30%)]" />
+      {/* ======================================
+          01 — ABOUT HERO
+      ====================================== */}
 
-        <div className="mx-auto grid max-w-7xl items-center gap-14 px-6 py-24 sm:px-10 lg:grid-cols-2 lg:py-32">
+      <section className="relative overflow-hidden bg-[#F8F6F0]">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute right-0 top-0 h-80 w-80 rounded-full bg-[#075B3B]/[0.04] blur-3xl"
+        />
+
+        <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-6 py-20 sm:px-10 lg:grid-cols-2 lg:py-28">
+
+          {/* HERO CONTENT */}
 
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm font-medium text-emerald-300">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#075B3B]/15 bg-white px-4 py-2 text-xs font-bold text-[#075B3B]">
+              <span className="h-2 w-2 rounded-full bg-[#C6A052]" />
               About OPV AI Realty Tech
             </div>
 
-            <h1 className="mt-7 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-7 text-4xl font-extrabold leading-tight tracking-tight text-[#263C50] sm:text-5xl lg:text-6xl">
               Technology for
-              <span className="block text-emerald-400">
+              <span className="block text-[#075B3B]">
                 a Smarter Business Future.
               </span>
             </h1>
 
-            <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300">
-              OPV AI Realty Tech Private Limited is an AI-powered business
-              technology and growth platform focused on helping organisations
-              explore smarter ways to build, operate and grow through
-              technology.
+            <p className="mt-7 max-w-xl text-base leading-8 text-[#526577] sm:text-lg">
+              OPV AI Realty Tech Private Limited is an
+              AI-powered business technology and growth
+              company focused on helping organizations
+              build, operate and grow through intelligent
+              digital solutions.
             </p>
 
-            <p className="mt-4 max-w-xl leading-7 text-slate-400">
-              We bring together AI, software engineering, cloud technology,
-              business systems, automation and digital growth capabilities
-              under one technology-focused vision.
+            <p className="mt-4 max-w-xl leading-8 text-[#526577]">
+              We bring together artificial intelligence,
+              software engineering, cloud technology,
+              business systems, automation and digital
+              growth capabilities under one
+              technology-focused vision.
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/#solutions"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-500 px-7 py-4 font-semibold text-white transition hover:bg-emerald-400"
+                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#075B3B] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#06472F]"
               >
                 Explore Our Solutions
                 <ArrowRight size={18} />
               </Link>
 
               <Link
-                href="/#contact"
-                className="inline-flex items-center justify-center rounded-lg border border-white/20 px-7 py-4 font-semibold text-white transition hover:border-emerald-400 hover:text-emerald-300"
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-xl border border-[#075B3B]/20 bg-white px-7 py-4 text-sm font-bold text-[#075B3B] transition hover:border-[#075B3B] hover:bg-[#F0F6F1]"
               >
                 Connect With Us
               </Link>
             </div>
 
-            <p className="mt-8 text-sm font-medium tracking-wide text-slate-400">
+            <p className="mt-8 text-sm font-semibold tracking-wide text-[#075B3B]">
               Build Smarter. Automate Better. Grow Faster.
             </p>
           </div>
 
-          {/* BRAND VISUAL */}
+          {/* HERO BRAND VISUAL */}
+
           <div className="relative">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.05] p-7 shadow-2xl backdrop-blur sm:p-10">
+            <div className="rounded-3xl border border-[#E5E9E3] bg-white p-7 shadow-[0_20px_60px_rgba(38,60,80,0.06)] sm:p-10">
 
               <div className="flex items-center justify-center">
-                <div className="relative flex h-36 w-36 items-center justify-center rounded-[2rem] border border-emerald-300/30 bg-gradient-to-br from-emerald-300/15 to-amber-300/10 shadow-[0_0_60px_rgba(16,185,129,0.12)]">
+                <div className="relative flex h-36 w-36 items-center justify-center rounded-[2rem] border border-[#075B3B]/15 bg-[#F0F6F1]">
                   <Globe2
                     size={76}
                     strokeWidth={1.2}
-                    className="text-emerald-300"
+                    className="text-[#075B3B]"
                   />
-                  <span className="absolute -right-2 -top-2 h-4 w-4 rounded-full border-2 border-[#071426] bg-amber-300" />
+
+                  <span className="absolute -right-2 -top-2 h-4 w-4 rounded-full border-2 border-white bg-[#C6A052]" />
                 </div>
               </div>
 
               <div className="mt-8 text-center">
-                <p className="text-3xl font-extrabold tracking-[0.16em] text-white">
-                  OPV <span className="text-emerald-400">AI</span>
+                <p className="text-3xl font-extrabold tracking-[0.16em] text-[#263C50]">
+                  OPV{" "}
+                  <span className="text-[#075B3B]">
+                    AI
+                  </span>
                 </p>
 
-                <p className="mt-2 text-xs font-bold tracking-[0.3em] text-slate-400">
+                <p className="mt-2 text-xs font-bold tracking-[0.3em] text-[#647586]">
                   REALTY TECH
                 </p>
 
-                <p className="mt-5 text-sm leading-6 text-slate-300">
-                  AI-Powered Business Technology & Growth Platform
+                <p className="mt-5 text-sm leading-6 text-[#526577]">
+                  AI-Powered Business Technology
+                  &amp; Growth Platform
                 </p>
               </div>
 
               <div className="mt-8 grid grid-cols-2 gap-3">
                 {[
-                  { icon: BrainCircuit, label: "Artificial Intelligence" },
-                  { icon: Code2, label: "Software Engineering" },
-                  { icon: Workflow, label: "Automation" },
-                  { icon: Globe2, label: "Digital Growth" },
+                  {
+                    icon: BrainCircuit,
+                    label: "Artificial Intelligence",
+                  },
+                  {
+                    icon: Code2,
+                    label: "Software Engineering",
+                  },
+                  {
+                    icon: Workflow,
+                    label: "Automation",
+                  },
+                  {
+                    icon: Globe2,
+                    label: "Digital Growth",
+                  },
                 ].map((item) => {
                   const Icon = item.icon;
 
                   return (
                     <div
                       key={item.label}
-                      className="flex items-center gap-3 rounded-xl border border-white/10 bg-[#10233a] p-3"
+                      className="flex items-center gap-3 rounded-xl border border-[#E5E9E3] bg-[#F8F6F0] p-3"
                     >
                       <Icon
                         size={19}
-                        className="shrink-0 text-emerald-300"
+                        className="shrink-0 text-[#075B3B]"
                       />
-                      <span className="text-xs font-medium leading-5 text-slate-300">
+
+                      <span className="text-xs font-medium leading-5 text-[#526577]">
                         {item.label}
                       </span>
                     </div>
@@ -236,62 +296,74 @@ export default function AboutPage() {
                 })}
               </div>
             </div>
-
-            <div className="absolute -right-5 -top-5 -z-10 h-36 w-36 rounded-full bg-emerald-400/20 blur-3xl" />
           </div>
         </div>
       </section>
 
-      {/* WHO WE ARE */}
+      {/* ======================================
+          02 — WHO WE ARE
+      ====================================== */}
+
       <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:py-24">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
 
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#075B3B]">
               Who We Are
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#263C50] sm:text-4xl">
               A Technology Company with a Business-First Vision
             </h2>
 
-            <p className="mt-6 leading-8 text-slate-600">
-              OPV AI Realty Tech Private Limited is positioned to bring
-              together business technology, artificial intelligence and
-              digital innovation.
+            <p className="mt-6 leading-8 text-[#526577]">
+              OPV AI Realty Tech Private Limited
+              brings together business technology,
+              artificial intelligence and digital innovation
+              to support modern business requirements.
             </p>
 
-            <p className="mt-5 leading-8 text-slate-600">
-              Our focus extends across industries. We recognise that every
-              organisation has different challenges, customers and operating
-              models. Technology should be planned around those needs rather
-              than treated as a one-size-fits-all solution.
+            <p className="mt-5 leading-8 text-[#526577]">
+              Our focus extends across industries.
+              Every organization has different challenges,
+              customers and operating models.
+              Technology should be designed around those
+              requirements rather than treated as a
+              one-size-fits-all solution.
             </p>
 
-            <p className="mt-5 leading-8 text-slate-600">
-              From a business website or custom application to AI-enabled
-              workflows and connected enterprise systems, our vision is to
-              make modern technology more useful to businesses.
+            <p className="mt-5 leading-8 text-[#526577]">
+              From a professional business website or
+              custom application to AI-enabled workflows
+              and connected enterprise systems, our vision
+              is to make modern technology more useful
+              and accessible to businesses.
             </p>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7 sm:p-9">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-700">
-              Our brand promise
+          {/* BRAND PROMISE */}
+
+          <div className="rounded-3xl border border-[#E5E9E3] bg-[#F8F6F0] p-7 sm:p-9">
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#075B3B]">
+              Our Brand Promise
             </p>
 
-            <h3 className="mt-5 text-3xl font-extrabold leading-tight text-slate-900 sm:text-4xl">
+            <h3 className="mt-5 text-3xl font-extrabold leading-tight text-[#263C50] sm:text-4xl">
               Build Smarter.
-              <span className="block text-emerald-600">
+              <span className="block text-[#075B3B]">
                 Automate Better.
               </span>
-              <span className="block">Grow Faster.</span>
+              <span className="block">
+                Grow Faster.
+              </span>
             </h3>
 
-            <p className="mt-6 leading-7 text-slate-600">
-              We believe technology should do more than add digital tools.
-              It should help businesses think clearly, work more effectively
-              and create opportunities for sustainable growth.
+            <p className="mt-6 leading-7 text-[#526577]">
+              We believe technology should do more than
+              introduce digital tools. It should help
+              businesses work more effectively,
+              make informed decisions and create
+              opportunities for sustainable growth.
             </p>
 
             <div className="mt-8 space-y-4">
@@ -301,102 +373,119 @@ export default function AboutPage() {
                 "Build connected digital solutions",
                 "Support continuous improvement",
               ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
+                <div
+                  key={item}
+                  className="flex items-start gap-3"
+                >
                   <CheckCircle2
                     size={19}
-                    className="mt-0.5 shrink-0 text-emerald-600"
+                    className="mt-0.5 shrink-0 text-[#075B3B]"
                   />
-                  <span className="text-sm font-medium text-slate-700">
+
+                  <span className="text-sm font-medium text-[#526577]">
                     {item}
                   </span>
                 </div>
               ))}
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* MISSION & VISION */}
-      <section className="bg-slate-50 py-20 lg:py-24">
+      {/* ======================================
+          03 — MISSION & VISION
+      ====================================== */}
+
+      <section className="bg-[#F8F6F0] py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
 
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
-              Our direction
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#075B3B]">
+              Our Direction
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Mission & Vision
+            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#263C50] sm:text-4xl">
+              Mission &amp; Vision
             </h2>
 
-            <p className="mt-5 leading-7 text-slate-600">
-              A clear purpose and long-term direction guide the way we
-              think about business technology and digital innovation.
+            <p className="mt-5 leading-7 text-[#526577]">
+              A clear purpose and long-term direction
+              guide our approach to business technology
+              and digital innovation.
             </p>
           </div>
 
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
 
-            <article className="rounded-3xl border border-slate-200 bg-white p-8 sm:p-10">
-              <div className="inline-flex rounded-2xl bg-emerald-50 p-4 text-emerald-700">
+            {/* MISSION */}
+
+            <article className="rounded-3xl border border-[#E5E9E3] bg-white p-8 sm:p-10">
+              <div className="inline-flex rounded-2xl bg-[#F0F6F1] p-4 text-[#075B3B]">
                 <Target size={32} />
               </div>
 
-              <p className="mt-7 text-sm font-bold uppercase tracking-[0.2em] text-emerald-700">
+              <p className="mt-7 text-xs font-extrabold uppercase tracking-[0.2em] text-[#075B3B]">
                 Our Mission
               </p>
 
-              <h3 className="mt-4 text-2xl font-bold leading-tight text-slate-900">
+              <h3 className="mt-4 text-2xl font-extrabold leading-tight text-[#263C50]">
                 Make Technology More Useful for Every Business.
               </h3>
 
-              <p className="mt-5 leading-8 text-slate-600">
-                Our mission is to help organisations identify and apply
-                relevant technologies through software, AI, automation and
-                digital solutions that address practical business needs.
+              <p className="mt-5 leading-8 text-[#526577]">
+                Our mission is to help organizations
+                identify and apply relevant technologies
+                through software, AI, automation and
+                digital solutions that address practical
+                business needs.
               </p>
             </article>
 
-            <article className="rounded-3xl border border-slate-200 bg-[#071426] p-8 text-white sm:p-10">
-              <div className="inline-flex rounded-2xl bg-emerald-400/10 p-4 text-emerald-300">
+            {/* VISION */}
+
+            <article className="rounded-3xl border border-[#E5E9E3] bg-white p-8 sm:p-10">
+              <div className="inline-flex rounded-2xl bg-[#F0F6F1] p-4 text-[#075B3B]">
                 <Globe2 size={32} />
               </div>
 
-              <p className="mt-7 text-sm font-bold uppercase tracking-[0.2em] text-emerald-400">
+              <p className="mt-7 text-xs font-extrabold uppercase tracking-[0.2em] text-[#075B3B]">
                 Our Vision
               </p>
 
-              <h3 className="mt-4 text-2xl font-bold leading-tight">
+              <h3 className="mt-4 text-2xl font-extrabold leading-tight text-[#263C50]">
                 Build a Smarter, More Connected Business Future.
               </h3>
 
-              <p className="mt-5 leading-8 text-slate-300">
-                Our vision is to contribute to a future where businesses
-                across industries can use intelligent technology, connected
-                systems and digital innovation to create meaningful
-                opportunities for growth.
+              <p className="mt-5 leading-8 text-[#526577]">
+                Our vision is to contribute to a future
+                where businesses across industries
+                use intelligent technology, connected
+                systems and digital innovation to create
+                meaningful opportunities for growth.
               </p>
             </article>
-
           </div>
         </div>
       </section>
 
-      {/* WHAT WE DO */}
+      {/* ======================================
+          04 — WHAT WE DO
+      ====================================== */}
+
       <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:py-24">
         <div className="max-w-2xl">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
+          <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#075B3B]">
             What We Do
           </p>
 
-          <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#263C50] sm:text-4xl">
             Bringing Multiple Technology Capabilities Together
           </h2>
 
-          <p className="mt-5 leading-7 text-slate-600">
-            OPV brings a broad business technology vision across the
-            following service areas.
+          <p className="mt-5 leading-7 text-[#526577]">
+            OPV AI Realty Tech combines technology
+            expertise and business-focused solutions
+            across the following service areas.
           </p>
         </div>
 
@@ -407,17 +496,17 @@ export default function AboutPage() {
             return (
               <article
                 key={area.title}
-                className="group rounded-2xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl"
+                className="group rounded-2xl border border-[#E5E9E3] bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-[#075B3B]/30 hover:shadow-[0_15px_40px_rgba(38,60,80,0.07)]"
               >
-                <div className="inline-flex rounded-xl bg-emerald-50 p-3 text-emerald-700 transition group-hover:bg-emerald-500 group-hover:text-white">
+                <div className="inline-flex rounded-xl bg-[#F0F6F1] p-3 text-[#075B3B]">
                   <Icon size={25} />
                 </div>
 
-                <h3 className="mt-6 text-xl font-bold text-slate-900">
+                <h3 className="mt-6 text-xl font-extrabold text-[#263C50]">
                   {area.title}
                 </h3>
 
-                <p className="mt-3 leading-7 text-slate-600">
+                <p className="mt-3 text-sm leading-7 text-[#526577]">
                   {area.description}
                 </p>
               </article>
@@ -428,88 +517,101 @@ export default function AboutPage() {
         <div className="mt-10 text-center">
           <Link
             href="/#solutions"
-            className="inline-flex items-center gap-2 font-semibold text-emerald-700 hover:text-emerald-800"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#075B3B] transition hover:underline"
           >
-            Explore all solutions
+            Explore All Solutions
             <ArrowRight size={18} />
           </Link>
         </div>
       </section>
 
-      {/* REAL ESTATE CONNECTION */}
-      <section className="bg-[#071426] py-20 text-white lg:py-24">
+      {/* ======================================
+          05 — REAL ESTATE CONNECTION
+      ====================================== */}
+
+      <section className="bg-[#F8F6F0] py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 sm:px-10 lg:grid-cols-2">
 
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-400">
-              Our industry focus
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#075B3B]">
+              Our Industry Focus
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#263C50] sm:text-4xl">
               Real Estate Is Our Flagship Industry.
-              <span className="block text-emerald-400">
+              <span className="block text-[#075B3B]">
                 Our Technology Vision Goes Beyond It.
               </span>
             </h2>
 
-            <p className="mt-6 leading-8 text-slate-300">
-              Real estate is an important part of the OPV ecosystem.
-              We see opportunities to bring property discovery, AI,
-              software, customer relationship management and automation
-              together for property businesses.
+            <p className="mt-6 leading-8 text-[#526577]">
+              Real estate is an important part of the
+              OPV ecosystem. We see opportunities
+              to connect property discovery, AI,
+              software, customer relationship management
+              and automation for property businesses.
             </p>
 
-            <p className="mt-5 leading-8 text-slate-300">
-              At the same time, OPV AI Realty Tech is positioned as a
-              broader business technology company serving different
+            <p className="mt-5 leading-8 text-[#526577]">
+              At the same time, OPV AI Realty Tech
+              is positioned as a broader business
+              technology company serving multiple
               industries and business models.
             </p>
 
             <Link
               href="/industries/real-estate"
-              className="mt-9 inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-6 py-3.5 font-semibold text-white transition hover:bg-emerald-400"
+              className="mt-9 inline-flex items-center gap-2 rounded-xl bg-[#075B3B] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-[#06472F]"
             >
               Explore Real Estate Solutions
               <ArrowRight size={18} />
             </Link>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/[0.05] p-7 sm:p-9">
+          {/* OPEN PLOTS & VILLAS */}
 
+          <div className="rounded-3xl border border-[#E5E9E3] bg-white p-7 shadow-sm sm:p-9">
             <div className="flex items-center gap-4">
-              <div className="rounded-2xl bg-emerald-400/10 p-4 text-emerald-300">
+              <div className="rounded-2xl bg-[#F0F6F1] p-4 text-[#075B3B]">
                 <Building2 size={34} />
               </div>
 
               <div>
-                <p className="text-xs font-bold tracking-[0.2em] text-emerald-400">
+                <p className="text-xs font-extrabold tracking-[0.16em] text-[#075B3B]">
                   OPV REAL ESTATE ECOSYSTEM
                 </p>
 
-                <h3 className="mt-1 text-xl font-bold text-white">
-                  Open Plots & Villas
+                <h3 className="mt-1 text-xl font-extrabold text-[#263C50]">
+                  Open Plots &amp; Villas
                 </h3>
               </div>
             </div>
 
-            <p className="mt-7 leading-7 text-slate-300">
-              Open Plots & Villas is a separate, dedicated real estate
-              discovery platform within the wider OPV ecosystem.
+            <p className="mt-7 leading-7 text-[#526577]">
+              Open Plots &amp; Villas is a dedicated
+              AI-powered real estate discovery portal
+              within the wider OPV technology ecosystem.
             </p>
 
             <div className="mt-7 space-y-3">
               {[
                 "Dedicated real estate discovery brand",
                 "Property-focused digital platform",
-                "Real estate industry initiative",
+                "AI-powered property discovery",
                 "Part of the wider OPV ecosystem",
               ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
+                <div
+                  key={item}
+                  className="flex items-start gap-3"
+                >
                   <CheckCircle2
                     size={18}
-                    className="mt-0.5 shrink-0 text-emerald-400"
+                    className="mt-0.5 shrink-0 text-[#075B3B]"
                   />
-                  <span className="text-sm text-slate-300">{item}</span>
+
+                  <span className="text-sm text-[#526577]">
+                    {item}
+                  </span>
                 </div>
               ))}
             </div>
@@ -518,30 +620,34 @@ export default function AboutPage() {
               href="https://www.openplotsandvillas.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 font-semibold text-emerald-300 transition hover:text-emerald-200"
+              className="mt-8 inline-flex items-center gap-2 text-sm font-bold text-[#075B3B] transition hover:underline"
             >
-              Visit Open Plots & Villas
+              Visit Open Plots &amp; Villas
               <ArrowRight size={18} />
             </Link>
           </div>
-
         </div>
       </section>
 
-      {/* INDUSTRIES */}
+      {/* ======================================
+          06 — INDUSTRIES
+      ====================================== */}
+
       <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:py-24">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
+          <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#075B3B]">
             Industries We Serve
           </p>
 
-          <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#263C50] sm:text-4xl">
             One Technology Vision. Multiple Industries.
           </h2>
 
-          <p className="mt-5 leading-7 text-slate-600">
-            We believe the right combination of technology can support
-            businesses across different sectors and operating models.
+          <p className="mt-5 leading-7 text-[#526577]">
+            We believe the right combination of
+            AI, software engineering and automation
+            can support businesses across different
+            sectors and operating models.
           </p>
         </div>
 
@@ -549,7 +655,7 @@ export default function AboutPage() {
           {industries.map((industry) => (
             <span
               key={industry}
-              className="rounded-full border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-800"
+              className="rounded-full border border-[#E5E9E3] bg-[#F8F6F0] px-5 py-3 text-sm font-semibold text-[#526577] transition hover:border-[#075B3B]/30 hover:bg-[#F0F6F1] hover:text-[#075B3B]"
             >
               {industry}
             </span>
@@ -559,30 +665,34 @@ export default function AboutPage() {
         <div className="mt-9 text-center">
           <Link
             href="/#industries"
-            className="inline-flex items-center gap-2 font-semibold text-emerald-700 hover:text-emerald-800"
+            className="inline-flex items-center gap-2 text-sm font-bold text-[#075B3B] transition hover:underline"
           >
-            Explore industries
+            Explore Industries
             <ArrowRight size={18} />
           </Link>
         </div>
       </section>
 
-      {/* VALUES */}
-      <section className="bg-slate-50 py-20 lg:py-24">
+      {/* ======================================
+          07 — CORPORATE VALUES
+      ====================================== */}
+
+      <section className="bg-[#F8F6F0] py-20 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
 
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
+            <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#075B3B]">
               Our Values
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-extrabold tracking-tight text-[#263C50] sm:text-4xl">
               The Principles Behind OPV
             </h2>
 
-            <p className="mt-5 leading-7 text-slate-600">
-              These principles guide our technology vision, business
-              approach and the way we think about solutions.
+            <p className="mt-5 leading-7 text-[#526577]">
+              These principles guide our technology
+              vision, business approach and the way
+              we develop solutions.
             </p>
           </div>
 
@@ -593,17 +703,17 @@ export default function AboutPage() {
               return (
                 <article
                   key={value.title}
-                  className="rounded-2xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-emerald-300 hover:shadow-lg"
+                  className="rounded-2xl border border-[#E5E9E3] bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-[#075B3B]/30 hover:shadow-[0_15px_40px_rgba(38,60,80,0.06)]"
                 >
-                  <div className="inline-flex rounded-xl bg-emerald-50 p-3 text-emerald-700">
+                  <div className="inline-flex rounded-xl bg-[#F0F6F1] p-3 text-[#075B3B]">
                     <Icon size={25} />
                   </div>
 
-                  <h3 className="mt-5 text-xl font-bold">
+                  <h3 className="mt-5 text-xl font-extrabold text-[#263C50]">
                     {value.title}
                   </h3>
 
-                  <p className="mt-3 leading-7 text-slate-600">
+                  <p className="mt-3 text-sm leading-7 text-[#526577]">
                     {value.description}
                   </p>
                 </article>
@@ -613,33 +723,39 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
-      <section className="px-6 py-20 sm:px-10 lg:py-24">
-        <div className="mx-auto max-w-5xl rounded-3xl bg-emerald-600 px-7 py-14 text-center text-white sm:px-14">
+      {/* ======================================
+          08 — FINAL CTA
+      ====================================== */}
 
-          <div className="mx-auto inline-flex rounded-2xl bg-white/15 p-3">
+      <section className="bg-white px-6 py-20 sm:px-10 lg:py-24">
+        <div className="mx-auto max-w-5xl rounded-3xl border border-[#E5E9E3] bg-[#F8F6F0] px-7 py-14 text-center sm:px-14">
+
+          <div className="mx-auto inline-flex rounded-2xl bg-white p-3 text-[#075B3B]">
             <Sparkles size={28} />
           </div>
 
-          <h2 className="mx-auto mt-5 max-w-3xl text-3xl font-bold sm:text-4xl">
-            Let's Build a Smarter Business Future Together.
+          <h2 className="mx-auto mt-5 max-w-3xl text-3xl font-extrabold text-[#263C50] sm:text-4xl">
+            Let&apos;s Build a Smarter Business Future Together.
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl leading-7 text-emerald-50">
-            Have a business challenge, software idea or digital
-            transformation requirement? Let's explore the possibilities
-            together.
+          <p className="mx-auto mt-5 max-w-2xl leading-7 text-[#526577]">
+            Have a business challenge, software idea
+            or digital transformation requirement?
+            Let&apos;s explore how OPV AI Realty Tech
+            can help turn your vision into a
+            practical technology solution.
           </p>
 
           <Link
-            href="/#contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-white px-7 py-4 font-semibold text-emerald-700 transition hover:bg-slate-100"
+            href="/contact"
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[#075B3B] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#06472F]"
           >
             Connect With OPV
             <ArrowRight size={18} />
           </Link>
         </div>
       </section>
+
     </main>
   );
 }

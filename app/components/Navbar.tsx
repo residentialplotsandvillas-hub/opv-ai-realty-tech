@@ -1,9 +1,10 @@
+
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
-  Globe2,
   Menu,
   X,
   ChevronDown,
@@ -27,11 +28,19 @@ import {
   Lightbulb,
 } from "lucide-react";
 
-import Image from "next/image";
+type DropdownName = "solutions" | "industries" | "products";
+type MenuName = DropdownName | null;
 
-type DropdownName = "solutions" | "industries" | "products" | null;
+/* CORPORATE COLOUR PALETTE */
+const theme = {
+  white: "#FFFFFF",
+  ivory: "#F8F6F0",
+  emerald: "#075B3B",
+  gold: "#C6A052",
+  slate: "#263C50",
+};
 
-/* SOLUTION PAGE LINKS */
+/* SOLUTIONS */
 const solutions = [
   {
     title: "AI & Intelligent Automation",
@@ -83,51 +92,19 @@ const solutions = [
   },
 ];
 
-/* INDUSTRY LINKS */
+/* INDUSTRIES */
 const industries = [
-  {
-    title: "Real Estate",
-    href: "/industries/real-estate",
-    icon: Building2,
-  },
-  {
-    title: "Retail & E-commerce",
-    href: "/industries/retail-ecommerce",
-    icon: ShoppingCart,
-  },
-  {
-    title: "Healthcare",
-    href: "/industries/healthcare",
-    icon: HeartPulse,
-  },
-  {
-    title: "Education",
-    href: "/industries/education",
-    icon: GraduationCap,
-  },
-  {
-    title: "Manufacturing",
-    href: "/industries/manufacturing",
-    icon: Factory,
-  },
-  {
-    title: "Logistics",
-    href: "/industries/logistics",
-    icon: Truck,
-  },
-  {
-    title: "Startups & SMEs",
-    href: "/industries/startups-smes",
-    icon: Rocket,
-  },
-  {
-    title: "Enterprise & Corporate",
-    href: "/industries/enterprise-corporate",
-    icon: Layers3,
-  },
+  { title: "Real Estate", href: "/industries/real-estate", icon: Building2 },
+  { title: "Retail & E-commerce", href: "/industries/retail-ecommerce", icon: ShoppingCart },
+  { title: "Healthcare", href: "/industries/healthcare", icon: HeartPulse },
+  { title: "Education", href: "/industries/education", icon: GraduationCap },
+  { title: "Manufacturing", href: "/industries/manufacturing", icon: Factory },
+  { title: "Logistics", href: "/industries/logistics", icon: Truck },
+  { title: "Startups & SMEs", href: "/industries/startups-smes", icon: Rocket },
+  { title: "Enterprise & Corporate", href: "/industries/enterprise-corporate", icon: Layers3 },
 ];
 
-/* PRODUCT LINKS */
+/* PRODUCTS */
 const products = [
   {
     title: "Open Plots & Villas",
@@ -157,39 +134,39 @@ const companyLinks = [
   { title: "Insights", href: "/insights" },
 ];
 
+const menuNames: DropdownName[] = [
+  "solutions",
+  "industries",
+  "products",
+];
+
+const menuLabels: Record<DropdownName, string> = {
+  solutions: "Solutions",
+  industries: "Industries",
+  products: "Products",
+};
+
 export default function Navbar() {
-  const [activeDropdown, setActiveDropdown] =
-    useState<DropdownName>(null);
-
+  const [activeDropdown, setActiveDropdown] = useState<MenuName>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const [mobileExpanded, setMobileExpanded] =
-    useState<DropdownName>(null);
+  const [mobileExpanded, setMobileExpanded] = useState<MenuName>(null);
 
   const navbarRef = useRef<HTMLElement>(null);
 
-  /* CLOSE ALL MENUS */
   const closeAll = useCallback(() => {
     setActiveDropdown(null);
     setMobileOpen(false);
     setMobileExpanded(null);
   }, []);
 
-  /* DESKTOP DROPDOWN */
   const toggleDropdown = (name: DropdownName) => {
-    setActiveDropdown((current) =>
-      current === name ? null : name
-    );
+    setActiveDropdown((current) => current === name ? null : name);
   };
 
-  /* MOBILE DROPDOWN */
   const toggleMobileSection = (name: DropdownName) => {
-    setMobileExpanded((current) =>
-      current === name ? null : name
-    );
+    setMobileExpanded((current) => current === name ? null : name);
   };
 
-  /* CLOSE MENUS ON OUTSIDE CLICK AND ESCAPE */
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
       if (
@@ -201,9 +178,7 @@ export default function Navbar() {
     };
 
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        closeAll();
-      }
+      if (event.key === "Escape") closeAll();
     };
 
     document.addEventListener("mousedown", handleOutsideClick);
@@ -216,120 +191,77 @@ export default function Navbar() {
   }, [closeAll]);
 
   const navLinkClass =
-    "text-[13px] font-semibold text-slate-300 transition-colors duration-200 hover:text-emerald-300";
+    "text-[13px] font-semibold text-[#263C50] transition-colors duration-200 hover:text-[#075B3B] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#075B3B]";
+
+  const megaCardClass =
+    "group rounded-xl border border-[#E7E7DF] bg-white p-4 transition-all duration-200 hover:border-[#C6A052]/60 hover:bg-[#F8F6F0] hover:shadow-md";
 
   return (
     <header
       ref={navbarRef}
-      className="sticky top-0 z-50 border-b border-white/[0.08] bg-[#06111f]/95 text-white shadow-lg shadow-black/10 backdrop-blur-xl"
+      className="sticky top-0 z-50 border-b border-[#E8E6DF] bg-white/95 text-[#263C50] shadow-sm backdrop-blur-xl"
     >
       {/* MAIN NAVBAR */}
-      <div className="mx-auto flex h-[78px] max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-10">
+      <div className="mx-auto flex h-[78px] max-w-[1440px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8 xl:px-10">
 
-        {/* LOGO / BRAND */}
-       {/* LOGO / BRAND */}
-<Link
-  href="/"
-  onClick={closeAll}
-  aria-label="OPV AI Realty Tech Homepage"
-  className="group flex shrink-0 items-center"
->
-  <div className="relative flex h-14 w-36 shrink-0 items-center justify-start sm:h-16 sm:w-44">
-    <Image
-      src="/images/logo2.png"
-      alt="OPV AI Realty Tech"
-      width={220}
-      height={90}
-      priority
-      sizes="(max-width: 640px) 144px, 176px"
-      className="h-full w-full object-contain object-left transition-transform duration-300 group-hover:scale-105"
-    />
-  </div>
-</Link>
+        {/* LOGO */}
+        <Link
+          href="/"
+          onClick={closeAll}
+          aria-label="OPV AI Realty Tech Homepage"
+          className="group flex shrink-0 items-center"
+        >
+          <div className="relative flex h-14 w-36 shrink-0 items-center justify-start sm:h-16 sm:w-44">
+            <Image
+              src="/images/logo2.png"
+              alt="OPV AI Realty Tech"
+              width={220}
+              height={90}
+              priority
+              sizes="(max-width: 640px) 144px, 176px"
+              className="h-full w-full object-contain object-left transition-transform duration-300 group-hover:scale-[1.02]"
+            />
+          </div>
+        </Link>
 
         {/* DESKTOP NAVIGATION */}
         <nav
           aria-label="Main navigation"
-          className="hidden items-center gap-6 lg:flex xl:gap-8"
+          className="hidden items-center gap-4 lg:flex xl:gap-7"
         >
-          {/* SOLUTIONS */}
-          <button
-            type="button"
-            onClick={() => toggleDropdown("solutions")}
-            aria-expanded={activeDropdown === "solutions"}
-            className={`${navLinkClass} flex items-center gap-1.5`}
-          >
-            Solutions
+          {menuNames.map((name) => (
+            <button
+              key={name}
+              type="button"
+              onClick={() => toggleDropdown(name)}
+              aria-expanded={activeDropdown === name}
+              aria-controls={`opv-desktop-${name}`}
+              className={`${navLinkClass} flex items-center gap-1.5`}
+            >
+              {menuLabels[name]}
+              <ChevronDown
+                className={`h-4 w-4 transition-transform ${
+                  activeDropdown === name
+                    ? "rotate-180 text-[#075B3B]"
+                    : ""
+                }`}
+              />
+            </button>
+          ))}
 
-            <ChevronDown
-              className={`h-4 w-4 transition-transform ${
-                activeDropdown === "solutions" ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-
-          {/* INDUSTRIES */}
-          <button
-            type="button"
-            onClick={() => toggleDropdown("industries")}
-            aria-expanded={activeDropdown === "industries"}
-            className={`${navLinkClass} flex items-center gap-1.5`}
-          >
-            Industries
-
-            <ChevronDown
-              className={`h-4 w-4 transition-transform ${
-                activeDropdown === "industries" ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-
-          {/* PRODUCTS */}
-          <button
-            type="button"
-            onClick={() => toggleDropdown("products")}
-            aria-expanded={activeDropdown === "products"}
-            className={`${navLinkClass} flex items-center gap-1.5`}
-          >
-            Products
-
-            <ChevronDown
-              className={`h-4 w-4 transition-transform ${
-                activeDropdown === "products" ? "rotate-180" : ""
-              }`}
-            />
-          </button>
-
-          <Link
-            href="/approach"
-            onClick={closeAll}
-            className={navLinkClass}
-          >
+          <Link href="/approach" onClick={closeAll} className={navLinkClass}>
             Our Approach
           </Link>
 
-          <Link
-            href="/about"
-            onClick={closeAll}
-            className={navLinkClass}
-          >
+          <Link href="/about" onClick={closeAll} className={navLinkClass}>
             About
           </Link>
 
-          <Link
-            href="/insights"
-            onClick={closeAll}
-            className={navLinkClass}
-          >
+          <Link href="/insights" onClick={closeAll} className={navLinkClass}>
             Insights
           </Link>
 
-
-           <Link
-            href="/case-studies"
-            onClick={closeAll}
-            className={navLinkClass}
-          >
+          <Link href="/case-studies" onClick={closeAll} className={navLinkClass}>
             Case Studies
           </Link>
         </nav>
@@ -338,11 +270,10 @@ export default function Navbar() {
         <Link
           href="/contact"
           onClick={closeAll}
-          className="group hidden items-center gap-2 rounded-full bg-emerald-300 px-5 py-3 text-[13px] font-bold text-[#06111f] shadow-lg shadow-emerald-400/10 transition duration-300 hover:-translate-y-0.5 hover:bg-emerald-200 lg:inline-flex"
+          className="group hidden shrink-0 items-center gap-2 rounded-full bg-[#075B3B] px-5 py-3 text-[13px] font-bold text-white shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#06472F] hover:shadow-md lg:inline-flex"
         >
-          Let's Build
-
-          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+          Let&apos;s Build
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </Link>
 
         {/* MOBILE MENU BUTTON */}
@@ -352,7 +283,7 @@ export default function Navbar() {
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
           aria-controls="opv-mobile-navigation"
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white transition hover:bg-white/10 lg:hidden"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[#E8E6DF] bg-[#F8F6F0] text-[#075B3B] transition hover:bg-[#EDE9DE] lg:hidden"
         >
           {mobileOpen ? (
             <X className="h-6 w-6" />
@@ -364,19 +295,21 @@ export default function Navbar() {
 
       {/* DESKTOP MEGA MENU */}
       {activeDropdown && (
-        <div className="absolute left-0 right-0 top-full hidden border-t border-white/10 bg-[#091827] shadow-2xl shadow-black/30 lg:block">
+        <div
+          id={`opv-desktop-${activeDropdown}`}
+          className="absolute left-0 right-0 top-full hidden border-t border-[#E8E6DF] bg-[#F8F6F0] shadow-xl lg:block"
+        >
           <div className="mx-auto max-w-[1440px] px-10 py-8">
 
-            {/* SOLUTIONS MENU */}
+            {/* SOLUTIONS */}
             {activeDropdown === "solutions" && (
               <>
-                <div className="mb-6 flex items-end justify-between">
+                <div className="mb-6 flex items-end justify-between gap-4">
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-[0.22em] text-emerald-300">
-                      Our capabilities
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#075B3B]">
+                      Our Capabilities
                     </p>
-
-                    <h2 className="mt-2 text-2xl font-bold text-white">
+                    <h2 className="mt-2 text-2xl font-bold text-[#263C50]">
                       Technology that moves business forward.
                     </h2>
                   </div>
@@ -384,7 +317,7 @@ export default function Navbar() {
                   <Link
                     href="/#solutions"
                     onClick={closeAll}
-                    className="flex items-center gap-1 text-sm font-semibold text-emerald-300 hover:text-emerald-200"
+                    className="flex shrink-0 items-center gap-1 text-sm font-semibold text-[#075B3B] hover:underline"
                   >
                     Explore all solutions
                     <ArrowUpRight className="h-4 w-4" />
@@ -400,17 +333,17 @@ export default function Navbar() {
                         key={item.title}
                         href={item.href}
                         onClick={closeAll}
-                        className="group rounded-xl border border-white/[0.07] bg-white/[0.025] p-4 transition hover:border-emerald-300/30 hover:bg-emerald-300/[0.06]"
+                        className={megaCardClass}
                       >
-                        <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-300/10 text-emerald-300 transition group-hover:bg-emerald-300 group-hover:text-[#06111f]">
+                        <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-[#075B3B]/[0.08] text-[#075B3B] transition group-hover:bg-[#075B3B] group-hover:text-white">
                           <Icon className="h-5 w-5" />
                         </div>
 
-                        <h3 className="text-sm font-bold text-white transition group-hover:text-emerald-300">
+                        <h3 className="text-sm font-bold text-[#263C50] transition group-hover:text-[#075B3B]">
                           {item.title}
                         </h3>
 
-                        <p className="mt-2 text-xs leading-5 text-slate-400">
+                        <p className="mt-2 text-xs leading-5 text-[#607080]">
                           {item.description}
                         </p>
                       </Link>
@@ -420,15 +353,14 @@ export default function Navbar() {
               </>
             )}
 
-            {/* INDUSTRIES MENU */}
+            {/* INDUSTRIES */}
             {activeDropdown === "industries" && (
               <>
                 <div className="mb-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-emerald-300">
-                    Industries we serve
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#075B3B]">
+                    Industries We Serve
                   </p>
-
-                  <h2 className="mt-2 text-2xl font-bold text-white">
+                  <h2 className="mt-2 text-2xl font-bold text-[#263C50]">
                     One technology partner. Multiple industries.
                   </h2>
                 </div>
@@ -442,13 +374,13 @@ export default function Navbar() {
                         key={item.title}
                         href={item.href}
                         onClick={closeAll}
-                        className="group flex items-center gap-3 rounded-xl border border-white/[0.07] bg-white/[0.025] p-4 transition hover:border-emerald-300/30 hover:bg-emerald-300/[0.06]"
+                        className={`${megaCardClass} flex items-center gap-3`}
                       >
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-300/10 text-emerald-300 transition group-hover:bg-emerald-300 group-hover:text-[#06111f]">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#075B3B]/[0.08] text-[#075B3B] transition group-hover:bg-[#075B3B] group-hover:text-white">
                           <Icon className="h-5 w-5" />
                         </div>
 
-                        <span className="text-sm font-semibold text-slate-200 transition group-hover:text-emerald-300">
+                        <span className="text-sm font-semibold text-[#263C50] group-hover:text-[#075B3B]">
                           {item.title}
                         </span>
                       </Link>
@@ -458,15 +390,14 @@ export default function Navbar() {
               </>
             )}
 
-            {/* PRODUCTS MENU */}
+            {/* PRODUCTS */}
             {activeDropdown === "products" && (
               <>
                 <div className="mb-6">
-                  <p className="text-xs font-bold uppercase tracking-[0.22em] text-emerald-300">
-                    OPV ecosystem
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#075B3B]">
+                    OPV Ecosystem
                   </p>
-
-                  <h2 className="mt-2 text-2xl font-bold text-white">
+                  <h2 className="mt-2 text-2xl font-bold text-[#263C50]">
                     Products and platforms built for business.
                   </h2>
                 </div>
@@ -479,21 +410,21 @@ export default function Navbar() {
                       onClick={closeAll}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noopener noreferrer" : undefined}
-                      className="group rounded-xl border border-white/[0.07] bg-white/[0.025] p-5 transition hover:border-emerald-300/30 hover:bg-emerald-300/[0.06]"
+                      className={`${megaCardClass} p-5`}
                     >
-                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-amber-300/10 text-amber-300">
+                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-[#C6A052]/[0.12] text-[#98732F]">
                         <Layers3 className="h-5 w-5" />
                       </div>
 
-                      <h3 className="text-base font-bold text-white group-hover:text-emerald-300">
+                      <h3 className="text-base font-bold text-[#263C50] group-hover:text-[#075B3B]">
                         {item.title}
                       </h3>
 
-                      <p className="mt-2 text-sm leading-6 text-slate-400">
+                      <p className="mt-2 text-sm leading-6 text-[#607080]">
                         {item.description}
                       </p>
 
-                      <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-emerald-300">
+                      <span className="mt-4 inline-flex items-center gap-1 text-xs font-semibold text-[#075B3B]">
                         Explore
                         <ArrowUpRight className="h-3.5 w-3.5" />
                       </span>
@@ -510,128 +441,102 @@ export default function Navbar() {
       {mobileOpen && (
         <div
           id="opv-mobile-navigation"
-          className="max-h-[calc(100dvh-78px)] overflow-y-auto border-t border-white/10 bg-[#081625] px-5 pb-7 pt-4 lg:hidden"
+          className="max-h-[calc(100dvh-78px)] overflow-y-auto border-t border-[#E8E6DF] bg-white px-5 pb-7 pt-4 lg:hidden"
         >
-          <nav className="mx-auto flex max-w-[600px] flex-col">
+          <nav
+            aria-label="Mobile navigation"
+            className="mx-auto flex max-w-[600px] flex-col"
+          >
+            {menuNames.map((name) => {
+              const expanded = mobileExpanded === name;
 
-            {/* MOBILE SOLUTIONS */}
-            <button
-              type="button"
-              onClick={() => toggleMobileSection("solutions")}
-              aria-expanded={mobileExpanded === "solutions"}
-              className="flex items-center justify-between border-b border-white/[0.08] py-4 text-left text-sm font-semibold text-white"
-            >
-              Solutions
-
-              <ChevronDown
-                className={`h-4 w-4 text-emerald-300 transition ${
-                  mobileExpanded === "solutions" ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-
-            {mobileExpanded === "solutions" && (
-              <div className="space-y-1 bg-white/[0.025] p-2">
-                {solutions.map((item) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      onClick={closeAll}
-                      className="flex items-center gap-3 rounded-lg p-3 text-sm text-slate-300 hover:bg-white/5 hover:text-emerald-300"
-                    >
-                      <Icon className="h-4 w-4 shrink-0 text-emerald-300" />
-                      {item.title}
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-
-            {/* MOBILE INDUSTRIES */}
-            <button
-              type="button"
-              onClick={() => toggleMobileSection("industries")}
-              aria-expanded={mobileExpanded === "industries"}
-              className="flex items-center justify-between border-b border-white/[0.08] py-4 text-left text-sm font-semibold text-white"
-            >
-              Industries
-
-              <ChevronDown
-                className={`h-4 w-4 text-emerald-300 transition ${
-                  mobileExpanded === "industries" ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-
-            {mobileExpanded === "industries" && (
-              <div className="space-y-1 bg-white/[0.025] p-2">
-                {industries.map((item) => {
-                  const Icon = item.icon;
-
-                  return (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      onClick={closeAll}
-                      className="flex items-center gap-3 rounded-lg p-3 text-sm text-slate-300 hover:bg-white/5 hover:text-emerald-300"
-                    >
-                      <Icon className="h-4 w-4 shrink-0 text-emerald-300" />
-                      {item.title}
-                    </Link>
-                  );
-                })}
-              </div>
-            )}
-
-            {/* MOBILE PRODUCTS */}
-            <button
-              type="button"
-              onClick={() => toggleMobileSection("products")}
-              aria-expanded={mobileExpanded === "products"}
-              className="flex items-center justify-between border-b border-white/[0.08] py-4 text-left text-sm font-semibold text-white"
-            >
-              Products
-
-              <ChevronDown
-                className={`h-4 w-4 text-emerald-300 transition ${
-                  mobileExpanded === "products" ? "rotate-180" : ""
-                }`}
-              />
-            </button>
-
-            {mobileExpanded === "products" && (
-              <div className="space-y-1 bg-white/[0.025] p-2">
-                {products.map((item) => (
-                  <Link
-                    key={item.title}
-                    href={item.href}
-                    onClick={closeAll}
-                    target={item.external ? "_blank" : undefined}
-                    rel={item.external ? "noopener noreferrer" : undefined}
-                    className="block rounded-lg p-3 hover:bg-white/5"
+              return (
+                <div key={name}>
+                  <button
+                    type="button"
+                    onClick={() => toggleMobileSection(name)}
+                    aria-expanded={expanded}
+                    aria-controls={`opv-mobile-${name}`}
+                    className="flex w-full items-center justify-between border-b border-[#E8E6DF] py-4 text-left text-sm font-semibold text-[#263C50]"
                   >
-                    <span className="block text-sm font-semibold text-slate-200">
-                      {item.title}
-                    </span>
+                    {menuLabels[name]}
+                    <ChevronDown
+                      className={`h-4 w-4 text-[#075B3B] transition-transform ${
+                        expanded ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
 
-                    <span className="mt-1 block text-xs text-slate-400">
-                      {item.description}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            )}
+                  {expanded && (
+                    <div
+                      id={`opv-mobile-${name}`}
+                      className="space-y-1 rounded-lg bg-[#F8F6F0] p-2"
+                    >
+                      {name === "solutions" &&
+                        solutions.map((item) => {
+                          const Icon = item.icon;
 
-            {/* MOBILE COMPANY LINKS */}
+                          return (
+                            <Link
+                              key={item.title}
+                              href={item.href}
+                              onClick={closeAll}
+                              className="flex items-center gap-3 rounded-lg p-3 text-sm text-[#263C50] hover:bg-white hover:text-[#075B3B]"
+                            >
+                              <Icon className="h-4 w-4 shrink-0 text-[#075B3B]" />
+                              {item.title}
+                            </Link>
+                          );
+                        })}
+
+                      {name === "industries" &&
+                        industries.map((item) => {
+                          const Icon = item.icon;
+
+                          return (
+                            <Link
+                              key={item.title}
+                              href={item.href}
+                              onClick={closeAll}
+                              className="flex items-center gap-3 rounded-lg p-3 text-sm text-[#263C50] hover:bg-white hover:text-[#075B3B]"
+                            >
+                              <Icon className="h-4 w-4 shrink-0 text-[#075B3B]" />
+                              {item.title}
+                            </Link>
+                          );
+                        })}
+
+                      {name === "products" &&
+                        products.map((item) => (
+                          <Link
+                            key={item.title}
+                            href={item.href}
+                            onClick={closeAll}
+                            target={item.external ? "_blank" : undefined}
+                            rel={item.external ? "noopener noreferrer" : undefined}
+                            className="block rounded-lg p-3 hover:bg-white"
+                          >
+                            <span className="block text-sm font-semibold text-[#263C50]">
+                              {item.title}
+                            </span>
+                            <span className="mt-1 block text-xs text-[#607080]">
+                              {item.description}
+                            </span>
+                          </Link>
+                        ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+
+            {/* COMPANY LINKS */}
             {companyLinks.map((item) => (
               <Link
                 key={item.title}
                 href={item.href}
                 onClick={closeAll}
-                className="border-b border-white/[0.08] py-4 text-sm font-semibold text-slate-300 transition hover:text-emerald-300"
+                className="border-b border-[#E8E6DF] py-4 text-sm font-semibold text-[#263C50] transition hover:text-[#075B3B]"
               >
                 {item.title}
               </Link>
@@ -641,15 +546,14 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={closeAll}
-              className="mt-6 flex items-center justify-center gap-2 rounded-full bg-emerald-300 px-5 py-4 text-sm font-bold text-[#06111f] transition hover:bg-emerald-200"
+              className="mt-6 flex items-center justify-center gap-2 rounded-full bg-[#075B3B] px-5 py-4 text-sm font-bold text-white transition hover:bg-[#06472F]"
             >
-              Let's Build Your Business
-
+              Let&apos;s Build Your Business
               <ArrowUpRight className="h-4 w-4" />
             </Link>
 
-            <div className="mt-6 flex items-center justify-center gap-2 text-center text-[10px] tracking-[0.12em] text-slate-500">
-              <Lightbulb className="h-3.5 w-3.5 text-amber-300" />
+            <div className="mt-6 flex items-center justify-center gap-2 text-center text-[10px] tracking-[0.08em] text-[#607080]">
+              <Lightbulb className="h-3.5 w-3.5 shrink-0 text-[#C6A052]" />
               AI-POWERED BUSINESS TECHNOLOGY & GROWTH PLATFORM
             </div>
           </nav>

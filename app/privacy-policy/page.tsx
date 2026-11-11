@@ -8,8 +8,6 @@ import {
   ShieldCheck,
   LockKeyhole,
   Database,
-  Cookie,
-  UserCheck,
   Globe2,
   Mail,
   FileText,
@@ -18,12 +16,18 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
+// ==========================================
+// SEO METADATA
+// ==========================================
+
 export const metadata: Metadata = {
-  title: "Privacy Policy | OPV AI Realty Tech",
+  title: {
+    absolute: "Privacy Policy | OPV AI Realty Tech",
+  },
   description:
     "Read the OPV AI Realty Tech Privacy Policy to understand how we collect, use, store and protect personal information and website data.",
   alternates: {
-    canonical: "https://www.opvairealtytech.com/privacy-policy",
+    canonical: "/privacy-policy",
   },
   robots: {
     index: true,
@@ -33,10 +37,14 @@ export const metadata: Metadata = {
     title: "Privacy Policy | OPV AI Realty Tech",
     description:
       "Learn how OPV AI Realty Tech handles personal information, website data, cookies and privacy.",
-    url: "https://www.opvairealtytech.com/privacy-policy",
+    url: "/privacy-policy",
     type: "website",
   },
 };
+
+// ==========================================
+// POLICY INFORMATION
+// ==========================================
 
 const lastUpdated = "November 6, 2026";
 
@@ -193,6 +201,10 @@ const sections = [
   },
 ];
 
+// ==========================================
+// STRUCTURED DATA
+// ==========================================
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -212,11 +224,13 @@ const breadcrumbSchema = {
   ],
 };
 
+// ==========================================
+// PAGE COMPONENT
+// ==========================================
+
 export default function PrivacyPolicyPage() {
   return (
-    <main className="min-h-screen bg-[#06111f] text-white">
-
-      {/* STRUCTURED DATA */}
+    <main className="min-h-screen bg-white text-[#263C50]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -228,71 +242,75 @@ export default function PrivacyPolicyPage() {
       />
 
       {/* HERO */}
-      <section className="relative overflow-hidden border-b border-white/[0.07]">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.13),transparent_55%)]" />
 
-        <div className="relative mx-auto max-w-[1200px] px-5 pb-16 pt-20 sm:px-8 sm:pb-20 sm:pt-28 lg:px-10">
+      <section className="border-b border-[#E5E9E3] bg-[#F8F6F0]">
+        <div className="mx-auto max-w-7xl px-6 pb-16 pt-20 sm:px-10 sm:pb-20 sm:pt-24">
 
           <nav
             aria-label="Breadcrumb"
-            className="mb-10 flex items-center gap-2 text-xs text-slate-400"
+            className="mb-10 flex items-center gap-2 text-xs text-[#647586]"
           >
-            <Link href="/" className="hover:text-emerald-300">
+            <Link
+              href="/"
+              className="transition hover:text-[#075B3B]"
+            >
               Home
             </Link>
 
             <ChevronRight className="h-3.5 w-3.5" />
 
-            <span className="text-emerald-300">
+            <span className="font-semibold text-[#075B3B]">
               Privacy Policy
             </span>
           </nav>
 
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/[0.07] px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-emerald-300">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#075B3B]/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-[#075B3B]">
             <ShieldCheck className="h-4 w-4" />
-            Privacy & Data Protection
+            Privacy &amp; Data Protection
           </div>
 
-          <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+          <h1 className="max-w-4xl text-4xl font-extrabold leading-tight tracking-tight text-[#263C50] sm:text-5xl lg:text-6xl">
             Your Privacy.
-            <span className="block text-emerald-300">
+            <span className="block text-[#075B3B]">
               Our Responsibility.
             </span>
           </h1>
 
-          <p className="mt-6 max-w-2xl text-sm leading-8 text-slate-400 sm:text-base">
+          <p className="mt-6 max-w-2xl text-sm leading-8 text-[#526577] sm:text-base">
             At OPV AI Realty Tech, we respect your privacy.
             Learn how we collect, use, manage and protect
             information when you interact with our website
             and services.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4 text-xs text-slate-400">
+          <div className="mt-8 flex flex-wrap items-center gap-4 text-xs text-[#647586]">
             <span className="inline-flex items-center gap-2">
-              <FileText className="h-4 w-4 text-emerald-300" />
+              <FileText className="h-4 w-4 text-[#075B3B]" />
               Last Updated: {lastUpdated}
             </span>
 
             <span className="inline-flex items-center gap-2">
-              <Globe2 className="h-4 w-4 text-emerald-300" />
+              <Globe2 className="h-4 w-4 text-[#075B3B]" />
               www.opvairealtytech.com
             </span>
           </div>
         </div>
       </section>
 
-      {/* CONTENT */}
-      <section className="mx-auto max-w-[1200px] px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
+      {/* POLICY CONTENT */}
 
+      <section className="mx-auto max-w-7xl px-6 py-16 sm:px-10 lg:py-24">
         <div className="grid gap-10 lg:grid-cols-[280px_minmax(0,1fr)] lg:gap-14">
 
           {/* TABLE OF CONTENTS */}
+
           <aside className="hidden lg:block">
-            <div className="sticky top-28 rounded-2xl border border-white/[0.08] bg-[#0a1a2b] p-6">
+            <div className="sticky top-28 rounded-2xl border border-[#E5E9E3] bg-[#F8F6F0] p-6">
 
               <div className="mb-5 flex items-center gap-2">
-                <FileText className="h-5 w-5 text-emerald-300" />
-                <h2 className="text-sm font-bold">
+                <FileText className="h-5 w-5 text-[#075B3B]" />
+
+                <h2 className="text-sm font-extrabold text-[#263C50]">
                   On This Page
                 </h2>
               </div>
@@ -305,7 +323,7 @@ export default function PrivacyPolicyPage() {
                   <a
                     key={section.id}
                     href={`#${section.id}`}
-                    className="block rounded-lg px-3 py-2 text-xs leading-5 text-slate-400 transition hover:bg-emerald-300/[0.07] hover:text-emerald-300"
+                    className="block rounded-lg px-3 py-2 text-xs leading-5 text-[#526577] transition hover:bg-[#F0F6F1] hover:text-[#075B3B]"
                   >
                     {section.number}. {section.title}
                   </a>
@@ -315,20 +333,21 @@ export default function PrivacyPolicyPage() {
           </aside>
 
           {/* MAIN POLICY */}
+
           <div className="min-w-0">
 
-            {/* INTRO */}
-            <div className="mb-12 rounded-2xl border border-emerald-300/15 bg-emerald-300/[0.045] p-6 sm:p-8">
+            {/* INTRODUCTION CARD */}
 
+            <div className="mb-12 rounded-2xl border border-[#E5E9E3] bg-[#F8F6F0] p-6 sm:p-8">
               <div className="flex items-start gap-4">
-                <LockKeyhole className="mt-1 h-6 w-6 shrink-0 text-emerald-300" />
+                <LockKeyhole className="mt-1 h-6 w-6 shrink-0 text-[#075B3B]" />
 
                 <div>
-                  <h2 className="text-lg font-bold">
+                  <h2 className="text-lg font-extrabold text-[#263C50]">
                     Your Information Matters
                   </h2>
 
-                  <p className="mt-3 text-sm leading-8 text-slate-400">
+                  <p className="mt-3 text-sm leading-8 text-[#526577]">
                     We aim to handle personal information
                     responsibly, use it for appropriate
                     business purposes and take reasonable
@@ -339,44 +358,45 @@ export default function PrivacyPolicyPage() {
               </div>
             </div>
 
-            {/* SECTIONS */}
+            {/* ALL POLICY SECTIONS */}
+
             <div className="space-y-12">
               {sections.map((section) => (
                 <section
                   key={section.id}
                   id={section.id}
-                  className="scroll-mt-28 border-b border-white/[0.07] pb-10 last:border-0"
+                  className="scroll-mt-28 border-b border-[#E5E9E3] pb-10 last:border-0"
                 >
                   <div className="mb-5 flex items-start gap-4">
-
-                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-emerald-300/15 bg-emerald-300/[0.07] text-xs font-bold text-emerald-300">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#075B3B]/15 bg-[#F0F6F1] text-xs font-extrabold text-[#075B3B]">
                       {section.number}
                     </span>
 
-                    <h2 className="pt-1 text-xl font-bold leading-8 sm:text-2xl">
+                    <h2 className="pt-1 text-xl font-extrabold leading-8 text-[#263C50] sm:text-2xl">
                       {section.title}
                     </h2>
                   </div>
 
                   <div className="space-y-4 pl-0 sm:pl-14">
-
-                    {section.paragraphs.map((paragraph, index) => (
-                      <p
-                        key={index}
-                        className="text-sm leading-8 text-slate-400"
-                      >
-                        {paragraph}
-                      </p>
-                    ))}
+                    {section.paragraphs.map(
+                      (paragraph, index) => (
+                        <p
+                          key={index}
+                          className="text-sm leading-8 text-[#526577]"
+                        >
+                          {paragraph}
+                        </p>
+                      )
+                    )}
 
                     {section.bullets && (
                       <ul className="space-y-3 pt-2">
                         {section.bullets.map((item) => (
                           <li
                             key={item}
-                            className="flex items-start gap-3 text-sm leading-7 text-slate-400"
+                            className="flex items-start gap-3 text-sm leading-7 text-[#526577]"
                           >
-                            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-emerald-300" />
+                            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#075B3B]" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -384,36 +404,36 @@ export default function PrivacyPolicyPage() {
                     )}
 
                     {section.extra && (
-                      <p className="mt-5 text-sm leading-8 text-slate-400">
+                      <p className="mt-5 text-sm leading-8 text-[#526577]">
                         {section.extra}
                       </p>
                     )}
 
                     {section.id === "contact" && (
-                      <div className="mt-6 rounded-xl border border-white/10 bg-[#0a1a2b] p-5">
+                      <div className="mt-6 rounded-xl border border-[#E5E9E3] bg-[#F8F6F0] p-5">
 
                         <div className="flex items-center gap-3">
-                          <Mail className="h-5 w-5 text-emerald-300" />
+                          <Mail className="h-5 w-5 shrink-0 text-[#075B3B]" />
 
                           <a
                             href="mailto:info@opvairealtytech.com"
-                            className="break-all text-sm font-semibold text-white hover:text-emerald-300"
+                            className="break-all text-sm font-semibold text-[#263C50] hover:text-[#075B3B]"
                           >
                             info@opvairealtytech.com
                           </a>
                         </div>
 
                         <div className="mt-4 flex items-center gap-3">
-                          <Building2 className="h-5 w-5 text-emerald-300" />
+                          <Building2 className="h-5 w-5 shrink-0 text-[#075B3B]" />
 
-                          <span className="text-sm text-slate-400">
+                          <span className="text-sm text-[#526577]">
                             Hyderabad, Telangana, India
                           </span>
                         </div>
 
                         <Link
                           href="/contact"
-                          className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-emerald-300 hover:text-emerald-200"
+                          className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#075B3B] transition hover:underline"
                         >
                           Contact Our Team
                           <ArrowUpRight className="h-4 w-4" />
@@ -425,13 +445,13 @@ export default function PrivacyPolicyPage() {
               ))}
             </div>
 
-            {/* NOTICE */}
-            <div className="mt-12 rounded-2xl border border-amber-300/15 bg-amber-300/[0.04] p-6">
+            {/* POLICY NOTICE */}
 
+            <div className="mt-12 rounded-2xl border border-[#E5E9E3] bg-[#F8F6F0] p-6">
               <div className="flex items-start gap-3">
-                <AlertCircle className="mt-1 h-5 w-5 shrink-0 text-amber-300" />
+                <AlertCircle className="mt-1 h-5 w-5 shrink-0 text-[#C6A052]" />
 
-                <p className="text-xs leading-7 text-slate-400">
+                <p className="text-xs leading-7 text-[#526577]">
                   This Privacy Policy describes general
                   website privacy practices. Actual data
                   collection, third-party integrations,
@@ -442,30 +462,32 @@ export default function PrivacyPolicyPage() {
                 </p>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* PRIVACY TRUST SECTION */}
-      <section className="border-y border-white/[0.07] bg-[#081725]">
-        <div className="mx-auto grid max-w-[1200px] gap-7 px-5 py-12 sm:grid-cols-3 sm:px-8 lg:px-10">
+      {/* PRIVACY PRINCIPLES */}
 
+      <section className="border-y border-[#E5E9E3] bg-[#F8F6F0]">
+        <div className="mx-auto grid max-w-7xl gap-7 px-6 py-12 sm:grid-cols-3 sm:px-10">
           {[
             {
               icon: ShieldCheck,
               title: "Privacy Awareness",
-              description: "Responsible handling of personal information.",
+              description:
+                "Responsible handling of personal information.",
             },
             {
               icon: Database,
               title: "Data Management",
-              description: "Information used for defined business purposes.",
+              description:
+                "Information used for defined business purposes.",
             },
             {
               icon: LockKeyhole,
               title: "Security Practices",
-              description: "Reasonable measures to protect information.",
+              description:
+                "Reasonable measures to protect information.",
             },
           ].map((item) => {
             const Icon = item.icon;
@@ -475,55 +497,52 @@ export default function PrivacyPolicyPage() {
                 key={item.title}
                 className="flex items-start gap-4"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-300/10 text-emerald-300">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-[#075B3B]">
                   <Icon className="h-5 w-5" />
                 </div>
 
                 <div>
-                  <h3 className="text-sm font-bold">
+                  <h3 className="text-sm font-extrabold text-[#263C50]">
                     {item.title}
                   </h3>
 
-                  <p className="mt-2 text-xs leading-6 text-slate-400">
+                  <p className="mt-2 text-xs leading-6 text-[#526577]">
                     {item.description}
                   </p>
                 </div>
               </div>
             );
           })}
-
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="relative overflow-hidden py-20">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(16,185,129,0.09),transparent_65%)]" />
+      {/* FINAL CTA */}
 
-        <div className="relative mx-auto max-w-[850px] px-5 text-center">
+      <section className="bg-white px-6 py-20 sm:px-10">
+        <div className="mx-auto max-w-5xl rounded-3xl border border-[#E5E9E3] bg-[#F8F6F0] px-7 py-14 text-center sm:px-14">
 
-          <h2 className="text-3xl font-extrabold sm:text-4xl">
+          <h2 className="text-3xl font-extrabold text-[#263C50] sm:text-4xl">
             Questions About Your
-            <span className="block text-emerald-300">
+            <span className="block text-[#075B3B]">
               Privacy?
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-xl text-sm leading-8 text-slate-400">
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-8 text-[#526577]">
             If you have questions or requests relating
-            to your personal information, our team is
-            available to assist.
+            to your personal information, our team
+            is available to assist.
           </p>
 
           <Link
             href="/contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-emerald-300 px-8 py-4 text-sm font-bold text-[#06111f] transition hover:-translate-y-1 hover:bg-emerald-200"
+            className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[#075B3B] px-8 py-4 text-sm font-bold text-white transition hover:bg-[#06472F]"
           >
             Contact Us
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
-
     </main>
   );
 }

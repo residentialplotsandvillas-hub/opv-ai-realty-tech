@@ -1,26 +1,140 @@
+
 @import "tailwindcss";
 
+/* ==========================================
+   OPV AI REALTY TECH
+   PREMIUM LIGHT CORPORATE DESIGN SYSTEM
+========================================== */
+
 :root {
+  /* Corporate backgrounds */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #263c50;
+  --surface: #ffffff;
+  --surface-soft: #f8f6f0;
+
+  /* Corporate brand colors */
+  --primary: #075b3b;
+  --primary-hover: #06472f;
+  --accent: #c6a052;
+
+  /* Typography */
+  --heading: #263c50;
+  --body-text: #526577;
+  --muted-text: #647586;
+
+  /* Borders */
+  --border: #e5e9e3;
+
+  /* Font families */
+  --font-heading: var(--font-manrope);
+  --font-body: var(--font-inter);
 }
+
+/* ==========================================
+   TAILWIND CSS V4 THEME
+========================================== */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-accent: var(--accent);
+
+  --color-surface: var(--surface);
+  --color-surface-soft: var(--surface-soft);
+
+  --color-heading: var(--heading);
+  --color-body-text: var(--body-text);
+  --color-muted-text: var(--muted-text);
+  --color-border: var(--border);
+
+  --font-sans: var(--font-inter), Arial, sans-serif;
+  --font-heading: var(--font-manrope), Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ==========================================
+   GLOBAL BASE STYLES
+========================================== */
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
+  min-height: 100vh;
+  margin: 0;
+
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+  font-family: var(--font-inter), Arial, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================
+   CORPORATE TYPOGRAPHY
+========================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-manrope), Arial, sans-serif;
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* ==========================================
+   LINKS & ACCESSIBILITY
+========================================== */
+
+a {
+  text-underline-offset: 4px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   SELECTION COLORS
+========================================== */
+
+::selection {
+  background-color: #dcece2;
+  color: #075b3b;
+}
+
+/* ==========================================
+   RESPONSIVE & ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
