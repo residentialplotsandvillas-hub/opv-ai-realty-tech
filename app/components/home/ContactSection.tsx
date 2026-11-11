@@ -26,9 +26,9 @@ import {
 // COMPANY & EMAIL CONFIGURATION
 // ==========================================
 
-const EMAIL_ADDRESS = "opvairealtytech@gmail.com";
+const EMAIL_ADDRESS = "info@opvairealtytech.com";
 const COMPANY_NAME = "OPV AI Realty Tech Private Limited";
-const PHONE_NUMBER = "9963513939";
+const PHONE_NUMBER = "9963513939, 040-4563-5052";
 
 const EMAILJS_SERVICE_ID =
   process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";

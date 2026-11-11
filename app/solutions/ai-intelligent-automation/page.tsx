@@ -1,407 +1,1386 @@
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
   ArrowRight,
-  Bot,
+  ArrowUpRight,
   BrainCircuit,
-  CheckCircle2,
-  Cpu,
+  Bot,
   Workflow,
-  Zap,
+  MessageSquare,
+  Database,
+  BarChart3,
+  CheckCircle2,
+  Sparkles,
+  Cpu,
+  MapPin,
+  Building2,
+  Layers3,
+  ShieldCheck,
+  TrendingUp,
+  Smartphone,
+  GraduationCap,
+  HeartPulse,
+  ShoppingCart,
+  Rocket,
+  Plane,
+  Landmark,
+  ChevronRight,
+  Phone,
 } from "lucide-react";
 
+// ==========================================
+// SITE CONFIGURATION
+// ==========================================
+
+const SITE_URL = "https://www.opvairealtytech.com";
+
+const PAGE_PATH =
+  "/solutions/ai-intelligent-automation";
+
+const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
+
+const OG_IMAGE =
+  `${SITE_URL}/images/opv-og-image.jpg`;
+
+const PAGE_TITLE =
+  "AI Development Company in Hyderabad | OPV AI Realty Tech";
+
+const PAGE_DESCRIPTION =
+  "AI development company in Hyderabad offering AI agents, chatbots, workflow automation and custom AI integrations for businesses across India.";
+
+// ==========================================
+// SEO METADATA
+// ==========================================
+
 export const metadata: Metadata = {
-  title: "AI & Intelligent Automation | OPV AI Realty Tech",
-  description:
-    "Make business operations smarter with AI solutions, intelligent automation, AI agents, workflow automation and business process optimisation from OPV AI Realty Tech.",
-  alternates: {
-    canonical: "/solutions/ai-intelligent-automation",
+  title: {
+    absolute: PAGE_TITLE,
   },
+
+  description: PAGE_DESCRIPTION,
+
+  alternates: {
+    canonical: PAGE_URL,
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
   openGraph: {
-    title: "AI & Intelligent Automation | OPV AI Realty Tech",
-    description:
-      "Build smarter business operations with AI-powered solutions and intelligent automation.",
-    url: "/solutions/ai-intelligent-automation",
     type: "website",
+    locale: "en_IN",
+    url: PAGE_URL,
+    siteName: "OPV AI Realty Tech",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt:
+          "AI Development and Intelligent Automation by OPV AI Realty Tech",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    images: [OG_IMAGE],
   },
 };
 
-const capabilities = [
-  {
-    icon: BrainCircuit,
-    title: "AI Strategy & Consulting",
-    description:
-      "Identify practical opportunities to introduce AI into your business, improve processes and support better decision-making.",
-  },
+// ==========================================
+// AI DEVELOPMENT SERVICES
+// ==========================================
+
+const solutions = [
   {
     icon: Bot,
-    title: "AI Agents & Assistants",
+    title: "AI Agent Development",
     description:
-      "Design intelligent assistants to help answer questions, support customers, organise information and assist business teams.",
+      "Custom AI agents designed to answer customer enquiries, retrieve business information, assist with lead qualification and perform defined tasks across connected business systems.",
+    href: "/solutions/ai-intelligent-automation",
+  },
+  {
+    icon: MessageSquare,
+    title: "AI Chatbots & Voice Assistants",
+    description:
+      "Conversational AI assistants for websites, WhatsApp and voice-based customer interactions, with support for routine enquiries and human escalation.",
+    href: "/solutions/ai-intelligent-automation",
   },
   {
     icon: Workflow,
-    title: "Workflow Automation",
-    description:
-      "Connect business tasks and systems to reduce repetitive manual work and create more consistent processes.",
-  },
-  {
-    icon: Cpu,
-    title: "Custom AI Solutions",
-    description:
-      "Plan and develop AI-powered applications that address your organisation's specific operational requirements.",
-  },
-  {
-    icon: Zap,
     title: "Business Process Automation",
     description:
-      "Streamline repetitive activities across sales, customer service, administration and internal operations.",
+      "Automated workflows for lead capture, follow-ups, data entry, approvals, notifications and operational reporting, integrated with your existing tools.",
+    href: "/solutions/ai-intelligent-automation",
   },
   {
-    icon: CheckCircle2,
-    title: "AI Integration",
+    icon: BrainCircuit,
+    title: "Custom AI Integration",
     description:
-      "Explore ways to connect AI capabilities with your existing applications, platforms and business workflows.",
+      "Integrate AI capabilities such as intelligent search, summarization, document processing and content generation into websites, CRM, ERP and mobile applications.",
+    href: "/solutions/ai-intelligent-automation",
+  },
+  {
+    icon: Database,
+    title: "AI-Powered Data Solutions",
+    description:
+      "Connect business information with intelligent search, document retrieval, structured data extraction and natural-language access to authorized information.",
+    href: "/solutions/data-business-intelligence",
+  },
+  {
+    icon: BarChart3,
+    title: "AI Business Intelligence",
+    description:
+      "Develop AI-assisted dashboards and reporting workflows that help teams understand customer enquiries, sales activity and operational performance.",
+    href: "/solutions/data-business-intelligence",
   },
 ];
 
+// ==========================================
+// INDUSTRY USE CASES
+// ==========================================
+
 const useCases = [
-  "Customer support and enquiry assistance",
-  "Lead qualification and follow-up workflows",
-  "Document processing and information extraction",
-  "Business reporting and data assistance",
-  "Internal knowledge assistants",
-  "Task routing and workflow coordination",
-  "Sales and customer relationship workflows",
-  "Real estate enquiry and property discovery assistance",
+  {
+    icon: Building2,
+    title: "Real Estate",
+    description:
+      "AI property enquiry assistants, buyer qualification, site visit scheduling, CRM integration and automated follow-ups.",
+    href: "/industries/real-estate",
+  },
+  {
+    icon: ShoppingCart,
+    title: "Retail & E-commerce",
+    description:
+      "Product enquiry chatbots, customer assistance, order-related workflows and personalized shopping support.",
+    href: "/industries/retail-ecommerce",
+  },
+  {
+    icon: HeartPulse,
+    title: "Healthcare",
+    description:
+      "Appointment assistance, administrative workflows and patient communication tools with appropriate privacy safeguards.",
+    href: "/industries/healthcare",
+  },
+  {
+    icon: GraduationCap,
+    title: "Education",
+    description:
+      "Admission enquiry assistants, student support, knowledge search and administrative automation.",
+    href: "/industries/education",
+  },
+  {
+    icon: Plane,
+    title: "Travel & Tourism",
+    description:
+      "AI travel enquiry assistants, package information, itinerary support, booking workflows and travel CRM integration.",
+    href: "/industries/travel-tourism",
+  },
+  {
+    icon: Landmark,
+    title: "Banking & Financial Services",
+    description:
+      "AI-assisted customer service, document workflows, business reporting and controlled automation for financial service operations.",
+    href: "/industries/banking-finance",
+  },
+  {
+    icon: Rocket,
+    title: "Startups & SMEs",
+    description:
+      "AI-powered MVPs, customer support automation, lead management and productivity tools for growing teams.",
+    href: "/industries/startups-smes",
+  },
+  {
+    icon: Layers3,
+    title: "Enterprise & Corporate",
+    description:
+      "Internal knowledge assistants, workflow integration, business intelligence and enterprise process automation.",
+    href: "/industries/enterprise-corporate",
+  },
 ];
+
+// ==========================================
+// TECHNOLOGY STACK
+// ==========================================
+
+// Confirm specific technologies are used or
+// supported before publishing this list.
+
+const techStack = [
+  "OpenAI & Gemini APIs",
+  "Large Language Models",
+  "Python & Node.js",
+  "Next.js & React",
+  "Supabase & PostgreSQL",
+  "Vector Search & RAG",
+  "REST APIs & Webhooks",
+  "WhatsApp Business API",
+  "Cloud Infrastructure",
+  "AI Workflow Integrations",
+];
+
+// ==========================================
+// BUSINESS BENEFITS
+// ==========================================
+
+const benefits = [
+  {
+    title: "Reduce Repetitive Work",
+    description:
+      "Automate suitable manual tasks so employees can focus on higher-value business activities.",
+  },
+  {
+    title: "Improve Customer Response",
+    description:
+      "Provide faster responses to routine enquiries through AI-powered customer assistance.",
+  },
+  {
+    title: "Strengthen Lead Management",
+    description:
+      "Capture, organize, qualify and route customer enquiries through connected workflows.",
+  },
+  {
+    title: "Connect Existing Systems",
+    description:
+      "Integrate AI capabilities with compatible websites, CRM platforms and business applications.",
+  },
+  {
+    title: "Support Business Scalability",
+    description:
+      "Design workflows that can evolve as customer demand and operational requirements increase.",
+  },
+  {
+    title: "Improve Decision-Making",
+    description:
+      "Use reporting, analytics and intelligent data access to support more informed business decisions.",
+  },
+];
+
+// ==========================================
+// DEVELOPMENT PROCESS
+// ==========================================
 
 const process = [
   {
     number: "01",
-    title: "Discover",
+    title: "Discovery & Requirement Analysis",
     description:
-      "Understand your business, current processes and automation opportunities.",
+      "Understand your business objectives, operational challenges, existing systems and opportunities for AI adoption.",
   },
   {
     number: "02",
-    title: "Strategise",
+    title: "AI Strategy & Solution Architecture",
     description:
-      "Identify suitable AI approaches and define the solution scope.",
+      "Define the proposed AI capabilities, data requirements, integrations, security considerations and success measures.",
   },
   {
     number: "03",
-    title: "Build",
+    title: "Development & Integration",
     description:
-      "Design and develop the agreed AI solution or automated workflow.",
+      "Develop the AI solution and connect it with compatible business applications, APIs and workflows.",
   },
   {
     number: "04",
-    title: "Integrate",
+    title: "Testing, Deployment & Improvement",
     description:
-      "Connect the solution with relevant business tools and systems.",
-  },
-  {
-    number: "05",
-    title: "Improve",
-    description:
-      "Review performance and refine the solution as business needs evolve.",
+      "Evaluate functionality, accuracy, reliability and user experience before deployment and subsequent refinement.",
   },
 ];
 
-export default function AIIntelligentAutomationPage() {
+// ==========================================
+// FAQ CONTENT
+// ==========================================
+
+const faqs = [
+  {
+    question:
+      "What does an AI development company do?",
+    answer:
+      "An AI development company designs, develops and integrates software that uses artificial intelligence. Typical solutions include AI agents, chatbots, document processing, intelligent search, predictive tools and workflow automation.",
+  },
+  {
+    question:
+      "What AI development services does OPV AI Realty Tech offer?",
+    answer:
+      "OPV AI Realty Tech focuses on AI agents, chatbots, voice assistants, custom AI integrations, workflow automation, AI-powered data solutions and intelligent business reporting.",
+  },
+  {
+    question:
+      "Is OPV AI Realty Tech based in Hyderabad?",
+    answer:
+      "Yes. OPV AI Realty Tech is based in Madhapur, Hyderabad, Telangana, and provides business technology solutions for organizations across India.",
+  },
+  {
+    question:
+      "Can AI be integrated into an existing website or CRM?",
+    answer:
+      "In many cases, yes. AI can be connected to existing websites, CRM platforms, ERP systems and mobile applications through suitable APIs or integrations, depending on system compatibility and data access.",
+  },
+  {
+    question:
+      "How can AI automation help small businesses?",
+    answer:
+      "AI automation can help small businesses handle routine enquiries, organize leads, prepare information, automate follow-ups and reduce repetitive administrative work. The benefits depend on the workflow and implementation.",
+  },
+  {
+    question:
+      "Do you provide AI chatbots for WhatsApp and websites?",
+    answer:
+      "AI chatbots can be developed for websites and supported messaging platforms, including WhatsApp Business integrations where the necessary API access and platform approvals are available.",
+  },
+  {
+    question:
+      "How much does custom AI development cost?",
+    answer:
+      "AI development costs depend on the project scope, model usage, integrations, data requirements, security controls and ongoing maintenance. A requirement assessment helps determine an appropriate implementation approach and budget.",
+  },
+  {
+    question:
+      "How do I start an AI project with OPV AI Realty Tech?",
+    answer:
+      "Share your business requirements through the contact page. The initial discussion can cover the problem, proposed use cases, integration requirements and possible next steps.",
+  },
+];
+
+// ==========================================
+// RELATED SOLUTIONS
+// ==========================================
+
+const relatedSolutions = [
+  {
+    title: "Software & Product Engineering",
+    href: "/solutions/software-engineering",
+  },
+  {
+    title: "SaaS, Cloud & DevOps",
+    href: "/solutions/saas-cloud-devops",
+  },
+  {
+    title: "CRM, ERP & Business Systems",
+    href: "/solutions/crm-erp-business-systems",
+  },
+  {
+    title: "Data & Business Intelligence",
+    href: "/solutions/data-business-intelligence",
+  },
+  {
+    title: "Web & Mobile Experiences",
+    href: "/solutions/web-mobile-experiences",
+  },
+  {
+    title: "Digital Growth & Marketing",
+    href: "/solutions/digital-growth-marketing",
+  },
+];
+
+// ==========================================
+// PAGE COMPONENT
+// ==========================================
+
+export default function AIDevelopmentPage() {
+
+  // ========================================
+  // STRUCTURED DATA
+  // ========================================
+
+  const structuredData = {
+    "@context": "https://schema.org",
+
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": `${PAGE_URL}#webpage`,
+        url: PAGE_URL,
+        name: PAGE_TITLE,
+        description: PAGE_DESCRIPTION,
+        inLanguage: "en-IN",
+        about: {
+          "@id": `${PAGE_URL}#service`,
+        },
+        isPartOf: {
+          "@id": `${SITE_URL}/#website`,
+        },
+        breadcrumb: {
+          "@id": `${PAGE_URL}#breadcrumb`,
+        },
+      },
+
+      {
+        "@type": "Service",
+        "@id": `${PAGE_URL}#service`,
+        name:
+          "AI Development & Intelligent Automation Services",
+        serviceType:
+          "Artificial Intelligence Software Development",
+        description: PAGE_DESCRIPTION,
+        url: PAGE_URL,
+
+        provider: {
+          "@type": "Organization",
+          "@id": `${SITE_URL}/#organization`,
+          name:
+            "OPV AI Realty Tech Private Limited",
+          url: SITE_URL,
+        },
+
+        areaServed: [
+          {
+            "@type": "City",
+            name: "Hyderabad",
+          },
+          {
+            "@type": "Country",
+            name: "India",
+          },
+        ],
+
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "AI Development Services",
+
+          itemListElement: solutions.map((item) => ({
+            "@type": "OfferCatalog",
+            name: item.title,
+            description: item.description,
+          })),
+        },
+      },
+
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${PAGE_URL}#breadcrumb`,
+
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: SITE_URL,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Solutions",
+            item: `${SITE_URL}/solutions`,
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name:
+              "AI & Intelligent Automation",
+            item: PAGE_URL,
+          },
+        ],
+      },
+    ],
+  };
+
   return (
-    <main className="min-h-screen bg-white text-slate-900">
-      {/* HERO */}
-      <section className="relative isolate overflow-hidden bg-[#071426]">
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.17),transparent_35%),radial-gradient(circle_at_10%_90%,rgba(234,179,8,0.10),transparent_30%)]" />
+    <main className="overflow-hidden bg-white text-[#263C50]">
 
-        <div className="mx-auto grid max-w-7xl gap-14 px-6 py-24 sm:px-10 lg:grid-cols-2 lg:items-center lg:py-32">
-          <div>
-            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm font-medium text-emerald-300">
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-              AI Solutions & Intelligent Automation
-            </div>
+      {/* ====================================
+          STRUCTURED DATA
+      ==================================== */}
 
-            <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-              Make Your Business
-              <span className="block text-emerald-400">
-                Smarter with AI.
-              </span>
-            </h1>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            structuredData
+          ).replace(/</g, "\\u003c"),
+        }}
+      />
 
-            <p className="mt-7 max-w-xl text-lg leading-8 text-slate-300">
-              Put artificial intelligence and intelligent automation to work
-              across your business. OPV AI Realty Tech helps organisations
-              explore, design and develop technology solutions that simplify
-              operations and support business growth.
-            </p>
+      {/* ====================================
+          HERO SECTION
+      ==================================== */}
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="/#contact"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-500 px-7 py-4 font-semibold text-white transition hover:bg-emerald-400"
+      <section className="relative border-b border-[#E5E9E3] bg-[#F8F6F0]">
+
+        <div className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:py-28">
+
+          {/* BREADCRUMBS */}
+
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-9"
+          >
+            <ol className="flex flex-wrap items-center gap-2 text-xs text-[#647586]">
+
+              <li>
+                <Link
+                  href="/"
+                  className="hover:text-[#075B3B]"
+                >
+                  Home
+                </Link>
+              </li>
+
+              <li>
+                <ChevronRight className="h-3 w-3" />
+              </li>
+
+              <li>
+                <Link
+                  href="/solutions"
+                  className="hover:text-[#075B3B]"
+                >
+                  Solutions
+                </Link>
+              </li>
+
+              <li>
+                <ChevronRight className="h-3 w-3" />
+              </li>
+
+              <li
+                aria-current="page"
+                className="font-semibold text-[#075B3B]"
               >
-                Discuss Your AI Project
-                <ArrowRight size={18} />
-              </Link>
+                AI & Intelligent Automation
+              </li>
 
-              <Link
-                href="/#solutions"
-                className="inline-flex items-center justify-center rounded-lg border border-white/20 px-7 py-4 font-semibold text-white transition hover:border-emerald-400 hover:text-emerald-300"
-              >
-                Explore Our Solutions
-              </Link>
-            </div>
+            </ol>
+          </nav>
 
-            <p className="mt-8 text-sm text-slate-400">
-              Practical AI. Connected workflows. Smarter business operations.
-            </p>
-          </div>
+          <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
 
-          {/* HERO VISUAL */}
-          <div className="relative">
-            <div className="rounded-3xl border border-white/10 bg-white/[0.05] p-6 shadow-2xl shadow-black/20 backdrop-blur sm:p-8">
-              <div className="flex items-center justify-between border-b border-white/10 pb-5">
-                <div>
-                  <p className="text-sm text-slate-400">OPV AI PLATFORM</p>
-                  <h2 className="mt-1 text-xl font-semibold text-white">
-                    Intelligent Business
-                  </h2>
-                </div>
-                <div className="rounded-xl bg-emerald-400/10 p-3 text-emerald-300">
-                  <BrainCircuit size={28} />
-                </div>
+            {/* HERO CONTENT */}
+
+            <div>
+
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#075B3B]/15 bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.13em] text-[#075B3B]">
+                <BrainCircuit className="h-4 w-4" />
+                AI Development & Automation
               </div>
 
-              <div className="mt-7 grid grid-cols-2 gap-4">
-                <div className="rounded-2xl border border-white/10 bg-[#10233a] p-5">
-                  <Bot className="mb-4 text-emerald-400" size={25} />
-                  <p className="font-semibold text-white">AI Assistants</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">
-                    Intelligent support for business tasks.
-                  </p>
-                </div>
+              <h1 className="mt-7 text-4xl font-extrabold leading-[1.12] tracking-tight sm:text-5xl lg:text-[54px]">
+                AI Development Company in Hyderabad{" "}
+                <span className="mt-3 block text-[#075B3B]">
+                  Building Intelligent Business Solutions
+                </span>
+              </h1>
 
-                <div className="rounded-2xl border border-white/10 bg-[#10233a] p-5">
-                  <Workflow className="mb-4 text-emerald-400" size={25} />
-                  <p className="font-semibold text-white">Automation</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">
-                    Connected and streamlined workflows.
-                  </p>
-                </div>
+              <p className="mt-7 max-w-2xl text-base leading-8 text-[#526577] sm:text-lg">
+                OPV AI Realty Tech is a Hyderabad-based
+                business technology company developing
+                custom AI agents, intelligent chatbots,
+                voice assistants, workflow automation
+                and AI-powered software solutions for
+                startups, SMEs and enterprises across India.
+              </p>
 
-                <div className="rounded-2xl border border-white/10 bg-[#10233a] p-5">
-                  <Cpu className="mb-4 text-emerald-400" size={25} />
-                  <p className="font-semibold text-white">AI Integration</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">
-                    AI connected to business systems.
-                  </p>
-                </div>
+              <p className="mt-4 max-w-2xl text-sm leading-7 text-[#526577] sm:text-base">
+                We help businesses integrate artificial
+                intelligence into websites, mobile apps,
+                CRM systems, customer service and
+                everyday operations to improve
+                efficiency and digital experiences.
+              </p>
 
-                <div className="rounded-2xl border border-white/10 bg-[#10233a] p-5">
-                  <Zap className="mb-4 text-emerald-400" size={25} />
-                  <p className="font-semibold text-white">Smart Operations</p>
-                  <p className="mt-2 text-sm leading-6 text-slate-400">
-                    More efficient ways of working.
-                  </p>
-                </div>
+              <div className="mt-9 flex flex-wrap gap-4">
+
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-xl bg-[#075B3B] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#06472F]"
+                >
+                  Discuss Your AI Project
+                  <ArrowUpRight className="h-4 w-4" />
+                </Link>
+
+                <Link
+                  href="#ai-services"
+                  className="inline-flex items-center gap-2 rounded-xl border border-[#075B3B]/20 bg-white px-7 py-4 text-sm font-bold text-[#075B3B] transition hover:bg-[#F0F6F1]"
+                >
+                  Explore AI Services
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+
               </div>
 
-              <div className="mt-5 rounded-2xl border border-emerald-400/20 bg-emerald-400/10 p-5">
+              <div className="mt-8 flex items-center gap-2 text-sm text-[#647586]">
+                <MapPin className="h-4 w-4 text-[#075B3B]" />
+                Madhapur, Hyderabad · Serving India
+              </div>
+
+            </div>
+
+            {/* HERO FEATURE PANEL */}
+
+            <div className="relative">
+
+              <div className="rounded-3xl border border-[#E5E9E3] bg-white p-7 shadow-[0_20px_60px_rgba(38,60,80,0.07)] sm:p-9">
+
+                <div className="flex items-center justify-between">
+
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#F0F6F1] text-[#075B3B]">
+                    <Cpu className="h-7 w-7" />
+                  </div>
+
+                  <span className="rounded-full bg-[#C6A052]/10 px-4 py-2 text-xs font-bold text-[#98732F]">
+                    OPV AI
+                  </span>
+
+                </div>
+
+                <h2 className="mt-7 text-2xl font-extrabold">
+                  Practical AI.
+                  <span className="block text-[#075B3B]">
+                    Meaningful Automation.
+                  </span>
+                </h2>
+
+                <p className="mt-4 text-sm leading-7 text-[#526577]">
+                  Intelligent solutions built around
+                  real business requirements,
+                  connected systems and measurable
+                  operational goals.
+                </p>
+
+                <div className="mt-7 space-y-4">
+
+                  {[
+                    "AI Agents & Assistants",
+                    "Intelligent Workflow Automation",
+                    "AI-Powered Business Applications",
+                    "CRM & Enterprise Integration",
+                    "Data Intelligence & Reporting",
+                  ].map((item) => (
+
+                    <div
+                      key={item}
+                      className="flex items-center gap-3 rounded-xl bg-[#F8F6F0] p-4"
+                    >
+                      <CheckCircle2 className="h-5 w-5 shrink-0 text-[#075B3B]" />
+
+                      <span className="text-sm font-semibold">
+                        {item}
+                      </span>
+                    </div>
+
+                  ))}
+
+                </div>
+
+              </div>
+
+              <div className="absolute -bottom-5 -left-4 hidden rounded-xl border border-[#E5E9E3] bg-white px-5 py-4 shadow-lg sm:block">
                 <div className="flex items-center gap-3">
-                  <div className="rounded-lg bg-emerald-400/15 p-2 text-emerald-300">
-                    <CheckCircle2 size={20} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-white">
-                      Business-focused AI
-                    </p>
-                    <p className="mt-1 text-sm text-slate-300">
-                      Technology designed around real business needs.
-                    </p>
-                  </div>
+                  <Sparkles className="h-5 w-5 text-[#C6A052]" />
+                  <span className="text-xs font-bold text-[#075B3B]">
+                    Build Smarter • Automate Better
+                  </span>
                 </div>
               </div>
+
             </div>
 
-            <div className="absolute -right-4 -top-5 -z-10 h-32 w-32 rounded-full bg-emerald-400/20 blur-3xl" />
           </div>
         </div>
       </section>
 
-      {/* INTRODUCTION */}
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:py-24">
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
-            Transform the way you work
-          </p>
+      {/* ====================================
+          INTRODUCTION
+      ==================================== */}
 
-          <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            AI That Connects Technology with Business Goals
-          </h2>
+      <section className="py-20 lg:py-24">
 
-          <p className="mt-6 text-lg leading-8 text-slate-600">
-            Artificial intelligence can support more than isolated tasks. When
-            thoughtfully planned and integrated, it can become part of how an
-            organisation serves customers, manages information and runs daily
-            operations. We focus on identifying useful applications of AI and
-            shaping solutions around your business priorities.
-          </p>
-        </div>
-      </section>
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 sm:px-10 lg:grid-cols-2">
 
-      {/* CAPABILITIES */}
-      <section className="bg-slate-50 py-20 lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10">
-          <div className="max-w-2xl">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
-              What we do
+          <div>
+
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#075B3B]">
+              Intelligent Business Technology
             </p>
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              AI & Automation Capabilities
+
+            <h2 className="mt-4 text-3xl font-extrabold leading-tight sm:text-4xl">
+              Transform Business Operations
+              <span className="block text-[#075B3B]">
+                with Artificial Intelligence
+              </span>
             </h2>
-            <p className="mt-5 leading-7 text-slate-600">
-              Explore the areas where AI and automation can help your
-              organisation work more effectively.
+
+            <p className="mt-6 leading-8 text-[#526577]">
+              Artificial intelligence is changing how
+              organizations manage information,
+              communicate with customers and operate
+              digital business systems.
             </p>
+
+            <p className="mt-4 leading-8 text-[#526577]">
+              As an AI development company in Hyderabad,
+              OPV AI Realty Tech focuses on practical
+              AI applications, including customer
+              assistance, lead management, document
+              processing, intelligent search and
+              workflow automation.
+            </p>
+
+            <p className="mt-4 leading-8 text-[#526577]">
+              Successful AI implementation requires
+              reliable data, clear business objectives,
+              appropriate integrations and careful
+              testing. We consider these factors
+              throughout the development process.
+            </p>
+
           </div>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {capabilities.map((item) => {
+          <div className="rounded-3xl border border-[#E5E9E3] bg-[#F8F6F0] p-8 sm:p-10">
+
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-[#075B3B]">
+              <Workflow className="h-7 w-7" />
+            </div>
+
+            <h3 className="mt-7 text-2xl font-extrabold">
+              AI Built for Business Outcomes
+            </h3>
+
+            <p className="mt-5 leading-8 text-[#526577]">
+              Our approach starts with identifying
+              the business challenge before choosing
+              the technology.
+            </p>
+
+            <ul className="mt-7 space-y-4">
+
+              {[
+                "Understand the business problem",
+                "Identify suitable AI use cases",
+                "Plan integrations and data access",
+                "Build and test the solution",
+                "Measure and improve performance",
+              ].map((item) => (
+
+                <li
+                  key={item}
+                  className="flex items-start gap-3"
+                >
+                  <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#075B3B]" />
+
+                  <span className="text-sm font-medium leading-7">
+                    {item}
+                  </span>
+                </li>
+
+              ))}
+
+            </ul>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ====================================
+          AI SERVICES
+      ==================================== */}
+
+      <section
+        id="ai-services"
+        className="scroll-mt-24 border-y border-[#E5E9E3] bg-[#F8F6F0] py-20 lg:py-24"
+      >
+
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+
+          <div className="mx-auto mb-14 max-w-3xl text-center">
+
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#075B3B]">
+              Our AI Capabilities
+            </p>
+
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              AI Development & Automation Services
+            </h2>
+
+            <p className="mt-5 leading-8 text-[#526577]">
+              Explore custom AI solutions designed
+              to help businesses automate suitable
+              processes, improve customer interactions
+              and make better use of business information.
+            </p>
+
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+            {solutions.map((item) => {
               const Icon = item.icon;
 
               return (
                 <article
                   key={item.title}
-                  className="group rounded-2xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl hover:shadow-slate-200/60"
+                  className="rounded-2xl border border-[#E5E9E3] bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-[#075B3B]/25 hover:shadow-lg"
                 >
-                  <div className="inline-flex rounded-xl bg-emerald-50 p-3 text-emerald-700 transition group-hover:bg-emerald-500 group-hover:text-white">
-                    <Icon size={25} />
+
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#F0F6F1] text-[#075B3B]">
+                    <Icon className="h-7 w-7" />
                   </div>
 
-                  <h3 className="mt-6 text-xl font-bold text-slate-900">
+                  <h3 className="mt-6 text-xl font-extrabold">
                     {item.title}
                   </h3>
 
-                  <p className="mt-3 leading-7 text-slate-600">
+                  <p className="mt-4 text-sm leading-7 text-[#526577]">
                     {item.description}
                   </p>
+
                 </article>
               );
             })}
+
           </div>
+
         </div>
       </section>
 
-      {/* USE CASES */}
-      <section className="mx-auto max-w-7xl px-6 py-20 sm:px-10 lg:py-24">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-600">
-              Where AI can help
+      {/* ====================================
+          INDUSTRY USE CASES
+      ==================================== */}
+
+      <section className="py-20 lg:py-24">
+
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+
+          <div className="mb-12 max-w-3xl">
+
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#075B3B]">
+              Industry Applications
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-              Practical Applications Across Your Business
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              AI Solutions Across Multiple Industries
             </h2>
 
-            <p className="mt-5 leading-7 text-slate-600">
-              Every organisation has different processes and priorities. We
-              help explore AI applications based on your business model,
-              existing systems and operational requirements.
+            <p className="mt-5 leading-8 text-[#526577]">
+              AI and intelligent automation can be
+              adapted to the operational requirements
+              of different industries.
+              These are examples of potential applications.
             </p>
 
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+
+            {useCases.map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <article
+                  key={item.title}
+                  className="group flex flex-col rounded-2xl border border-[#E5E9E3] bg-white p-6 transition hover:border-[#075B3B]/25 hover:shadow-md"
+                >
+
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#F0F6F1] text-[#075B3B]">
+                    <Icon className="h-5 w-5" />
+                  </div>
+
+                  <h3 className="mt-5 text-lg font-bold">
+                    AI for {item.title}
+                  </h3>
+
+                  <p className="mt-3 flex-1 text-sm leading-7 text-[#526577]">
+                    {item.description}
+                  </p>
+
+                  <Link
+                    href={item.href}
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-[#075B3B] hover:underline"
+                  >
+                    Explore Industry
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+
+                </article>
+              );
+            })}
+
+          </div>
+
+          <div className="mt-10 text-center">
             <Link
-              href="/#contact"
-              className="mt-8 inline-flex items-center gap-2 font-semibold text-emerald-700 hover:text-emerald-800"
+              href="/industries"
+              className="inline-flex items-center gap-2 text-sm font-bold text-[#075B3B] hover:underline"
             >
-              Talk to our team
-              <ArrowRight size={18} />
+              View All Industries
+              <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2">
-            {useCases.map((useCase) => (
-              <div
-                key={useCase}
-                className="flex items-start gap-3 rounded-xl border border-slate-200 bg-white p-4"
-              >
-                <CheckCircle2
-                  className="mt-0.5 shrink-0 text-emerald-600"
-                  size={19}
-                />
-                <span className="text-sm font-medium leading-6 text-slate-700">
-                  {useCase}
-                </span>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* PROCESS */}
-      <section className="bg-[#071426] py-20 text-white lg:py-24">
-        <div className="mx-auto max-w-7xl px-6 sm:px-10">
-          <div className="mx-auto max-w-2xl text-center">
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-400">
-              Our approach
+      {/* ====================================
+          FEATURED PRODUCT
+      ==================================== */}
+
+      <section className="border-y border-[#E5E9E3] bg-[#F8F6F0] py-20 lg:py-24">
+
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 sm:px-10 lg:grid-cols-2">
+
+          <div>
+
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#075B3B]">
+              Featured OPV Ecosystem Product
             </p>
 
-            <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-              From Business Challenge to AI Solution
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              AI in Real Estate:
+              <span className="block text-[#075B3B]">
+                Open Plots & Villas
+              </span>
             </h2>
 
-            <p className="mt-5 leading-7 text-slate-300">
-              A structured approach helps keep technology aligned with the
-              problem it is intended to solve.
+            <p className="mt-6 leading-8 text-[#526577]">
+              Open Plots & Villas is an AI-powered
+              real estate discovery portal connecting
+              property buyers, owners, builders,
+              developers and property professionals.
             </p>
+
+            <p className="mt-4 leading-8 text-[#526577]">
+              The platform combines property discovery,
+              search and filtering, property listings,
+              AI-assisted content generation and
+              customer enquiry experiences in one
+              digital ecosystem.
+            </p>
+
+            <p className="mt-4 leading-8 text-[#526577]">
+              Built using technologies including
+              Next.js, React and Supabase, it
+              demonstrates the application of
+              modern web development and AI-assisted
+              features in real estate technology.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-4">
+
+              <a
+                href="https://www.openplotsandvillas.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#075B3B] px-6 py-4 text-sm font-bold text-white hover:bg-[#06472F]"
+              >
+                Visit Open Plots & Villas
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+
+              <Link
+                href="/case-studies"
+                className="inline-flex items-center gap-2 rounded-xl border border-[#075B3B]/20 bg-white px-6 py-4 text-sm font-bold text-[#075B3B]"
+              >
+                Explore Case Studies
+              </Link>
+
+            </div>
+
           </div>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-            {process.map((step) => (
-              <div
-                key={step.number}
-                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6"
+          <div className="rounded-3xl border border-[#E5E9E3] bg-white p-8 shadow-sm sm:p-10">
+
+            <div className="flex items-center gap-3">
+
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#F0F6F1] text-[#075B3B]">
+                <Layers3 className="h-6 w-6" />
+              </div>
+
+              <h3 className="text-xl font-extrabold">
+                AI Technology Stack
+              </h3>
+
+            </div>
+
+            <p className="mt-5 text-sm leading-7 text-[#526577]">
+              Technologies and integration approaches
+              relevant to modern AI-powered
+              business applications.
+            </p>
+
+            <div className="mt-7 flex flex-wrap gap-3">
+
+              {techStack.map((tech) => (
+
+                <span
+                  key={tech}
+                  className="rounded-full border border-[#E5E9E3] bg-[#F8F6F0] px-4 py-2 text-xs font-semibold text-[#263C50]"
+                >
+                  {tech}
+                </span>
+
+              ))}
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ====================================
+          BENEFITS
+      ==================================== */}
+
+      <section className="py-20 lg:py-24">
+
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+
+          <div className="mb-12 max-w-3xl">
+
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#075B3B]">
+              Business Benefits
+            </p>
+
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              How AI Automation Can Help Your Business
+            </h2>
+
+            <p className="mt-5 leading-8 text-[#526577]">
+              Well-designed AI systems can support
+              productivity, customer engagement
+              and operational visibility.
+              Outcomes depend on the use case,
+              available data and implementation quality.
+            </p>
+
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+
+            {benefits.map((item) => (
+
+              <article
+                key={item.title}
+                className="rounded-2xl border border-[#E5E9E3] bg-white p-6"
               >
-                <p className="text-3xl font-bold text-emerald-400">
-                  {step.number}
+
+                <CheckCircle2 className="h-6 w-6 text-[#075B3B]" />
+
+                <h3 className="mt-5 text-lg font-bold">
+                  {item.title}
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-[#526577]">
+                  {item.description}
                 </p>
-                <h3 className="mt-5 text-lg font-bold">{step.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-300">
+
+              </article>
+
+            ))}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ====================================
+          AI DEVELOPMENT PROCESS
+      ==================================== */}
+
+      <section className="border-y border-[#E5E9E3] bg-[#F8F6F0] py-20 lg:py-24">
+
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+
+          <div className="mb-12 max-w-3xl">
+
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#075B3B]">
+              Our Development Approach
+            </p>
+
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              Our AI Development Process
+            </h2>
+
+            <p className="mt-5 leading-8 text-[#526577]">
+              A structured approach to planning,
+              developing, integrating and evaluating
+              AI-powered business solutions.
+            </p>
+
+          </div>
+
+          <ol className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+
+            {process.map((step) => (
+
+              <li
+                key={step.number}
+                className="rounded-2xl border border-[#E5E9E3] bg-white p-7"
+              >
+
+                <span className="text-3xl font-black text-[#C6A052]">
+                  {step.number}
+                </span>
+
+                <h3 className="mt-5 text-lg font-extrabold">
+                  {step.title}
+                </h3>
+
+                <p className="mt-4 text-sm leading-7 text-[#526577]">
                   {step.description}
                 </p>
-              </div>
+
+              </li>
+
             ))}
-          </div>
+
+          </ol>
+
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="px-6 py-20 sm:px-10 lg:py-24">
-        <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl bg-emerald-600 px-7 py-14 text-center text-white sm:px-14">
-          <p className="text-sm font-bold uppercase tracking-[0.2em] text-emerald-100">
-            Start your AI journey
-          </p>
+      {/* ====================================
+          TRUST & IMPLEMENTATION
+      ==================================== */}
 
-          <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-bold sm:text-4xl">
-            Have an AI Idea or Business Process to Improve?
+      <section className="py-20">
+
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-6 sm:px-10 lg:grid-cols-2">
+
+          <div>
+
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#075B3B]">
+              Responsible Implementation
+            </p>
+
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              AI Solutions with Practical
+              <span className="block text-[#075B3B]">
+                Security Considerations
+              </span>
+            </h2>
+
+            <p className="mt-6 leading-8 text-[#526577]">
+              AI systems should be designed with
+              attention to data access, privacy,
+              reliability, integration requirements
+              and human oversight.
+            </p>
+
+            <p className="mt-4 leading-8 text-[#526577]">
+              We assess these requirements during
+              solution planning and recommend
+              safeguards appropriate to the
+              intended business use case.
+            </p>
+
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+
+            {[
+              {
+                icon: ShieldCheck,
+                title: "Security-Aware Design",
+              },
+              {
+                icon: Database,
+                title: "Data Access Planning",
+              },
+              {
+                icon: Workflow,
+                title: "Controlled Automation",
+              },
+              {
+                icon: TrendingUp,
+                title: "Continuous Evaluation",
+              },
+            ].map((item) => {
+              const Icon = item.icon;
+
+              return (
+                <div
+                  key={item.title}
+                  className="rounded-xl border border-[#E5E9E3] bg-[#F8F6F0] p-6"
+                >
+
+                  <Icon className="h-7 w-7 text-[#075B3B]" />
+
+                  <h3 className="mt-4 text-sm font-bold">
+                    {item.title}
+                  </h3>
+
+                </div>
+              );
+            })}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ====================================
+          FAQ SECTION
+      ==================================== */}
+
+      <section className="border-y border-[#E5E9E3] bg-[#F8F6F0] py-20 lg:py-24">
+
+        <div className="mx-auto max-w-4xl px-6 sm:px-10">
+
+          <div className="mb-12 text-center">
+
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#075B3B]">
+              Frequently Asked Questions
+            </p>
+
+            <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">
+              AI Development FAQs
+            </h2>
+
+            <p className="mt-5 leading-8 text-[#526577]">
+              Answers to common questions about
+              AI development, business automation
+              and implementation.
+            </p>
+
+          </div>
+
+          <div className="space-y-4">
+
+            {faqs.map((faq) => (
+
+              <details
+                key={faq.question}
+                className="group rounded-xl border border-[#E5E9E3] bg-white p-6"
+              >
+
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-bold text-[#263C50] [&::-webkit-details-marker]:hidden">
+
+                  {faq.question}
+
+                  <span className="shrink-0 text-xl text-[#075B3B] group-open:rotate-45">
+                    +
+                  </span>
+
+                </summary>
+
+                <p className="mt-5 border-t border-[#E5E9E3] pt-5 text-sm leading-8 text-[#526577]">
+                  {faq.answer}
+                </p>
+
+              </details>
+
+            ))}
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ====================================
+          RELATED SOLUTIONS
+      ==================================== */}
+
+      <section className="py-16">
+
+        <div className="mx-auto max-w-7xl px-6 sm:px-10">
+
+          <h2 className="text-2xl font-extrabold">
+            Explore Related Business Technology Solutions
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl leading-7 text-emerald-50">
-            Tell us about your requirements. Let’s explore how AI, automation
-            and connected technology can support your business goals.
+          <p className="mt-4 max-w-3xl leading-8 text-[#526577]">
+            Connect AI capabilities with software
+            engineering, cloud platforms, business
+            management systems and digital growth.
           </p>
 
-          <Link
-            href="/#contact"
-            className="mt-8 inline-flex items-center gap-2 rounded-lg bg-white px-7 py-4 font-semibold text-emerald-700 transition hover:bg-slate-100"
-          >
-            Discuss Your Project
-            <ArrowRight size={18} />
-          </Link>
+          <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+
+            {relatedSolutions.map((item) => (
+
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group flex items-center justify-between gap-4 rounded-xl border border-[#E5E9E3] bg-white p-5 transition hover:border-[#075B3B]/30 hover:bg-[#F8F6F0]"
+              >
+
+                <span className="text-sm font-bold">
+                  {item.title}
+                </span>
+
+                <ArrowUpRight className="h-4 w-4 shrink-0 text-[#075B3B] transition group-hover:translate-x-0.5" />
+
+              </Link>
+
+            ))}
+
+          </div>
+
         </div>
       </section>
+
+      {/* ====================================
+          FINAL CTA
+      ==================================== */}
+
+      <section className="bg-[#075B3B] py-20 text-white lg:py-24">
+
+        <div className="mx-auto max-w-4xl px-6 text-center sm:px-10">
+
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10">
+            <Cpu className="h-7 w-7 text-[#E9CF91]" />
+          </div>
+
+          <h2 className="mt-7 text-3xl font-extrabold sm:text-4xl">
+            Ready to Build Your AI-Powered Business?
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-2xl leading-8 text-white/80">
+            Explore how AI agents, intelligent
+            automation and custom AI integrations
+            can support your business objectives.
+            Share your requirements with our
+            Hyderabad-based team.
+          </p>
+
+          <div className="mt-9 flex flex-wrap items-center justify-center gap-4">
+
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-xl bg-[#C6A052] px-7 py-4 text-sm font-bold text-[#263C50] transition hover:bg-[#D8B76C]"
+            >
+              Talk to Our AI Team
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+
+            <a
+              href="tel:+919963513939"
+              className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-7 py-4 text-sm font-bold text-white transition hover:bg-white/10"
+            >
+              <Phone className="h-4 w-4" />
+              +91 99635 13939
+            </a>
+
+          </div>
+
+          <p className="mt-9 text-xs tracking-[0.12em] text-white/65">
+            OPV AI REALTY TECH PRIVATE LIMITED
+          </p>
+
+          <p className="mt-2 text-sm font-medium text-white/80">
+            Build Smarter • Automate Better • Grow Faster
+          </p>
+
+        </div>
+      </section>
+
     </main>
   );
 }

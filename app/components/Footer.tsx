@@ -16,7 +16,7 @@ import {
 const COPYRIGHT_YEAR = new Date().getFullYear();
 
 const PHONE_NUMBER = "919963513939";
-const DISPLAY_PHONE = "+91 9963513939";
+const DISPLAY_PHONE = "+91 9963513939, 040-4563-5052";
 const EMAIL_ADDRESS = "info@opvairealtytech.com";
 
 const COMPANY_NAME = "OPV AI REALTY TECH PVT LTD";
@@ -155,7 +155,7 @@ export default function Footer() {
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-10">
 
         {/* TOP CTA */}
-        <div className="border-b border-[#E5E9E3] py-14 sm:py-16 lg:py-20">
+        <div className="border-b border-[#E5E9E3] py-8 sm:py-8 lg:py-8">
           <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
 
             <div className="max-w-2xl">
