@@ -82,7 +82,7 @@ export default function FAQ() {
     <section
       id="faq"
       aria-labelledby="faq-heading"
-      className="scroll-mt-24 bg-[#F8F6F0] py-20 text-[#263C50] sm:py-24 lg:py-28"
+      className="scroll-mt-24 bg-[#F8F6F0] py-8 text-[#263C50] sm:py-8 lg:py-8"
     >
       {/* FAQ STRUCTURED DATA */}
       <script

@@ -127,7 +127,7 @@ export default function ApproachSection() {
     <section
       id="approach"
       aria-labelledby="approach-heading"
-      className="scroll-mt-24 overflow-hidden bg-white py-20 text-[#263C50] sm:py-24 lg:py-28"
+      className="scroll-mt-24 overflow-hidden bg-white py-20 text-[#263C50] sm:py-8 lg:py-8"
     >
       <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
 

@@ -85,7 +85,7 @@ export default function AboutSection() {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="relative isolate overflow-hidden bg-white py-20 text-[#263C50] sm:py-24 lg:py-28"
+      className="relative isolate overflow-hidden bg-white py-8 text-[#263C50] sm:py-8 lg:py-8"
     >
       {/* BACKGROUND ACCENTS */}
       <div

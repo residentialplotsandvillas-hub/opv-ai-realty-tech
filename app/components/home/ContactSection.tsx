@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, type FormEvent } from "react";
@@ -18,14 +19,16 @@ import {
   ShieldCheck,
   CheckCircle2,
   Send,
+  Phone,
 } from "lucide-react";
 
-/* ==========================================
-   EMAIL / COMPANY CONFIG
-========================================== */
+// ==========================================
+// COMPANY & EMAIL CONFIGURATION
+// ==========================================
 
 const EMAIL_ADDRESS = "opvairealtytech@gmail.com";
 const COMPANY_NAME = "OPV AI Realty Tech Private Limited";
+const PHONE_NUMBER = "9963513939";
 
 const EMAILJS_SERVICE_ID =
   process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "";
@@ -36,9 +39,9 @@ const EMAILJS_TEMPLATE_ID =
 const EMAILJS_PUBLIC_KEY =
   process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "";
 
-/* ==========================================
-   SERVICES & ENQUIRY TYPES
-========================================== */
+// ==========================================
+// SERVICES & ENQUIRY TYPES
+// ==========================================
 
 const services = [
   "AI & Intelligent Automation",
@@ -78,28 +81,37 @@ const initialForm = {
   message: "",
 };
 
+// ==========================================
+// CONTACT SECTION
+// ==========================================
+
 export default function ContactSection() {
   const [form, setForm] = useState(initialForm);
-
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [feedback, setFeedback] = useState("");
 
-  const updateField = (field: keyof typeof form, value: string) => {
+  const updateField = (
+    field: keyof typeof initialForm,
+    value: string
+  ) => {
     setForm((current) => ({
       ...current,
       [field]: value,
     }));
-
     setFeedback("");
   };
 
-  /* ==========================================
-     EMAILJS SUBMISSION
-  ========================================== */
+  // ==========================================
+  // EMAILJS FORM SUBMISSION
+  // ==========================================
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (
+    event: FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
+
+    if (loading) return;
 
     setFeedback("");
 
@@ -109,7 +121,7 @@ export default function ContactSection() {
       !EMAILJS_PUBLIC_KEY
     ) {
       setFeedback(
-        "Email service is not configured yet. Please add your EmailJS settings in the environment variables."
+        "The enquiry service is temporarily unavailable. Please contact our team by email or WhatsApp."
       );
       return;
     }
@@ -126,8 +138,6 @@ export default function ContactSection() {
       message: form.message.trim(),
       reply_to: form.email.trim(),
       subject: `New website enquiry from ${form.name.trim()}`,
-
-      /* CONNECTS THE FORM TO YOUR COMPANY EMAIL */
       to_email: EMAIL_ADDRESS,
       to_name: COMPANY_NAME,
     };
@@ -137,7 +147,9 @@ export default function ContactSection() {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         templateParams,
-        { publicKey: EMAILJS_PUBLIC_KEY }
+        {
+          publicKey: EMAILJS_PUBLIC_KEY,
+        }
       );
 
       setSubmitted(true);
@@ -153,160 +165,195 @@ export default function ContactSection() {
     }
   };
 
+  const whatsappUrl =
+    `https://wa.me/91${PHONE_NUMBER}?text=` +
+    encodeURIComponent(
+      "Hello OPV AI Realty Tech, I would like to enquire about your business technology services."
+    );
+
+  const contactOptions = [
+    {
+      icon: Globe2,
+      title: "Corporate Website",
+      value: "www.opvairealtytech.com",
+      href: "https://www.opvairealtytech.com",
+      external: true,
+    },
+    {
+      icon: Mail,
+      title: "Business Enquiries",
+      value: EMAIL_ADDRESS,
+      href: `mailto:${EMAIL_ADDRESS}`,
+      external: false,
+    },
+    {
+      icon: Phone,
+      title: "Call Our Team",
+      value: "+91 99635 13939",
+      href: `tel:+91${PHONE_NUMBER}`,
+      external: false,
+    },
+    {
+      icon: MessageCircle,
+      title: "WhatsApp Enquiries",
+      value: "Connect with our team",
+      href: whatsappUrl,
+      external: true,
+    },
+  ];
+
+  const capabilities = [
+    { icon: BrainCircuit, label: "AI Solutions" },
+    { icon: Code2, label: "Software" },
+    { icon: Layers3, label: "SaaS Products" },
+    { icon: Workflow, label: "Automation" },
+    { icon: Building2, label: "Business Systems" },
+    { icon: ShieldCheck, label: "IT Solutions" },
+  ];
+
+  const inputClass =
+    "w-full rounded-xl border border-[#E5E9E3] " +
+    "bg-[#F8F6F0] px-4 py-3.5 text-sm " +
+    "text-[#263C50] outline-none transition " +
+    "placeholder:text-[#8795A0] " +
+    "focus:border-[#075B3B] " +
+    "focus:ring-2 focus:ring-[#075B3B]/10";
+
+  const labelClass =
+    "mb-2 block text-xs font-bold text-[#263C50]";
+
   return (
     <section
       id="contact"
       aria-labelledby="contact-heading"
-      className="relative scroll-mt-24 overflow-hidden bg-[#071525] py-20 text-white sm:py-24 lg:py-28"
+      className="scroll-mt-24 overflow-hidden border-t border-[#E5E9E3] bg-[#F8F6F0] py-20 sm:py-8 lg:py-8"
     >
-      {/* BACKGROUND EFFECTS */}
+      <div className="mx-auto max-w-7xl px-6 sm:px-10">
 
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-40 top-20 h-96 w-96 rounded-full bg-emerald-400/[0.08] blur-[130px]"
-      />
-
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-blue-500/[0.08] blur-[130px]"
-      />
-
-      <div className="relative mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
-        {/* SECTION INTRO */}
+        {/* ======================================
+            01 — SECTION INTRODUCTION
+        ====================================== */}
 
         <div className="mx-auto max-w-3xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-300/20 bg-emerald-300/[0.07] px-4 py-2">
-            <Sparkles className="h-4 w-4 text-emerald-300" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#075B3B]/15 bg-white px-4 py-2">
+            <Sparkles className="h-4 w-4 text-[#075B3B]" />
 
-            <span className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-emerald-300">
+            <span className="text-xs font-extrabold uppercase tracking-[0.16em] text-[#075B3B]">
               Let's Build With OPV
             </span>
           </div>
 
           <h2
             id="contact-heading"
-            className="mt-6 text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl lg:text-6xl"
+            className="mt-6 text-3xl font-extrabold leading-tight tracking-tight text-[#263C50] sm:text-4xl lg:text-5xl"
           >
             Have a Business
-            <span className="block text-emerald-300">Challenge?</span>
+            <span className="block text-[#075B3B]">
+              Challenge?
+            </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-2xl text-sm leading-8 text-slate-400 sm:text-base">
-            Tell us what you want to build, automate or grow. Whether you are
-            launching a new digital product, implementing AI or transforming
-            business operations, let's explore the right technology solution
-            together.
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-8 text-[#526577] sm:text-base">
+            Tell us what you want to build, automate or
+            grow. Whether you're launching a digital
+            product, implementing AI or transforming
+            business operations, let's explore the
+            right technology solution together.
           </p>
         </div>
 
-        {/* CONTACT CONTENT */}
+        {/* ======================================
+            02 — CONTACT CONTENT
+        ====================================== */}
 
-        <div className="mt-16 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
-          {/* LEFT: BRAND / CONTACT INFORMATION */}
+        <div className="mt-14 grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-14">
+
+          {/* LEFT COLUMN */}
 
           <div className="flex flex-col justify-between">
             <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-emerald-300">
+              <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#075B3B]">
                 Start a Conversation
               </p>
 
-              <h3 className="mt-5 text-3xl font-extrabold leading-tight sm:text-4xl">
+              <h3 className="mt-5 text-3xl font-extrabold leading-tight text-[#263C50] sm:text-4xl">
                 Let's Turn Your
-                <span className="block text-emerald-300">
+                <span className="block text-[#075B3B]">
                   Vision Into Reality.
                 </span>
               </h3>
 
-              <p className="mt-5 text-sm leading-8 text-slate-400">
-                Every great digital solution begins with understanding the
-                business behind it. Share your requirements with us and let's
-                explore what's possible.
+              <p className="mt-5 text-sm leading-8 text-[#526577]">
+                Every great digital solution begins
+                with understanding the business
+                behind it. Share your requirements
+                and discover what's possible.
               </p>
 
               {/* CONTACT OPTIONS */}
 
-              <div className="mt-10 space-y-5">
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-emerald-300/20 bg-emerald-300/10 text-emerald-300">
-                    <Globe2 className="h-5 w-5" />
-                  </div>
+              <div className="mt-10 space-y-6">
+                {contactOptions.map((option) => {
+                  const Icon = option.icon;
 
-                  <div>
-                    <p className="text-sm font-bold text-white">
-                      Our Corporate Website
-                    </p>
-
-                    <Link
-                      href="https://www.opvairealtytech.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-1 text-sm text-emerald-300 hover:text-emerald-200"
+                  return (
+                    <div
+                      key={option.title}
+                      className="flex items-start gap-4"
                     >
-                      www.opvairealtytech.com
-                    </Link>
-                  </div>
-                </div>
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#E5E9E3] bg-white text-[#075B3B]">
+                        <Icon className="h-5 w-5" />
+                      </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-emerald-300/20 bg-emerald-300/10 text-emerald-300">
-                    <Mail className="h-5 w-5" />
-                  </div>
+                      <div className="min-w-0">
+                        <p className="text-sm font-extrabold text-[#263C50]">
+                          {option.title}
+                        </p>
 
-                  <div>
-                    <p className="text-sm font-bold text-white">
-                      Business Enquiries
-                    </p>
+                        <a
+                          href={option.href}
+                          target={
+                            option.external
+                              ? "_blank"
+                              : undefined
+                          }
+                          rel={
+                            option.external
+                              ? "noopener noreferrer"
+                              : undefined
+                          }
+                          className="mt-1 inline-flex items-center gap-1 break-all text-sm font-semibold text-[#075B3B] transition hover:underline"
+                        >
+                          {option.value}
 
-                    <a
-                      href={`mailto:${EMAIL_ADDRESS}`}
-                      className="mt-1 break-all text-xs leading-6 text-emerald-300 hover:text-emerald-200"
-                    >
-                      {EMAIL_ADDRESS}
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-emerald-300/20 bg-emerald-300/10 text-emerald-300">
-                    <MessageCircle className="h-5 w-5" />
-                  </div>
-
-                  <div>
-                    <p className="text-sm font-bold text-white">
-                      WhatsApp Enquiries
-                    </p>
-
-                    <p className="mt-1 text-xs leading-6 text-slate-400">
-                      Discuss your requirements directly with our team.
-                    </p>
-                  </div>
-                </div>
+                          <ArrowUpRight className="h-3.5 w-3.5 shrink-0" />
+                        </a>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
-            {/* CAPABILITY MINI CARDS */}
+            {/* CAPABILITIES CARD */}
 
-            <div className="mt-12 rounded-2xl border border-white/10 bg-white/[0.035] p-6">
-              <p className="text-[10px] font-extrabold uppercase tracking-[0.17em] text-slate-400">
+            <div className="mt-12 rounded-2xl border border-[#E5E9E3] bg-white p-6 sm:p-7">
+              <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[#263C50]">
                 What Can We Help You Build?
               </p>
 
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                {[
-                  { icon: BrainCircuit, label: "AI Solutions" },
-                  { icon: Code2, label: "Software" },
-                  { icon: Layers3, label: "SaaS Products" },
-                  { icon: Workflow, label: "Automation" },
-                  { icon: Building2, label: "Business Systems" },
-                  { icon: ShieldCheck, label: "IT Solutions" },
-                ].map((item) => {
+              <div className="mt-6 grid grid-cols-2 gap-5">
+                {capabilities.map((item) => {
                   const Icon = item.icon;
 
                   return (
-                    <div key={item.label} className="flex items-center gap-2">
-                      <Icon className="h-4 w-4 shrink-0 text-emerald-300" />
+                    <div
+                      key={item.label}
+                      className="flex items-center gap-2"
+                    >
+                      <Icon className="h-4 w-4 shrink-0 text-[#075B3B]" />
 
-                      <span className="text-[10px] font-medium text-slate-300">
+                      <span className="text-xs font-medium text-[#526577]">
                         {item.label}
                       </span>
                     </div>
@@ -316,41 +363,48 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* RIGHT: ENQUIRY FORM */}
+          {/* ======================================
+              03 — ENQUIRY FORM
+          ====================================== */}
 
-          <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-[#12273a] to-[#0b1929] p-6 shadow-2xl sm:p-9">
+          <div className="rounded-3xl border border-[#E5E9E3] bg-white p-6 shadow-[0_18px_50px_rgba(38,60,80,0.05)] sm:p-9">
+
             <div className="mb-8 flex items-center justify-between gap-4">
               <div>
-                <h3 className="text-xl font-extrabold text-white sm:text-2xl">
+                <h3 className="text-xl font-extrabold text-[#263C50] sm:text-2xl">
                   Tell Us About Your Project
                 </h3>
 
-                <p className="mt-2 text-xs leading-6 text-slate-400">
+                <p className="mt-2 text-sm leading-6 text-[#526577]">
                   Share a few details to begin the conversation.
                 </p>
               </div>
 
-              <div className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-emerald-300/20 bg-emerald-300/10 sm:flex">
-                <Mail className="h-5 w-5 text-emerald-300" />
+              <div className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#F0F6F1] text-[#075B3B] sm:flex">
+                <Mail className="h-5 w-5" />
               </div>
             </div>
 
             {/* SUCCESS MESSAGE */}
 
             {submitted ? (
-              <div className="rounded-2xl border border-emerald-300/25 bg-emerald-300/[0.07] p-7 text-center">
-                <CheckCircle2 className="mx-auto h-14 w-14 text-emerald-300" />
+              <div
+                role="status"
+                className="rounded-2xl border border-[#075B3B]/20 bg-[#F0F6F1] p-7 text-center"
+              >
+                <CheckCircle2 className="mx-auto h-14 w-14 text-[#075B3B]" />
 
-                <h4 className="mt-5 text-xl font-extrabold text-white">
+                <h4 className="mt-5 text-xl font-extrabold text-[#263C50]">
                   Enquiry Sent Successfully!
                 </h4>
 
-                <p className="mt-3 text-sm leading-7 text-slate-300">
-                  Thank you for contacting OPV AI Realty Tech. Your enquiry has
-                  been delivered to our team.
+                <p className="mt-3 text-sm leading-7 text-[#526577]">
+                  Thank you for contacting OPV AI Realty
+                  Tech. Your enquiry has been submitted
+                  successfully.
                 </p>
 
-                <p className="mt-4 break-all text-sm font-bold text-emerald-300">
+                <p className="mt-4 break-all text-sm font-bold text-[#075B3B]">
                   {EMAIL_ADDRESS}
                 </p>
 
@@ -360,20 +414,24 @@ export default function ContactSection() {
                     setSubmitted(false);
                     setFeedback("");
                   }}
-                  className="mt-7 rounded-full bg-emerald-300 px-6 py-3 text-sm font-extrabold text-[#06111f] transition hover:bg-emerald-200"
+                  className="mt-7 rounded-xl bg-[#075B3B] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#06472F]"
                 >
                   Submit Another Enquiry
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {/* NAME / EMAIL */}
+              <form
+                onSubmit={handleSubmit}
+                className="space-y-5"
+              >
+
+                {/* NAME & EMAIL */}
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label
                       htmlFor="opv-name"
-                      className="mb-2 block text-xs font-semibold text-slate-300"
+                      className={labelClass}
                     >
                       Your Name *
                     </label>
@@ -386,16 +444,18 @@ export default function ContactSection() {
                       minLength={2}
                       maxLength={100}
                       value={form.name}
-                      onChange={(e) => updateField("name", e.target.value)}
+                      onChange={(e) =>
+                        updateField("name", e.target.value)
+                      }
                       placeholder="Enter your full name"
-                      className="w-full rounded-xl border border-white/10 bg-[#071525] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-emerald-300/50 focus:ring-2 focus:ring-emerald-300/10"
+                      className={inputClass}
                     />
                   </div>
 
                   <div>
                     <label
                       htmlFor="opv-email"
-                      className="mb-2 block text-xs font-semibold text-slate-300"
+                      className={labelClass}
                     >
                       Business Email *
                     </label>
@@ -407,20 +467,22 @@ export default function ContactSection() {
                       required
                       maxLength={254}
                       value={form.email}
-                      onChange={(e) => updateField("email", e.target.value)}
+                      onChange={(e) =>
+                        updateField("email", e.target.value)
+                      }
                       placeholder="name@company.com"
-                      className="w-full rounded-xl border border-white/10 bg-[#071525] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-emerald-300/50 focus:ring-2 focus:ring-emerald-300/10"
+                      className={inputClass}
                     />
                   </div>
                 </div>
 
-                {/* PHONE / COMPANY */}
+                {/* PHONE & COMPANY */}
 
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label
                       htmlFor="opv-phone"
-                      className="mb-2 block text-xs font-semibold text-slate-300"
+                      className={labelClass}
                     >
                       Phone Number *
                     </label>
@@ -432,16 +494,18 @@ export default function ContactSection() {
                       required
                       maxLength={20}
                       value={form.phone}
-                      onChange={(e) => updateField("phone", e.target.value)}
+                      onChange={(e) =>
+                        updateField("phone", e.target.value)
+                      }
                       placeholder="+91 XXXXX XXXXX"
-                      className="w-full rounded-xl border border-white/10 bg-[#071525] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-emerald-300/50 focus:ring-2 focus:ring-emerald-300/10"
+                      className={inputClass}
                     />
                   </div>
 
                   <div>
                     <label
                       htmlFor="opv-company"
-                      className="mb-2 block text-xs font-semibold text-slate-300"
+                      className={labelClass}
                     >
                       Company / Organization
                     </label>
@@ -452,19 +516,21 @@ export default function ContactSection() {
                       autoComplete="organization"
                       maxLength={150}
                       value={form.company}
-                      onChange={(e) => updateField("company", e.target.value)}
+                      onChange={(e) =>
+                        updateField("company", e.target.value)
+                      }
                       placeholder="Your company name"
-                      className="w-full rounded-xl border border-white/10 bg-[#071525] px-4 py-3.5 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-emerald-300/50 focus:ring-2 focus:ring-emerald-300/10"
+                      className={inputClass}
                     />
                   </div>
                 </div>
 
-                {/* SERVICE */}
+                {/* SERVICE SELECTION */}
 
                 <div>
                   <label
                     htmlFor="opv-service"
-                    className="mb-2 block text-xs font-semibold text-slate-300"
+                    className={labelClass}
                   >
                     What Service Are You Looking For? *
                   </label>
@@ -473,27 +539,32 @@ export default function ContactSection() {
                     id="opv-service"
                     required
                     value={form.service}
-                    onChange={(e) => updateField("service", e.target.value)}
-                    className="w-full rounded-xl border border-white/10 bg-[#071525] px-4 py-3.5 text-sm text-white outline-none transition focus:border-emerald-300/50 focus:ring-2 focus:ring-emerald-300/10"
+                    onChange={(e) =>
+                      updateField("service", e.target.value)
+                    }
+                    className={inputClass}
                   >
                     <option value="" disabled>
                       Select a service
                     </option>
 
                     {services.map((service) => (
-                      <option key={service} value={service}>
+                      <option
+                        key={service}
+                        value={service}
+                      >
                         {service}
                       </option>
                     ))}
                   </select>
                 </div>
 
-                {/* PROJECT TYPE */}
+                {/* ENQUIRY TYPE */}
 
                 <div>
                   <label
                     htmlFor="opv-project-type"
-                    className="mb-2 block text-xs font-semibold text-slate-300"
+                    className={labelClass}
                   >
                     Enquiry Type *
                   </label>
@@ -503,28 +574,34 @@ export default function ContactSection() {
                     required
                     value={form.projectType}
                     onChange={(e) =>
-                      updateField("projectType", e.target.value)
+                      updateField(
+                        "projectType",
+                        e.target.value
+                      )
                     }
-                    className="w-full rounded-xl border border-white/10 bg-[#071525] px-4 py-3.5 text-sm text-white outline-none transition focus:border-emerald-300/50 focus:ring-2 focus:ring-emerald-300/10"
+                    className={inputClass}
                   >
                     <option value="" disabled>
                       Select enquiry type
                     </option>
 
                     {projectTypes.map((type) => (
-                      <option key={type} value={type}>
+                      <option
+                        key={type}
+                        value={type}
+                      >
                         {type}
                       </option>
                     ))}
                   </select>
                 </div>
 
-                {/* PROJECT DESCRIPTION */}
+                {/* PROJECT REQUIREMENTS */}
 
                 <div>
                   <label
                     htmlFor="opv-message"
-                    className="mb-2 block text-xs font-semibold text-slate-300"
+                    className={labelClass}
                   >
                     Tell Us About Your Requirements *
                   </label>
@@ -536,66 +613,85 @@ export default function ContactSection() {
                     maxLength={3000}
                     rows={5}
                     value={form.message}
-                    onChange={(e) => updateField("message", e.target.value)}
+                    onChange={(e) =>
+                      updateField("message", e.target.value)
+                    }
                     placeholder="Briefly describe your business, project or technology requirements..."
-                    className="w-full resize-y rounded-xl border border-white/10 bg-[#071525] px-4 py-3.5 text-sm leading-7 text-white outline-none transition placeholder:text-slate-600 focus:border-emerald-300/50 focus:ring-2 focus:ring-emerald-300/10"
+                    className={`${inputClass} resize-y leading-7`}
                   />
                 </div>
 
-                {/* STATUS / ERROR MESSAGE */}
+                {/* ERROR / FEEDBACK */}
 
                 {feedback && (
                   <p
                     role="alert"
-                    className="rounded-xl border border-amber-300/20 bg-amber-300/[0.07] p-3 text-xs leading-6 text-amber-200"
+                    className="rounded-xl border border-[#C6A052]/30 bg-[#F8F6F0] p-4 text-xs leading-6 text-[#8A6028]"
                   >
                     {feedback}
                   </p>
                 )}
 
-                {/* SUBMIT */}
+                {/* SUBMIT BUTTON */}
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="group flex w-full items-center justify-center gap-3 rounded-full bg-emerald-300 px-6 py-4 text-sm font-extrabold text-[#06111f] shadow-lg shadow-emerald-400/10 transition duration-300 hover:-translate-y-1 hover:bg-emerald-200 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+                  className="group flex w-full items-center justify-center gap-3 rounded-xl bg-[#075B3B] px-6 py-4 text-sm font-extrabold text-white transition duration-300 hover:bg-[#06472F] disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {loading ? (
                     <>
-                      <span className="h-5 w-5 animate-spin rounded-full border-2 border-[#06111f]/30 border-t-[#06111f]" />
+                      <span className="h-5 w-5 animate-spin rounded-full border-2 border-white/30 border-t-white" />
                       Sending Your Enquiry...
                     </>
                   ) : (
                     <>
                       Send Project Enquiry
+
                       <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </>
                   )}
                 </button>
 
-                <p className="text-center text-[10px] leading-5 text-slate-500">
-                  Your information will be used to respond to your business
-                  enquiry. Please avoid including passwords, financial
-                  credentials or other sensitive information.
+                {/* PRIVACY NOTICE */}
+
+                <p className="text-center text-xs leading-6 text-[#647586]">
+                  Your information will be used to respond
+                  to your business enquiry. Please avoid
+                  including passwords, financial credentials
+                  or other sensitive information.
+                </p>
+
+                <p className="text-center text-xs text-[#647586]">
+                  Read our{" "}
+                  <Link
+                    href="/privacy-policy"
+                    className="font-bold text-[#075B3B] hover:underline"
+                  >
+                    Privacy Policy
+                  </Link>
+                  .
                 </p>
               </form>
             )}
           </div>
         </div>
 
-        {/* BOTTOM BRAND STATEMENT */}
+        {/* ======================================
+            04 — BRAND STATEMENT
+        ====================================== */}
 
-        <div className="mt-16 border-t border-white/10 pt-9 text-center">
-          <p className="text-[10px] font-extrabold uppercase tracking-[0.20em] text-emerald-300">
+        <div className="mt-16 border-t border-[#E5E9E3] pt-10 text-center">
+          <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-[#075B3B]">
             OPV AI Realty Tech Private Limited
           </p>
 
-          <p className="mt-4 text-xl font-extrabold text-white sm:text-2xl">
+          <p className="mt-4 text-xl font-extrabold text-[#263C50] sm:text-2xl">
             Build Smarter. Automate Better. Grow Faster.
           </p>
 
-          <p className="mt-3 text-xs text-slate-500">
-            AI-Powered Business Technology & Growth Platform
+          <p className="mt-3 text-xs text-[#647586]">
+            AI-Powered Business Technology &amp; Growth Platform
           </p>
         </div>
       </div>

@@ -69,7 +69,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="relative overflow-hidden bg-[#F8FAF7] py-20 sm:py-24 lg:py-28"
+      className="relative overflow-hidden bg-[#F8FAF7] py-8 sm:py-8 lg:py-8"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
 
