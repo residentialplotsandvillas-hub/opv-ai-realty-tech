@@ -15,6 +15,7 @@ import BusinessOutcomes from "./components/home/BusinessOutcomes";
 import CaseStudiesSection from "./components/home/CaseStudiesSection";
 import InsightsSection from "./components/home/InsightsSection";
 import ContactSection from "./components/home/ContactSection";
+import HeroSectionvideo from "./components/home/HeroSectionvideo";
 
 // ==========================================
 // SITE CONFIGURATION
@@ -203,6 +204,8 @@ export default function HomePage() {
           __html: serializeJsonLd(websiteSchema),
         }}
       />
+{/* 
+      <HeroSectionvideo/> */}
 
       {/* 01 — HERO */}
       <HeroSection />
